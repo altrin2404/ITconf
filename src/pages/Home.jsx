@@ -1,89 +1,121 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { confData } from '../data/conferenceData';
 
 const Home = () => {
   return (
     <div className="home-page">
-      <section className="hero-section">
-        <div className="container text-center">
-          <h1 className="animate-fade-in">International Conference on IT Trends</h1>
-          <p className="animate-fade-in" style={{ animationDelay: '0.2s', fontSize: '1.25rem', marginTop: '1rem' }}>ICITT 2026</p>
-          <h2 className="animate-fade-in" style={{ animationDelay: '0.4s', marginTop: '1rem', color: 'var(--accent-color)' }}>March 23-24, 2026</h2>
-          <div className="hero-actions mt-3 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <button className="btn btn-primary" style={{ marginRight: '1rem' }}>Submit Paper</button>
-            <button className="btn btn-secondary">Past Proceeding</button>
+      {/* Hero Section */}
+      <section className="hero-section" style={{ 
+        minHeight: '90vh', 
+        display: 'flex', 
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: '80px',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        {/* Animated Background Elements */}
+        <div style={{ position: 'absolute', top: '20%', left: '10%', width: '300px', height: '300px', background: 'var(--primary-color)', filter: 'blur(150px)', opacity: '0.2', borderRadius: '50%' }}></div>
+        <div style={{ position: 'absolute', bottom: '20%', right: '10%', width: '400px', height: '400px', background: 'var(--secondary-color)', filter: 'blur(150px)', opacity: '0.2', borderRadius: '50%' }}></div>
+
+        <div className="container text-center" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ display: 'inline-block', padding: '10px 20px', background: 'rgba(255,255,255,0.05)', borderRadius: '50px', border: '1px solid var(--border-color)', marginBottom: '20px', backdropFilter: 'blur(10px)' }}>
+            <span className="text-gradient" style={{ fontWeight: '600' }}>{confData.date}</span>
+          </div>
+          
+          <h1 style={{ fontSize: 'clamp(3rem, 8vw, 5rem)', letterSpacing: '-2px', marginBottom: '10px' }}>
+            <span className="text-gradient">{confData.name}</span>
+          </h1>
+          
+          <p style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', color: 'var(--text-light)', fontWeight: '300', maxWidth: '800px', margin: '0 auto 30px' }}>
+            {confData.fullName}
+          </p>
+
+          <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '40px' }}>
+            📍 {confData.location}
+          </p>
+
+          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link to="/submissions" className="btn btn-primary">Submit Paper</Link>
+            <Link to="/registration" className="btn btn-secondary">Register Now</Link>
           </div>
         </div>
       </section>
 
-      <div style={{ backgroundColor: 'var(--primary-dark)', padding: '10px 0', overflow: 'hidden' }}>
-        <div style={{ whiteSpace: 'nowrap', animation: 'scrollText 25s linear infinite', color: 'white', fontWeight: 'bold' }} className="text-center">
-          <p style={{ display: 'inline-block', margin: 0 }}>All accepted and presented papers will be published by -------------------------</p>
+      {/* Ticker Section */}
+      <div style={{ background: 'var(--bg-surface-solid)', padding: '15px 0', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
+        <div style={{ overflow: 'hidden', whiteSpace: 'nowrap' }}>
+          <div style={{ display: 'inline-block', animation: 'marquee 25s linear infinite', color: 'var(--primary-color)', fontWeight: '600' }}>
+            All accepted papers will be submitted for indexing in ------------------. • Early  registration ends soon!
+          </div>
         </div>
       </div>
 
-      <section className="about-section" style={{ padding: 'var(--spacing-3xl) 0', backgroundColor: 'var(--bg-main)' }}>
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(100%); }
+          100% { transform: translateX(-100%); }
+        }
+      `}</style>
+
+      {/* About Section */}
+      <section className="section">
         <div className="container">
-          <div className="text-center" style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <h2 style={{ color: 'var(--primary-color)' }}>ABOUT ICITT 2026</h2>
-            <p style={{ textAlign: 'justify', marginTop: 'var(--spacing-md)' }}>
-              ICITT 2026 is a comprehensive computing technology conference dealing with all aspects of IT trends. It is a leading international opportunity for computing technology and AI researchers, professionals and users to investigate innovative ideas and outcomes, and to exchange experiences on various aspects of computing and AI. The conference aims to bring together researchers, academicians, industry practitioners, and policymakers to exchange knowledge and foster discussions on the latest advances in computing technology.
-            </p>
+          <div className="glass-panel" style={{ padding: 'var(--spacing-2xl)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--spacing-2xl)', alignItems: 'center' }}>
+            <div>
+              <h2 className="text-gradient">About {confData.name}</h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '20px', textAlign: 'justify' }}>
+                Against the backdrop of the global transformation toward intelligent systems and emerging computing technologies, {confData.name} serves as a premier international forum. 
+              </p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', textAlign: 'justify' }}>
+                We bring together leading academic scientists, researchers, and research scholars to exchange and share their experiences and research results on all aspects of Computing, Artificial Intelligence, and emerging tech. It also provides a premier interdisciplinary platform for researchers, practitioners, and educators to present and discuss the most recent innovations, trends, and concerns as well as practical challenges encountered and solutions adopted in these fields.
+              </p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+               {/* Quick Stat Cards */}
+               <div className="glass-card text-center" style={{ padding: '20px' }}>
+                 <h3 className="text-gradient" style={{ fontSize: '2.5rem', margin: 0 }}>4+</h3>
+                 <p className="text-muted">Tech Tracks</p>
+               </div>
+               <div className="glass-card text-center" style={{ padding: '20px' }}>
+                 <h3 className="text-gradient" style={{ fontSize: '2.5rem', margin: 0 }}>50+</h3>
+                 <p className="text-muted">Speakers</p>
+               </div>
+               <div className="glass-card text-center" style={{ padding: '20px', gridColumn: 'span 2' }}>
+                 <h3 className="text-gradient" style={{ fontSize: '2.5rem', margin: 0 }}>Indexed</h3>
+                 <p className="text-muted">EI Compendex & Scopus</p>
+               </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="tracks-section" style={{ padding: 'var(--spacing-3xl) 0', backgroundColor: 'var(--primary-color)', color: 'white' }}>
+      {/* Important Dates Section */}
+      <section className="section" style={{ background: 'var(--bg-surface-solid)' }}>
         <div className="container">
-          <h2 className="text-center" style={{ color: 'white', marginBottom: 'var(--spacing-xl)' }}>Call For Paper</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--spacing-xl)' }}>
-            
-            <div className="track-card" style={{ backgroundColor: 'white', color: 'var(--text-main)', padding: 'var(--spacing-xl)', borderRadius: 'var(--border-radius-lg)', textAlign: 'center' }}>
-              <h4 style={{ color: 'var(--primary-color)' }}>Track 1</h4>
-              <h5 style={{ marginBottom: 'var(--spacing-md)' }}>Advanced Data Analytics and AI Integration</h5>
-              <ul style={{ textAlign: 'left', listStyleType: 'disc', paddingLeft: 'var(--spacing-md)' }}>
-                <li>Data Mining and Knowledge Discovery</li>
-                <li>Big Data Analytics</li>
-                <li>Machine Learning & Deep Learning</li>
-              </ul>
-            </div>
-
-            <div className="track-card" style={{ backgroundColor: 'white', color: 'var(--text-main)', padding: 'var(--spacing-xl)', borderRadius: 'var(--border-radius-lg)', textAlign: 'center' }}>
-              <h4 style={{ color: 'var(--primary-color)' }}>Track 2</h4>
-              <h5 style={{ marginBottom: 'var(--spacing-md)' }}>Applied AI Innovations</h5>
-              <ul style={{ textAlign: 'left', listStyleType: 'disc', paddingLeft: 'var(--spacing-md)' }}>
-                <li>AI in Healthcare</li>
-                <li>AI in Finance & Business</li>
-                <li>Smart Manufacturing</li>
-              </ul>
-            </div>
-
-            <div className="track-card" style={{ backgroundColor: 'white', color: 'var(--text-main)', padding: 'var(--spacing-xl)', borderRadius: 'var(--border-radius-lg)', textAlign: 'center' }}>
-              <h4 style={{ color: 'var(--primary-color)' }}>Track 3</h4>
-              <h5 style={{ marginBottom: 'var(--spacing-md)' }}>AI in Next-Generation Technologies</h5>
-              <ul style={{ textAlign: 'left', listStyleType: 'disc', paddingLeft: 'var(--spacing-md)' }}>
-                <li>Quantum Computing</li>
-                <li>Cloud-Native AI Platforms</li>
-                <li>Blockchain and AI</li>
-              </ul>
-            </div>
-
+          <h2 className="text-center" style={{ marginBottom: 'var(--spacing-2xl)' }}>Important <span className="text-gradient">Dates</span></h2>
+          <div className="grid-3">
+            {confData.importantDates.map((item, index) => (
+              <div key={index} className="glass-card text-center" style={{ position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'var(--gradient-primary)' }}></div>
+                <h3 style={{ fontSize: '1.2rem', marginBottom: '10px' }}>{item.title}</h3>
+                <p className="text-gradient" style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{item.date}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="contact-section" style={{ padding: 'var(--spacing-3xl) 0', backgroundColor: 'var(--bg-light)' }}>
-        <div className="container">
-          <div style={{ maxWidth: '600px', margin: '0 auto', backgroundColor: 'var(--bg-main)', padding: 'var(--spacing-xl)', borderRadius: 'var(--border-radius-lg)', boxShadow: 'var(--shadow-md)' }}>
-            <h2 className="text-center" style={{ color: 'var(--primary-color)', marginBottom: 'var(--spacing-sm)' }}>Get in Touch</h2>
-            <p className="text-center" style={{ color: 'var(--text-muted)', marginBottom: 'var(--spacing-lg)' }}>Have a question or feedback? Fill out the form below.</p>
-            
-            <form style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
-              <input type="text" placeholder="Full name" required style={{ padding: '0.75rem', borderRadius: 'var(--border-radius)', border: '1px solid var(--secondary-color)' }} />
-              <input type="email" placeholder="Your email" required style={{ padding: '0.75rem', borderRadius: 'var(--border-radius)', border: '1px solid var(--secondary-color)' }} />
-              <input type="text" placeholder="Subject" required style={{ padding: '0.75rem', borderRadius: 'var(--border-radius)', border: '1px solid var(--secondary-color)' }} />
-              <textarea placeholder="Your message..." required rows="4" style={{ padding: '0.75rem', borderRadius: 'var(--border-radius)', border: '1px solid var(--secondary-color)', resize: 'vertical' }}></textarea>
-              <button type="submit" className="btn btn-primary" style={{ marginTop: 'var(--spacing-sm)' }}>Send Message</button>
-            </form>
+      {/* Sponsors/Organizers Section */}
+      <section className="section">
+        <div className="container text-center">
+          <h2 style={{ marginBottom: 'var(--spacing-xl)' }}>Supported <span className="text-gradient">By</span></h2>
+          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '30px', opacity: 0.7 }}>
+            {/* Placeholders for logos */}
+            <div className="glass-card" style={{ width: '200px', height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Sponsor 1</div>
+            <div className="glass-card" style={{ width: '200px', height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Sponsor 2</div>
+            <div className="glass-card" style={{ width: '200px', height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Sponsor 3</div>
           </div>
         </div>
       </section>

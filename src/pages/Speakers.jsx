@@ -1,26 +1,41 @@
 import React from 'react';
+import { confData } from '../data/conferenceData';
 
 const Speakers = () => {
-  // Placeholder data for speakers
-  const speakers = Array(4).fill({
-    name: 'Dr. [Placeholder]',
-    topic: 'Keynote on AI Trends',
-    affiliation: 'Global Research Institute',
-    image: 'https://via.placeholder.com/150'
-  });
-
   return (
-    <div className="page-container container py-4">
-      <h1 className="text-center mb-4">Keynote Speakers</h1>
-      <div className="speaker-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 'var(--spacing-xl)' }}>
-        {speakers.map((speaker, index) => (
-          <div key={index} className="speaker-card text-center" style={{ padding: 'var(--spacing-md)', border: '1px solid var(--secondary-color)', borderRadius: 'var(--border-radius-lg)', boxShadow: 'var(--shadow-md)' }}>
-            <img src={speaker.image} alt={speaker.name} style={{ width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', marginBottom: 'var(--spacing-md)' }} />
-            <h3 style={{ marginBottom: 'var(--spacing-xs)' }}>{speaker.name}</h3>
-            <p style={{ color: 'var(--primary-color)', fontWeight: 600, marginBottom: 'var(--spacing-xs)' }}>{speaker.topic}</p>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>{speaker.affiliation}</p>
-          </div>
-        ))}
+    <div className="page-wrapper">
+      <div className="container" style={{ padding: 'var(--spacing-2xl) var(--spacing-md)' }}>
+        
+        <div className="text-center" style={{ marginBottom: 'var(--spacing-3xl)' }}>
+          <h1 className="text-gradient" style={{ fontSize: '3.5rem' }}>Keynote Speakers</h1>
+          <p className="text-muted" style={{ maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>
+            Hear from industry leaders and renowned academics at {confData.name}.
+          </p>
+        </div>
+
+        <div className="grid-2">
+          {confData.speakers.map((speaker) => (
+            <div key={speaker.id} className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                <div style={{ width: '120px', height: '120px', borderRadius: 'var(--border-radius)', overflow: 'hidden', border: '2px solid var(--primary-color)' }}>
+                  <img src={speaker.image} alt={speaker.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div>
+                  <div style={{ display: 'inline-block', padding: '5px 10px', background: 'var(--gradient-primary)', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '10px' }}>
+                    {speaker.role}
+                  </div>
+                  <h3 style={{ margin: '0 0 5px 0' }}>{speaker.name}</h3>
+                  <p className="text-muted" style={{ margin: 0 }}>{speaker.affiliation}</p>
+                </div>
+              </div>
+              <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '20px' }}>
+                <h5 style={{ color: 'var(--primary-color)', marginBottom: '10px' }}>Topic: {speaker.topic}</h5>
+                <p style={{ color: 'var(--text-light)', fontSize: '0.95rem', lineHeight: '1.5' }}>{speaker.bio}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   );
