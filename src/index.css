@@ -296,6 +296,11 @@ ul {
   color: var(--primary-color);
 }
 
+/* Grid Layouts */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-xl); }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-xl); }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--spacing-md); }
+
 /* Mobile & Tablet Responsiveness */
 @media (max-width: 1024px) {
   :root {
@@ -319,6 +324,18 @@ ul {
   h1 { font-size: 2.5rem !important; }
   h2 { font-size: 2rem !important; }
   h3 { font-size: 1.5rem !important; }
+  
+  /* Performance optimizations for mobile */
+  body {
+    background-attachment: scroll !important; /* Extremely laggy on mobile browsers */
+    background-image: none !important; /* Remove complex gradients on mobile */
+  }
+  
+  .glass-panel, .glass-card, .site-header.scrolled {
+    backdrop-filter: none !important; /* Blur is expensive on mobile GPUs */
+    -webkit-backdrop-filter: none !important;
+    background: var(--bg-surface-solid) !important;
+  }
   
   .glass-card { padding: var(--spacing-lg); }
   .glass-panel { padding: var(--spacing-lg); }
