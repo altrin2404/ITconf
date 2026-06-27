@@ -335,6 +335,11 @@ ul {
     backdrop-filter: none !important; /* Blur is expensive on mobile GPUs */
     -webkit-backdrop-filter: none !important;
     background: var(--bg-surface-solid) !important;
+    box-shadow: none !important; /* Shadows are expensive */
+  }
+
+  .text-gradient {
+    animation: none !important; /* Animated text gradients destroy mobile performance */
   }
   
   .glass-card { padding: var(--spacing-lg); }
