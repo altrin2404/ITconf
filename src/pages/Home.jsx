@@ -863,7 +863,7 @@ const Home = () => {
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '3rem' }} data-reveal>
-            <Link to="/schedule" className="btn-outline-glow" style={{ fontSize: '.9rem', padding: '.7rem 1.75rem' }}>
+            <Link to="/program" className="btn-outline-glow" style={{ fontSize: '.9rem', padding: '.7rem 1.75rem' }}>
               View Full Schedule →
             </Link>
           </div>

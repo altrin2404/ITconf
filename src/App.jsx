@@ -93,9 +93,20 @@ function CursorGlow() {
   );
 }
 
+/* ─── Scroll to top on navigation ─── */
+import { useLocation } from 'react-router-dom';
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <CursorGlow />
       <div className="app-wrapper" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Header />

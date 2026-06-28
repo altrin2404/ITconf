@@ -1,7 +1,7 @@
 export const confData = {
   name: "ICICET2027",
   fullName: "International Conference on Innovative Computing and Emerging Technologies",
-  date: "To Be Announced",
+  date: "April 1 - 2, 2027",
   location: "SXCCE",
   
   importantDates: [
@@ -9,7 +9,7 @@ export const confData = {
     { title: "Notification of Acceptance", date: "TBA", passed: false },
     { title: "Final Camera-Ready Paper", date: "TBA", passed: false },
     { title: "Early Bird Registration", date: "TBA", passed: false },
-    { title: "Conference Dates", date: "TBA", passed: false },
+    { title: "Conference Dates", date: "April 1 - 2, 2027", passed: false },
   ],
 
   speakers: [
@@ -89,7 +89,7 @@ export const confData = {
 
   schedule: [
     {
-      day: "Day 1 (TBA)",
+      day: "Day 1 (April 1, 2027)",
       events: [
         { time: "TBA", title: "Event to be announced" },
         { time: "TBA", title: "Event to be announced" },
@@ -97,7 +97,7 @@ export const confData = {
       ]
     },
     {
-      day: "Day 2 (TBA)",
+      day: "Day 2 (April 2, 2027)",
       events: [
         { time: "TBA", title: "Event to be announced" },
         { time: "TBA", title: "Event to be announced" },
