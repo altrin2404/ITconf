@@ -18,7 +18,9 @@ import './index.css';
 function CursorGlow() {
   const glowRef = useRef(null);
   const trailRef = useRef(null);
+  const ringRef = useRef(null);
   const pos = useRef({ x: 0, y: 0 });
+  const ringPos = useRef({ x: 0, y: 0 });
   const target = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -29,11 +31,19 @@ function CursorGlow() {
 
     let raf;
     const animate = () => {
-      pos.current.x += (target.current.x - pos.current.x) * 0.12;
-      pos.current.y += (target.current.y - pos.current.y) * 0.12;
+      // Smooth interpolation for the large glow
+      pos.current.x += (target.current.x - pos.current.x) * 0.08;
+      pos.current.y += (target.current.y - pos.current.y) * 0.08;
+      
+      // Smooth interpolation for the outer ring (faster than glow)
+      ringPos.current.x += (target.current.x - ringPos.current.x) * 0.18;
+      ringPos.current.y += (target.current.y - ringPos.current.y) * 0.18;
 
       if (glowRef.current) {
         glowRef.current.style.transform = `translate(${pos.current.x}px, ${pos.current.y}px)`;
+      }
+      if (ringRef.current) {
+        ringRef.current.style.transform = `translate(${ringPos.current.x}px, ${ringPos.current.y}px)`;
       }
       if (trailRef.current) {
         trailRef.current.style.left = `${target.current.x}px`;
@@ -52,40 +62,51 @@ function CursorGlow() {
 
   return (
     <>
-      {/* Large soft glow — smoothly trails the mouse */}
+      {/* Large soft glow */}
       <div
         ref={glowRef}
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '500px',
-          height: '500px',
+          top: 0, left: 0,
+          width: '600px', height: '600px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(56,189,248,0.06) 0%, rgba(139,92,246,0.03) 40%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(56,189,248,0.08) 0%, rgba(139,92,246,0.04) 30%, transparent 70%)',
           pointerEvents: 'none',
-          zIndex: 9999,
-          marginLeft: '-250px',
-          marginTop: '-250px',
+          zIndex: 9998,
+          marginLeft: '-300px', marginTop: '-300px',
           willChange: 'transform',
           mixBlendMode: 'screen',
         }}
       />
-      {/* Small bright dot — sticks to the cursor */}
+      {/* Following outer ring */}
+      <div
+        ref={ringRef}
+        style={{
+          position: 'fixed',
+          top: 0, left: 0,
+          width: '40px', height: '40px',
+          borderRadius: '50%',
+          border: '1px solid rgba(56,189,248,0.5)',
+          boxShadow: '0 0 15px rgba(56,189,248,0.3)',
+          pointerEvents: 'none',
+          zIndex: 9999,
+          marginLeft: '-20px', marginTop: '-20px',
+          willChange: 'transform',
+        }}
+      />
+      {/* Small bright dot */}
       <div
         ref={trailRef}
         style={{
           position: 'fixed',
-          width: '6px',
-          height: '6px',
+          width: '8px', height: '8px',
           borderRadius: '50%',
-          background: 'rgba(56,189,248,0.5)',
-          boxShadow: '0 0 12px rgba(56,189,248,0.4), 0 0 40px rgba(56,189,248,0.15)',
+          background: '#38bdf8',
+          boxShadow: '0 0 10px #38bdf8, 0 0 20px #818cf8, 0 0 30px #e879f9',
           pointerEvents: 'none',
-          zIndex: 9999,
-          marginLeft: '-3px',
-          marginTop: '-3px',
-          transition: 'left 0.05s linear, top 0.05s linear',
+          zIndex: 10000,
+          marginLeft: '-4px', marginTop: '-4px',
+          transition: 'left 0.02s linear, top 0.02s linear',
           willChange: 'left, top',
         }}
       />

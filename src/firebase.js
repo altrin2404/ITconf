@@ -1,23 +1,19 @@
 // Firebase Configuration for ICICET2027
-// -------------------------------------------------------
-// IMPORTANT: Replace the placeholder values below with your
-// actual Firebase project config keys. You can find these in:
-// Firebase Console → Your Project → Project Settings → Your Apps → Web App
-// -------------------------------------------------------
+// Credentials are loaded from .env.local (never committed to git)
+// See .env.example for the required variable names.
 
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-// Uncomment the line below if you add Firebase Storage later (for paper submissions)
 // import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC6o_2X7gFVjb61EWvhKE419X9WcGYBvF4",
-  authDomain: "icicet2027.firebaseapp.com",
-  projectId: "icicet2027",
-  storageBucket: "icicet2027.firebasestorage.app",
-  messagingSenderId: "511443359210",
-  appId: "1:511443359210:web:faa96775961c06e0920e93",
-  measurementId: "G-1S23QTW94G"
+  apiKey:            import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain:        import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId:         import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket:     import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId:             import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId:     import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
@@ -26,5 +22,4 @@ const app = initializeApp(firebaseConfig);
 // Initialize and export Firestore Database
 export const db = getFirestore(app);
 
-// Uncomment and export Storage if needed later
 // export const storage = getStorage(app);

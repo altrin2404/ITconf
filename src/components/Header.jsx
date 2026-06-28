@@ -39,21 +39,53 @@ const Header = () => {
       <style>{`
         /* ── Header base ── */
         .site-header {
-          position: fixed;
-          top: 0; left: 0; right: 0;
-          height: 70px;
+          position: sticky;
+          top: 0;
           z-index: 1000;
           transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
           border-bottom: 1px solid transparent;
           background: transparent;
         }
         .site-header.scrolled {
-          background: rgba(6,9,15,0.82);
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          border-bottom: 1px solid rgba(56,189,248,0.12);
-          box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+          background: rgba(8,13,31,0.88);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(100,120,255,0.18);
+          box-shadow: 0 4px 32px rgba(0,0,0,0.4), 0 0 40px rgba(56,100,255,0.05);
         }
+
+        /* ── Header top logos ── */
+        .header-top-logos {
+          background: transparent;
+          padding: 8px 0;
+          margin: 12px 0 6px 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 20px;
+        }
+        .header-top-logos-left {
+          flex: 1;
+          display: flex;
+          align-items: center;
+        }
+        .header-college-banner {
+          max-height: 115px;
+          width: auto;
+          max-width: 100%;
+          object-fit: contain;
+        }
+        .header-top-logos-right {
+          flex: 0 0 auto;
+          display: flex;
+          align-items: center;
+        }
+        .header-brigitz-logo {
+          max-height: 115px;
+          width: auto;
+          object-fit: contain;
+        }
+
 
         /* ── Nav links hover ── */
         .nav-link {
@@ -189,11 +221,11 @@ const Header = () => {
         .mobile-nav-dropdown {
           position: absolute;
           top: 100%; left: 0; right: 0;
-          background: rgba(6,9,15,0.97);
-          border-bottom: 1px solid rgba(56,189,248,0.12);
+          background: rgba(8,13,40,0.97);
+          border-bottom: 1px solid rgba(100,120,255,0.18);
           padding: 1.25rem 1.5rem;
           display: flex; flex-direction: column; gap: 1rem;
-          backdrop-filter: blur(16px);
+          backdrop-filter: blur(20px);
         }
         .mobile-nav-dropdown a {
           color: rgba(226,232,240,0.75);
@@ -210,14 +242,28 @@ const Header = () => {
         }
       `}</style>
 
+      {/* Top Banner (Not Sticky) */}
+      <div className="header-top-banner">
+        <div className="container">
+          <div className="header-top-logos">
+            <div className="header-top-logos-left">
+              <img src="/images/college-logo.png" alt="College Logo" className="header-college-banner" />
+            </div>
+            <div className="header-top-logos-right">
+              <img src="/images/Brigitz-Logo.png" alt="Brigitz Logo" className="header-brigitz-logo" />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
-        <div
-          className="container"
-          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '70px' }}
-        >
+        <div className="container">
+
+          <div
+            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '70px' }}
+          >
           {/* Logo */}
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div className="logo-circle">IT</div>
             <span className="logo-name">{confData.name}</span>
           </Link>
 
@@ -269,6 +315,7 @@ const Header = () => {
           >
             {mobileMenuOpen ? '✕' : '☰'}
           </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}

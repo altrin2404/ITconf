@@ -196,9 +196,9 @@ const Home = () => {
     <div className="home-page">
       {/* ════════════════ GLOBAL PAGE STYLES ════════════════ */}
       <style>{`
-        /* Dark base */
+        /* Navy/Indigo base */
         .home-page {
-          background: #06090f;
+          background: transparent;
           min-height: 100vh;
           color: #e2e8f0;
           overflow-x: hidden;
@@ -285,9 +285,9 @@ const Home = () => {
           filter: blur(90px); pointer-events: none;
           animation: orbFloat 9s ease-in-out infinite;
         }
-        .orb-1 { width:420px;height:420px; background:rgba(56,189,248,.1);  top:-8%;left:-5%;   animation-delay:0s; }
-        .orb-2 { width:520px;height:520px; background:rgba(139,92,246,.09); bottom:-12%;right:-5%; animation-delay:-3s; }
-        .orb-3 { width:260px;height:260px; background:rgba(236,72,153,.07); top:42%;left:38%;  animation-delay:-6s; }
+        .orb-1 { width:480px;height:480px; background:rgba(56,189,248,.14);  top:-8%;left:-5%;   animation-delay:0s; }
+        .orb-2 { width:560px;height:560px; background:rgba(100,80,230,.13); bottom:-12%;right:-5%; animation-delay:-3s; }
+        .orb-3 { width:280px;height:280px; background:rgba(139,92,246,.11); top:42%;left:38%;  animation-delay:-6s; }
         @keyframes orbFloat {
           0%,100% { transform: translateY(0) scale(1); }
           50%      { transform: translateY(-28px) scale(1.04); }
@@ -308,11 +308,11 @@ const Home = () => {
           --cx: 50%;
           --cy: 50%;
           position: relative; overflow: hidden; cursor: default;
-          background: rgba(255,255,255,.03);
-          border: 1px solid rgba(255,255,255,.08);
+          background: rgba(15,22,60,0.5);
+          border: 1px solid rgba(100,120,255,0.15);
           border-radius: 16px; padding: 1.75rem;
           transition: border-color .35s, transform .45s cubic-bezier(.23,1,.32,1), box-shadow .4s;
-          backdrop-filter: blur(10px);
+          backdrop-filter: blur(12px);
         }
         .muse-card::before {
           content: ''; position: absolute; inset: 0; border-radius: inherit;
@@ -329,9 +329,9 @@ const Home = () => {
 
         /* ── Stat card ── */
         .stat-card {
-          border: 1px solid rgba(255,255,255,.08); border-radius: 16px;
+          border: 1px solid rgba(100,120,255,0.15); border-radius: 16px;
           padding: 2rem; text-align: center;
-          background: rgba(255,255,255,.03); backdrop-filter: blur(10px);
+          background: rgba(15,22,60,0.5); backdrop-filter: blur(12px);
           transition: all .45s cubic-bezier(.23,1,.32,1);
           position: relative; overflow: hidden;
         }
@@ -548,17 +548,62 @@ const Home = () => {
 
           {/* Subtitle */}
           <div data-reveal data-delay="2">
+            <style>{`
+              @keyframes initialShimmer {
+                0%   { background-position: -200% center; filter: drop-shadow(0 0 6px rgba(56,189,248,0.5)); }
+                50%  { background-position: 200% center;  filter: drop-shadow(0 0 16px rgba(232,121,249,0.8)) drop-shadow(0 0 30px rgba(56,189,248,0.4)); }
+                100% { background-position: -200% center; filter: drop-shadow(0 0 6px rgba(56,189,248,0.5)); }
+              }
+              .icicet-initial {
+                font-family: 'Cinzel Decorative', serif;
+                font-weight: 900;
+                font-size: 1.45em;
+                letter-spacing: 0.04em;
+                background: linear-gradient(90deg, #38bdf8 0%, #818cf8 30%, #e879f9 60%, #38bdf8 100%);
+                background-size: 300% auto;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                animation: initialShimmer 3s ease-in-out infinite;
+                display: inline-block;
+                line-height: 1;
+                vertical-align: baseline;
+              }
+              .icicet-initial:nth-child(1) { animation-delay: 0s; }
+              .icicet-initial:nth-child(2) { animation-delay: 0.3s; }
+              .icicet-initial:nth-child(3) { animation-delay: 0.6s; }
+              .icicet-initial:nth-child(4) { animation-delay: 0.9s; }
+              .icicet-initial:nth-child(5) { animation-delay: 1.2s; }
+              .icicet-initial:nth-child(6) { animation-delay: 1.5s; }
+              .icicet-rest {
+                font-family: 'Outfit', sans-serif;
+                font-weight: 300;
+                color: rgba(226,232,240,0.6);
+                font-size: 1em;
+              }
+            `}</style>
             <p
               style={{
-                fontSize: 'clamp(1rem,2.5vw,1.35rem)',
-                color: 'rgba(226,232,240,.6)',
-                fontWeight: 300,
-                maxWidth: '740px',
+                fontSize: 'clamp(1rem,2.5vw,1.25rem)',
+                maxWidth: '760px',
                 margin: '0 auto 1rem',
-                lineHeight: 1.7,
+                lineHeight: 2,
+                letterSpacing: '0.01em',
               }}
             >
-              {confData.fullName}
+              {[
+                { letter: 'I', rest: 'nternational ' },
+                { letter: 'C', rest: 'onference on ' },
+                { letter: 'I', rest: 'nnovative ' },
+                { letter: 'C', rest: 'omputing and ' },
+                { letter: 'E', rest: 'merging ' },
+                { letter: 'T', rest: 'echnologies' },
+              ].map(({ letter, rest }, i) => (
+                <span key={i} style={{ whiteSpace: 'nowrap' }}>
+                  <span className="icicet-initial">{letter}</span>
+                  <span className="icicet-rest">{rest}</span>
+                </span>
+              ))}
             </p>
             <p style={{ fontSize: '1rem', color: '#38bdf8', marginBottom: '2.75rem', letterSpacing: '.04em' }}>
               📍 {confData.location}
@@ -760,6 +805,89 @@ const Home = () => {
   "status":  "open_for_submissions"
 }`}
               </pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ CAMPUS & DEPARTMENT GALLERY ═══════════════ */}
+      <section style={{ padding: '6rem 0', background: 'rgba(255,255,255,.015)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }} data-reveal>
+            <div className="section-label">Campus & Department</div>
+            <h2
+              style={{ fontSize: 'clamp(2rem,5vw,3rem)', fontWeight: 800, color: '#f8fafc', margin: 0 }}
+            >
+              Our <span className="glow-text">Infrastructure</span>
+            </h2>
+          </div>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '2rem',
+            }}
+          >
+            {/* College Building */}
+            <div
+              className="muse-card"
+              data-reveal
+              data-delay="1"
+              style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
+            >
+              <div style={{ position: 'relative', overflow: 'hidden', height: '240px' }}>
+                <img
+                  src="/images/college-build.png"
+                  alt="College Campus"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                  }}
+                  onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                  onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                />
+              </div>
+              <div style={{ padding: '1.5rem' }}>
+                <h3 style={{ fontSize: '1.2rem', color: '#f8fafc', marginBottom: '.5rem', fontWeight: 700 }}>
+                  College Campus
+                </h3>
+                <p style={{ color: 'rgba(226,232,240,.5)', fontSize: '.875rem', lineHeight: 1.6 }}>
+                  St. Xavier's Catholic College of Engineering campus infrastructure and surroundings.
+                </p>
+              </div>
+            </div>
+
+            {/* Department Image */}
+            <div
+              className="muse-card"
+              data-reveal
+              data-delay="2"
+              style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
+            >
+              <div style={{ position: 'relative', overflow: 'hidden', height: '240px' }}>
+                <img
+                  src="/images/Dept-image.jpg"
+                  alt="Department of IT"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                  }}
+                  onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                  onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                />
+              </div>
+              <div style={{ padding: '1.5rem' }}>
+                <h3 style={{ fontSize: '1.2rem', color: '#f8fafc', marginBottom: '.5rem', fontWeight: 700 }}>
+                  Department of Information Technology
+                </h3>
+                <p style={{ color: 'rgba(226,232,240,.5)', fontSize: '.875rem', lineHeight: 1.6 }}>
+                  Our department academic blocks, laboratories, and resource facilities.
+                </p>
+              </div>
             </div>
           </div>
         </div>
