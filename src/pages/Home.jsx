@@ -1140,7 +1140,7 @@ const Home = () => {
             </h2>
             <div className="sponsor-items-wrap" data-reveal data-delay="1">
               {[
-                { name: 'SXCCE', logo: '/images/sponsors/SXCCE.png' },
+                { name: 'SXCCE', logo: '/images/sponsors/college-logo.png' },
                 { name: 'IISER', logo: '/images/sponsors/IISER.jpg' },
                 { name: 'UNICAMP', logo: '/images/sponsors/UNICAMP.png' },
               ].map((s, i) => (
