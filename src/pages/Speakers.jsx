@@ -45,7 +45,7 @@ const Speakers = () => {
           box-shadow:0 24px 60px rgba(0,0,0,.35);
         }
         .speaker-avatar {
-          width:100px; height:100px; border-radius:16px;
+          width:140px; height:140px; border-radius:16px;
           overflow:hidden; flex-shrink:0;
           border:2px solid rgba(56,189,248,.3);
           background:rgba(255,255,255,.05);

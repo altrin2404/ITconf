@@ -104,7 +104,8 @@ const Registration = () => {
           <table className="fee-table">
             <thead>
               <tr>
-                <th>Category</th>
+                <th>Registration Category</th>
+                <th>Mode of Attendance</th>
                 <th>Fee</th>
               </tr>
             </thead>
@@ -112,6 +113,7 @@ const Registration = () => {
               {confData.pricing.map((tier, index) => (
                 <tr key={index}>
                   <td>{tier.category}</td>
+                  <td>{tier.mode}</td>
                   <td>{tier.fee}</td>
                 </tr>
               ))}

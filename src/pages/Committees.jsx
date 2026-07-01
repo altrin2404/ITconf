@@ -34,22 +34,55 @@ const Committees = () => {
             data-delay={String((index % 3) + 1)}
             style={{ padding: '2rem 1.5rem' }}
           >
-            <div style={{
-              width: 80, height: 80, borderRadius: '50%',
-              background: 'linear-gradient(135deg, #0ea5e9, #8b5cf6)',
-              margin: '0 auto 1.25rem',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: '2rem', color: '#fff', fontWeight: 700,
-              boxShadow: '0 0 24px rgba(14,165,233,0.25)',
-            }}>
-              {member.name.charAt(0)}
-            </div>
+            {member.image && (
+              <div style={{
+                width: 120, height: 120, borderRadius: '50%',
+                background: 'rgba(255,255,255,.05)',
+                margin: '0 auto 1.25rem',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                boxShadow: '0 0 24px rgba(14,165,233,0.25)',
+                overflow: 'hidden'
+              }}>
+                <img src={member.image} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+            )}
             <h4 style={{ fontSize: '1.15rem', color: '#f1f5f9', marginBottom: '0.35rem' }}>
               {member.name}
             </h4>
             <p style={{ color: 'rgba(226,232,240,0.5)', fontSize: '0.9rem' }}>
               {member.affiliation}
             </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const CompactSection = ({ title, members, accent }) => (
+    <div style={{ marginTop: '2rem', marginBottom: '4rem' }}>
+      <div style={{ textAlign: 'center', marginBottom: '2rem' }} data-reveal>
+        <h3 className="glow-text" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
+          {title}
+        </h3>
+        <div style={{ width: 50, height: 2, borderRadius: 2, background: accent || '#ec4899', margin: '0 auto' }} />
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: '1rem' }}>
+        {members.map((member, index) => (
+          <div key={index} className="tech-member" data-reveal data-delay={String((index % 3) + 1)}>
+            {member.image && (
+              <div style={{
+                width: 42, height: 42, borderRadius: '50%',
+                background: 'rgba(255,255,255,.05)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                flexShrink: 0, overflow: 'hidden'
+              }}>
+                <img src={member.image} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+            )}
+            <div>
+              <h5 style={{ margin: 0, color: '#f1f5f9', fontSize: '0.95rem' }}>{member.name}</h5>
+              <p style={{ margin: 0, color: 'rgba(226,232,240,0.45)', fontSize: '0.8rem' }}>{member.affiliation}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -87,44 +120,18 @@ const Committees = () => {
             <h1 className="glow-text" style={{ fontSize: 'clamp(2.5rem,7vw,4rem)', fontWeight: 900 }}>
               Organizing Committee
             </h1>
-            <p style={{ color: 'rgba(226,232,240,0.55)', maxWidth: 600, margin: '0.5rem auto 0', fontSize: '1.1rem' }}>
-              Meet the dedicated team of professionals organizing {confData.name}.
-            </p>
           </div>
         </div>
       </div>
 
       <div className="container" style={{ paddingBottom: '4rem' }}>
-        <CommitteeSection title="General Chairs" members={committees.generalChairs} accent="#0ea5e9" />
-        <CommitteeSection title="Program Chairs" members={committees.programChairs} accent="#8b5cf6" />
-
-        {/* Technical Committee – distinct layout */}
-        <div style={{ marginTop: '2rem' }}>
-          <div style={{ textAlign: 'center', marginBottom: '2rem' }} data-reveal>
-            <h3 className="glow-text" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
-              Technical Program Committee
-            </h3>
-            <div style={{ width: 50, height: 2, borderRadius: 2, background: '#ec4899', margin: '0 auto' }} />
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: '1rem' }}>
-            {committees.technicalCommittee.map((member, index) => (
-              <div key={index} className="tech-member" data-reveal data-delay={String((index % 3) + 1)}>
-                <div style={{
-                  width: 42, height: 42, borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontWeight: 700, fontSize: '1rem', color: '#fff', flexShrink: 0,
-                }}>
-                  {member.name.charAt(0)}
-                </div>
-                <div>
-                  <h5 style={{ margin: 0, color: '#f1f5f9', fontSize: '0.95rem' }}>{member.name}</h5>
-                  <p style={{ margin: 0, color: 'rgba(226,232,240,0.45)', fontSize: '0.8rem' }}>{member.affiliation}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <CommitteeSection title="Patrons" members={committees.patrons} accent="#38bdf8" />
+        <CommitteeSection title="Organizing Chairs" members={committees.organizingChairs} accent="#0ea5e9" />
+        <CommitteeSection title="Publicity Chair" members={committees.publicityChair} accent="#8b5cf6" />
+        
+        <CompactSection title="Advisory Committee" members={committees.advisoryCommittee} accent="#ec4899" />
+        <CompactSection title="Program Committee" members={committees.programCommittee} accent="#e879f9" />
+        <CompactSection title="Local Organizing Committee" members={committees.localOrganizingCommittee} accent="#818cf8" />
       </div>
     </div>
   );

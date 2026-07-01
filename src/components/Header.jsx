@@ -43,15 +43,16 @@ const Header = () => {
           top: 0;
           z-index: 1000;
           transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
-          border-bottom: 1px solid transparent;
-          background: transparent;
-        }
-        .site-header.scrolled {
+          border-bottom: 1px solid rgba(100,120,255,0.18);
           background: rgba(8,13,31,0.88);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(100,120,255,0.18);
           box-shadow: 0 4px 32px rgba(0,0,0,0.4), 0 0 40px rgba(56,100,255,0.05);
+        }
+        .site-header.scrolled {
+          background: rgba(8,13,31,0.95);
+          border-bottom: 1px solid rgba(100,120,255,0.25);
+          box-shadow: 0 4px 32px rgba(0,0,0,0.5), 0 0 40px rgba(56,100,255,0.08);
         }
 
         /* ── Header top logos ── */
@@ -81,9 +82,10 @@ const Header = () => {
           align-items: center;
         }
         .header-brigitz-logo {
-          max-height: 115px;
+          max-height: 130px;
           width: auto;
           object-fit: contain;
+          transform: scale(1.1);
         }
 
 
@@ -262,59 +264,59 @@ const Header = () => {
           <div
             style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '70px' }}
           >
-          {/* Logo */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span className="logo-name">{confData.name}</span>
-          </Link>
+            {/* Logo */}
+            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <span className="logo-name">{confData.name}</span>
+            </Link>
 
-          {/* Desktop Nav */}
-          <nav className="desktop-nav" style={{ display: 'flex', gap: '22px', alignItems: 'center' }}>
-            <Link to="/" className={`nav-link${isActive('/') ? ' active' : ''}`}>Home</Link>
-            <Link to="/committees" className={`nav-link${isActive('/committees') ? ' active' : ''}`}>Committee</Link>
-            <Link to="/speakers" className={`nav-link${isActive('/speakers') ? ' active' : ''}`}>Speakers</Link>
-            <Link to="/call-for-papers" className={`nav-link${isActive('/call-for-papers') ? ' active' : ''}`}>CFP</Link>
-            <Link to="/publication" className={`nav-link${isActive('/publication') ? ' active' : ''}`}>Publication</Link>
+            {/* Desktop Nav */}
+            <nav className="desktop-nav" style={{ display: 'flex', gap: '22px', alignItems: 'center' }}>
+              <Link to="/" className={`nav-link${isActive('/') ? ' active' : ''}`}>Home</Link>
+              <Link to="/committees" className={`nav-link${isActive('/committees') ? ' active' : ''}`}>Committee</Link>
+              <Link to="/speakers" className={`nav-link${isActive('/speakers') ? ' active' : ''}`}>Speakers</Link>
+              <Link to="/call-for-papers" className={`nav-link${isActive('/call-for-papers') ? ' active' : ''}`}>CFP</Link>
 
-            <div className="dropdown">
-              <span className="dropdown-trigger">
-                Submission
-                <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </span>
-              <div className="dropdown-content">
-                <Link to="/submissions">Submission Portal</Link>
-                <Link to="/submissions#editorial-policy">Editorial Policy</Link>
-                <Link to="/submissions#ai-guidelines">Guidelines for AI Tools</Link>
+
+              <div className="dropdown">
+                <span className="dropdown-trigger">
+                  Submission
+                  <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+                <div className="dropdown-content">
+                  <Link to="/submissions">Submission Portal</Link>
+                  <Link to="/submissions#editorial-policy">Editorial Policy</Link>
+                  <Link to="/submissions#ai-guidelines">Guidelines for AI Tools</Link>
+                </div>
               </div>
-            </div>
 
-            <Link to="/registration" className={`nav-link${isActive('/registration') ? ' active' : ''}`}>Registration</Link>
+              <Link to="/registration" className={`nav-link${isActive('/registration') ? ' active' : ''}`}>Registration</Link>
 
-            <Link to="/program" className={`nav-link${isActive('/program') ? ' active' : ''}`}>Program</Link>
+              <Link to="/program" className={`nav-link${isActive('/program') ? ' active' : ''}`}>Program</Link>
 
-            <div className="dropdown">
-              <span className="dropdown-trigger">
-                More
-                <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </span>
-              <div className="dropdown-content">
-                <Link to="/history">History</Link>
-                <Link to="/contact">Contact</Link>
+              <div className="dropdown">
+                <span className="dropdown-trigger">
+                  More
+                  <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+                <div className="dropdown-content">
+                  <Link to="/history">History</Link>
+                  <Link to="/contact">Contact</Link>
+                </div>
               </div>
-            </div>
-          </nav>
+            </nav>
 
-          {/* Mobile Toggle */}
-          <button
-            className="mobile-nav-toggle"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? '✕' : '☰'}
-          </button>
+            {/* Mobile Toggle */}
+            <button
+              className="mobile-nav-toggle"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? '✕' : '☰'}
+            </button>
           </div>
         </div>
 
@@ -325,7 +327,7 @@ const Header = () => {
             <Link to="/committees">Committee</Link>
             <Link to="/speakers">Speakers</Link>
             <Link to="/call-for-papers">CFP</Link>
-            <Link to="/publication">Publication</Link>
+
             <Link to="/submissions">Submission</Link>
             <Link to="/registration">Registration</Link>
             <Link to="/program">Program</Link>

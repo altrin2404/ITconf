@@ -111,7 +111,7 @@ const Footer = () => {
             <div>
               <h4 className="footer-heading">Information</h4>
               <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                <Link to="/publication" className="footer-link">Publication & Indexing</Link>
+
                 <Link to="/submissions#editorial-policy" className="footer-link">Editorial Policy</Link>
                 <Link to="/history" className="footer-link">Past Conferences</Link>
                 <Link to="/committees" className="footer-link">Committee</Link>
@@ -147,6 +147,62 @@ const Footer = () => {
               >
                 Send a message →
               </Link>
+            </div>
+          </div>
+
+          {/* Map Section */}
+          <div style={{ marginTop: '4rem', width: '100%', height: '320px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', position: 'relative' }}>
+            <iframe 
+              title="Conference Location Map"
+              src="https://maps.google.com/maps?q=8.194079,77.385030&z=16&output=embed"
+              width="100%" 
+              height="100%" 
+              style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, pointerEvents: 'none', boxShadow: 'inset 0 0 20px rgba(6, 9, 15, 1)' }}></div>
+            
+            {/* Venue & Directions Overlay */}
+            <div style={{ 
+              position: 'absolute', 
+              top: '20px', 
+              left: '20px', 
+              background: 'rgba(15, 22, 60, 0.85)', 
+              backdropFilter: 'blur(12px)',
+              padding: '1.25rem 1.5rem', 
+              borderRadius: '12px', 
+              border: '1px solid rgba(56, 189, 248, 0.3)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+              maxWidth: '320px',
+              zIndex: 10
+            }}>
+              <h4 style={{ margin: '0 0 0.25rem 0', color: '#fff', fontSize: '1.1rem', fontWeight: '700' }}>Conference Hall</h4>
+              <p style={{ margin: '0 0 1rem 0', color: 'rgba(226, 232, 240, 0.7)', fontSize: '0.85rem', lineHeight: '1.5' }}>
+                St. Xavier's Catholic College of Engineering<br/>
+                Chunkankadai, Nagercoil, Tamil Nadu
+              </p>
+              <a 
+                href="https://www.google.com/maps/dir/?api=1&destination=8.194079,77.385030" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '0.6rem 1.25rem',
+                  borderRadius: '999px',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  background: 'linear-gradient(135deg, #0ea5e9, #8b5cf6)',
+                  color: '#fff',
+                  textDecoration: 'none',
+                  boxShadow: '0 4px 16px rgba(14,165,233,0.3)',
+                }}
+              >
+                🗺️ Get Directions
+              </a>
             </div>
           </div>
 

@@ -125,45 +125,27 @@ const Home = () => {
   useMouseSpotlight(heroRef);
   useReveal();
 
-  const tracks = [
-    {
-      icon: '🤖',
-      title: 'AI & Machine Learning',
-      desc: 'Deep Learning, NLP, Computer Vision, Reinforcement Learning',
-      color: '#0ea5e9',
-    },
-    {
-      icon: '🔒',
-      title: 'Cyber Security & Privacy',
-      desc: 'Cryptography, Network Security, Blockchain, Privacy-Preserving',
-      color: '#8b5cf6',
-    },
-    {
-      icon: '☁️',
-      title: 'Cloud & Distributed Systems',
-      desc: 'Edge Computing, Serverless, Cloud Native, Distributed Systems',
-      color: '#ec4899',
-    },
-    {
-      icon: '📡',
-      title: 'Internet of Things',
-      desc: 'Smart Cities, Industrial IoT, Sensor Networks, IoT Security',
-      color: '#06b6d4',
-    },
-  ];
+  const trackIcons = ['🤖', '📊', '☁️', '👁️'];
+  const trackColors = ['#0ea5e9', '#8b5cf6', '#ec4899', '#06b6d4'];
+  const tracks = confData.tracks.map((t, i) => ({
+    icon: trackIcons[i] || '📄',
+    title: t.title.split(': ')[1] || t.title,
+    desc: t.topics.slice(0, 4).join(', ') + '...',
+    color: trackColors[i] || '#0ea5e9',
+  }));
 
   const stats = [
-    { value: '4', suffix: '+', label: 'Tech Tracks' },
-    { value: '50', suffix: '+', label: 'Speakers' },
-    { value: '500', suffix: '+', label: 'Attendees' },
-    { value: '100', suffix: '+', label: 'Research Papers' },
+    { value: '4', suffix: '', label: 'Tech Tracks' },
+    { value: '2', suffix: '', label: 'Speakers' },
+    { value: '0', suffix: '', label: 'Attendees' },
+    { value: '0', suffix: '', label: 'Research Papers' },
   ];
 
   const whyAttend = [
     {
       icon: '📖',
-      title: 'Indexed Publication',
-      desc: 'All accepted papers submitted to EI Compendex & Scopus for global visibility.',
+      title: 'Quality Publication',
+      desc: 'All accepted papers will be published in the official conference proceedings.',
     },
     {
       icon: '🎤',
@@ -491,6 +473,9 @@ const Home = () => {
         }
 
         /* Responsive */
+        @media(max-width:1024px){
+          .hero-spotlight { display: none; }
+        }
         @media(max-width:768px){
           .timeline::before { left: 1rem; }
           .tl-item { grid-template-columns: 0 28px 1fr; gap: .75rem; }
@@ -502,11 +487,12 @@ const Home = () => {
       <section
         ref={heroRef}
         style={{
-          minHeight: '100vh',
+          minHeight: '90vh',
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           justifyContent: 'center',
-          paddingTop: '90px',
+          paddingTop: '40px',
+          paddingBottom: '60px',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -518,7 +504,7 @@ const Home = () => {
         <div className="orb orb-2" />
         <div className="orb orb-3" />
 
-        <div className="container text-center" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="container text-center" style={{ position: 'relative', zIndex: 1, marginTop: '0' }}>
           {/* Badge */}
           <div data-reveal style={{ marginBottom: '1.75rem' }}>
             <span className="badge-pill">
@@ -527,6 +513,20 @@ const Home = () => {
                 ? 'Registration Opening Soon'
                 : confData.date}
             </span>
+          </div>
+
+          {/* Organiser */}
+          <div data-reveal data-delay="1" style={{ marginBottom: '1.5rem' }}>
+            <h2 style={{
+              fontSize: '1rem',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              color: 'rgba(226, 232, 240, 0.7)',
+              fontWeight: 400,
+              margin: 0,
+            }}>
+              Organised by <span className="glow-text" style={{ fontWeight: 900, textShadow: '0 0 20px rgba(56,189,248,0.4)' }}>Department of Information Technology</span>
+            </h2>
           </div>
 
           {/* Glitch title */}
@@ -594,7 +594,7 @@ const Home = () => {
               {[
                 { letter: 'I', rest: 'nternational ' },
                 { letter: 'C', rest: 'onference on ' },
-                { letter: 'I', rest: 'nnovative ' },
+                { letter: 'I', rest: 'nnovations in ' },
                 { letter: 'C', rest: 'omputing and ' },
                 { letter: 'E', rest: 'merging ' },
                 { letter: 'T', rest: 'echnologies' },
@@ -605,9 +605,75 @@ const Home = () => {
                 </span>
               ))}
             </p>
-            <p style={{ fontSize: '1rem', color: '#38bdf8', marginBottom: '2.75rem', letterSpacing: '.04em' }}>
-              📍 {confData.location}
-            </p>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2.75rem' }}>
+              <style>{`
+                @keyframes gradSpin {
+                  0%   { background-position: 0% 50%; }
+                  50%  { background-position: 100% 50%; }
+                  100% { background-position: 0% 50%; }
+                }
+                @keyframes locPulse {
+                  0%, 100% { box-shadow: 0 0 16px rgba(56,189,248,0.2), 0 0 32px rgba(139,92,246,0.1); }
+                  50%       { box-shadow: 0 0 28px rgba(56,189,248,0.45), 0 0 56px rgba(232,121,249,0.2); }
+                }
+                .loc-outer {
+                  padding: 1.5px;
+                  border-radius: 999px;
+                  background: linear-gradient(90deg, #38bdf8, #818cf8, #e879f9, #38bdf8);
+                  background-size: 300% auto;
+                  animation: gradSpin 4s linear infinite, locPulse 3s ease-in-out infinite;
+                  transition: transform 0.3s ease;
+                }
+                .loc-outer:hover { transform: translateY(-3px); }
+                .loc-inner {
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.55rem;
+                  padding: 0.5rem 1.35rem;
+                  border-radius: 999px;
+                  background: rgba(6, 10, 28, 0.92);
+                  backdrop-filter: blur(14px);
+                  font-size: 0.9rem;
+                  font-weight: 600;
+                  letter-spacing: 0.05em;
+                  color: #e2e8f0;
+                  white-space: nowrap;
+                }
+                .loc-icon {
+                  font-size: 1rem;
+                  line-height: 1;
+                }
+                .loc-name {
+                  background: linear-gradient(90deg, #38bdf8, #c4b5fd, #f0abfc);
+                  background-size: 200% auto;
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  background-clip: text;
+                  animation: gradSpin 4s linear infinite;
+                  font-weight: 700;
+                }
+                .loc-sep {
+                  width: 1px; height: 12px;
+                  background: rgba(148,163,184,0.25);
+                  border-radius: 2px;
+                }
+                .loc-sub {
+                  font-size: 0.72rem;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  color: rgba(148,163,184,0.5);
+                  font-weight: 500;
+                }
+              `}</style>
+              <div className="loc-outer">
+                <div className="loc-inner">
+                  <span className="loc-icon">🏫</span>
+                  <span className="loc-name">{confData.location}</span>
+                  <span className="loc-sep" />
+                  <span className="loc-sub">Tamil Nadu, India</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* CTA buttons */}
@@ -668,13 +734,11 @@ const Home = () => {
           <div className="ticker-track">
             {[...Array(2)].map((_, i) => (
               <span key={i} style={{ display: 'inline-flex', gap: '4rem', color: '#38bdf8', fontWeight: 600, fontSize: '.875rem' }}>
-                <span>⚡ All accepted papers submitted for indexing</span>
+                <span>⚡ All accepted papers published in conference proceedings</span>
                 <span>•</span>
                 <span>📅 Early bird registration ends soon</span>
                 <span>•</span>
                 <span>🌐 {confData.fullName}</span>
-                <span>•</span>
-                <span>🏆 EI Compendex &amp; Scopus Indexed</span>
                 <span>•</span>
               </span>
             ))}
@@ -796,13 +860,9 @@ const Home = () => {
   "conference": "${confData.name}",
   "edition":    "2027",
   "scope":      "International",
-  "indexing": [
-    "EI Compendex",
-    "Scopus"
-  ],
-  "tracks":  4,
-  "venue":   "SXCCE, Tamil Nadu",
-  "status":  "open_for_submissions"
+  "tracks":     4,
+  "venue":      "SXCCE, Tamil Nadu",
+  "status":     "open_for_submissions"
 }`}
               </pre>
             </div>
@@ -1041,12 +1101,31 @@ const Home = () => {
             </h2>
           </div>
           <div
-            style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '1rem' }}
+            style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '2rem' }}
             data-reveal
             data-delay="2"
           >
-            {['Sponsor 1', 'Sponsor 2', 'Sponsor 3', 'Sponsor 4'].map((s, i) => (
-              <div key={i} className="sponsor-pill">{s}</div>
+            {[
+              { name: 'SXCCE', logo: '/images/sponsors/SXCCE.png' },
+              { name: 'IISER', logo: '/images/sponsors/IISER.jpg' },
+              { name: 'UNICAMP', logo: '/images/sponsors/UNICAMP.png' }
+            ].map((s, i) => (
+              <div key={i} style={{
+                background: 'rgba(255,255,255,.02)',
+                border: '1px solid rgba(255,255,255,.05)',
+                borderRadius: '16px',
+                padding: '1.5rem',
+                width: '260px',
+                height: '130px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                boxShadow: '0 4px 20px rgba(0,0,0,.15)',
+                transition: 'transform .3s, border-color .3s'
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = 'rgba(56,189,248,.3)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,.05)'; }}
+              >
+                <img src={s.logo} alt={s.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+              </div>
             ))}
           </div>
           <p style={{ color: 'rgba(226,232,240,.3)', marginTop: '2rem', fontSize: '.875rem' }} data-reveal data-delay="3">

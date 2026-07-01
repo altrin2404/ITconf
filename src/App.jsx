@@ -8,7 +8,7 @@ import CallForPapers from './pages/CallForPapers';
 import Speakers from './pages/Speakers';
 import Submissions from './pages/Submissions';
 import Registration from './pages/Registration';
-import Publication from './pages/Publication';
+
 import Program from './pages/Program';
 import History from './pages/History';
 import Contact from './pages/Contact';
@@ -139,7 +139,7 @@ function App() {
             <Route path="/speakers" element={<Speakers />} />
             <Route path="/submissions" element={<Submissions />} />
             <Route path="/registration" element={<Registration />} />
-            <Route path="/publication" element={<Publication />} />
+
             <Route path="/program" element={<Program />} />
             <Route path="/history" element={<History />} />
             <Route path="/contact" element={<Contact />} />
