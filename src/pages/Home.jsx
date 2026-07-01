@@ -480,12 +480,138 @@ const Home = () => {
           .timeline::before { left: 1rem; }
           .tl-item { grid-template-columns: 0 28px 1fr; gap: .75rem; }
           .tl-left { display: none; }
+
+          /* Hero mobile fixes */
+          .orb-1 { width:260px;height:260px; }
+          .orb-2 { width:300px;height:300px; }
+          .orb-3 { width:160px;height:160px; }
+
+          /* Force organiser h2 small — overrides the global h2 rule */
+          .hero-organiser {
+            font-size: 0.72rem !important;
+            letter-spacing: 0.1em !important;
+            line-height: 1.5 !important;
+          }
+
+          /* ICICET2027 title on mobile */
+          .hero-title {
+            font-size: clamp(2.4rem, 11vw, 4rem) !important;
+            letter-spacing: -1px !important;
+          }
+
+          .icicet-initial {
+            font-size: 1.15em !important;
+          }
+          .loc-inner {
+            font-size: 0.78rem !important;
+            padding: 0.45rem 1rem !important;
+            gap: 0.4rem !important;
+          }
+          .btn-glow-primary, .btn-outline-glow {
+            padding: .75rem 1.6rem !important;
+            font-size: .92rem !important;
+          }
+        }
+        @media(max-width:480px){
+          .hero-organiser {
+            font-size: 0.65rem !important;
+          }
+          .hero-title {
+            font-size: clamp(2.2rem, 12vw, 3rem) !important;
+          }
+          .icicet-initial {
+            font-size: 1.1em !important;
+          }
+          .loc-inner {
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 0.75rem !important;
+          }
+        }
+
+        /* ── Global section responsive fixes ── */
+        .about-grid {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: 3rem;
+          align-items: flex-start;
+        }
+        .org-logos-wrap {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: flex-start;
+          gap: 4rem;
+          padding-left: 8px;
+          margin-top: 1rem;
+        }
+        .org-logo-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 300px;
+          text-align: center;
+        }
+        .sponsor-items-wrap {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+        }
+        .sponsor-item {
+          min-width: 220px;
+        }
+        @media(max-width:768px){
+          .about-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+          }
+          .org-logos-wrap {
+            gap: 2rem !important;
+            justify-content: center !important;
+            padding-left: 0 !important;
+          }
+          .org-logo-item {
+            width: 100% !important;
+            max-width: 240px;
+          }
+          .sponsor-items-wrap {
+            gap: 1rem !important;
+            justify-content: center;
+          }
+          .sponsor-item {
+            min-width: 0 !important;
+            width: calc(50% - 0.5rem);
+          }
+          .hero-scroll-hint {
+            margin-top: 2rem !important;
+          }
+          .cta-section {
+            padding: 4rem 0 !important;
+          }
+          .section-heading {
+            font-size: clamp(1.5rem, 5vw, 2.2rem) !important;
+          }
+          .hero-section {
+            min-height: auto !important;
+            padding-top: 24px !important;
+            padding-bottom: 36px !important;
+          }
+        }
+        @media(max-width:480px){
+          .sponsor-item {
+            width: 100%;
+          }
+          .cta-section {
+            padding: 3rem 0 !important;
+          }
         }
       `}</style>
 
       {/* ═══════════════ HERO ═══════════════ */}
       <section
         ref={heroRef}
+        className="hero-section"
         style={{
           minHeight: '90vh',
           display: 'flex',
@@ -517,15 +643,20 @@ const Home = () => {
 
           {/* Organiser */}
           <div data-reveal data-delay="1" style={{ marginBottom: '1.5rem' }}>
-            <h2 style={{
-              fontSize: '1rem',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: 'rgba(226, 232, 240, 0.7)',
-              fontWeight: 400,
-              margin: 0,
-            }}>
-              Organised by <span className="glow-text" style={{ fontWeight: 900, textShadow: '0 0 20px rgba(56,189,248,0.4)' }}>Department of Information Technology</span>
+            <h2
+              className="hero-organiser"
+              style={{
+                fontSize: 'clamp(0.65rem, 2vw, 1rem)',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'rgba(226, 232, 240, 0.7)',
+                fontWeight: 400,
+                margin: 0,
+                lineHeight: 1.6,
+                padding: '0 0.5rem',
+              }}
+            >
+              Organised by <span className="glow-text" style={{ fontWeight: 900 }}>Department of Information Technology</span>
             </h2>
           </div>
 
@@ -535,9 +666,9 @@ const Home = () => {
               className="glitch glow-text"
               data-text={confData.name}
               style={{
-                fontSize: 'clamp(3.5rem,10vw,7.5rem)',
+                fontSize: 'clamp(2.8rem,10vw,7.5rem)',
                 fontWeight: 900,
-                letterSpacing: '-3px',
+                letterSpacing: 'clamp(-1px,-0.5vw,-3px)',
                 lineHeight: 1,
                 marginBottom: '1.5rem',
               }}
@@ -584,11 +715,13 @@ const Home = () => {
             `}</style>
             <p
               style={{
-                fontSize: 'clamp(1rem,2.5vw,1.25rem)',
+                fontSize: 'clamp(0.85rem,2.5vw,1.25rem)',
                 maxWidth: '760px',
                 margin: '0 auto 1rem',
-                lineHeight: 2,
+                lineHeight: 1.9,
                 letterSpacing: '0.01em',
+                padding: '0 0.5rem',
+                wordBreak: 'break-word',
               }}
             >
               {[
@@ -599,7 +732,7 @@ const Home = () => {
                 { letter: 'E', rest: 'merging ' },
                 { letter: 'T', rest: 'echnologies' },
               ].map(({ letter, rest }, i) => (
-                <span key={i} style={{ whiteSpace: 'nowrap' }}>
+                <span key={i}>
                   <span className="icicet-initial">{letter}</span>
                   <span className="icicet-rest">{rest}</span>
                 </span>
@@ -694,6 +827,7 @@ const Home = () => {
           <div
             data-reveal
             data-delay="4"
+            className="hero-scroll-hint"
             style={{
               marginTop: '4.5rem',
               display: 'flex',
@@ -780,95 +914,90 @@ const Home = () => {
       </section>
 
       {/* ═══════════════ ABOUT ═══════════════ */}
-      <section style={{ padding: '6rem 0', background: 'rgba(255,255,255,.015)' }}>
+      <section style={{ padding: '4rem 0', background: 'rgba(255,255,255,.015)' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '1rem' }} data-reveal>
-            <div className="section-label">About the Conference</div>
-          </div>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))',
-              gap: '3rem',
-              alignItems: 'center',
-            }}
-          >
-            {/* Text */}
-            <div data-reveal>
-              <h2
-                style={{
-                  fontSize: 'clamp(2rem,5vw,3rem)',
-                  fontWeight: 800,
-                  lineHeight: 1.15,
-                  color: '#f8fafc',
-                  marginBottom: '1.5rem',
-                }}
-              >
-                Forging the Future of{' '}
-                <span className="glow-text">Computing</span>
+          <div className="about-grid" data-reveal>
+            {/* Left: About text */}
+            <div>
+              <h2 style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '1.6rem', fontWeight: 800, color: '#f8fafc', marginBottom: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <div style={{ width: '6px', height: '28px', background: '#38bdf8', borderRadius: '3px', flexShrink: 0 }}></div>
+                About {confData.name}
               </h2>
-              <p style={{ color: 'rgba(226,232,240,.6)', lineHeight: 1.85, marginBottom: '1.25rem' }}>
-                Against the backdrop of the global transformation toward intelligent systems and emerging
-                computing technologies,{' '}
-                <strong style={{ color: '#38bdf8' }}>{confData.name}</strong> serves as a premier
-                international forum.
+              <p style={{ color: 'rgba(226,232,240,.7)', lineHeight: 2, marginBottom: '1rem', fontSize: '0.97rem' }}>
+                Against the backdrop of the global transformation toward intelligent systems and emerging computing technologies,{' '}
+                <strong style={{ color: '#e2e8f0' }}>{confData.name}</strong> serves as a premier international forum bringing together researchers, scholars, and practitioners from around the world.
               </p>
-              <p style={{ color: 'rgba(226,232,240,.6)', lineHeight: 1.85 }}>
-                We bring together leading academic scientists, researchers, and scholars to exchange
-                experiences on Computing, AI, and emerging tech — providing a premier interdisciplinary
-                platform for researchers, practitioners, and educators worldwide.
+              <p style={{ color: 'rgba(226,232,240,.7)', lineHeight: 2, fontSize: '0.97rem' }}>
+                The conference focuses on Computing, AI, and emerging technologies — providing an interdisciplinary platform to share findings, discuss challenges, and explore cutting-edge innovations. We warmly welcome scholars from around the world to submit papers and participate in the conference.
               </p>
-              <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <Link
-                  to="/committee"
-                  className="btn-outline-glow"
-                  style={{ fontSize: '.875rem', padding: '.65rem 1.4rem' }}
-                >
-                  Meet the Committee
-                </Link>
-                <Link
-                  to="/tracks"
-                  className="btn-outline-glow"
-                  style={{ fontSize: '.875rem', padding: '.65rem 1.4rem' }}
-                >
-                  View Tracks
-                </Link>
+              <div style={{ marginTop: '1.75rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <Link to="/committees" className="btn-outline-glow" style={{ fontSize: '.875rem', padding: '.65rem 1.4rem' }}>Meet the Committee</Link>
+                <Link to="/call-for-papers" className="btn-outline-glow" style={{ fontSize: '.875rem', padding: '.65rem 1.4rem' }}>Call for Papers</Link>
               </div>
             </div>
-
-            {/* Terminal card */}
-            <div className="terminal-card" data-reveal data-delay="2">
-              <div className="terminal-header">
-                <span className="dot-red" />
-                <span className="dot-amber" />
-                <span className="dot-green" />
-                <span style={{ color: 'rgba(255,255,255,.28)', fontSize: '.75rem', marginLeft: '.5rem' }}>
-                  conference_info.json
-                </span>
+            {/* Right: Important Dates card */}
+            <div style={{ minWidth: '270px', background: 'rgba(15,22,60,0.7)', border: '1px solid rgba(56,189,248,0.2)', borderRadius: '14px', padding: '1.5rem', boxShadow: '0 4px 24px rgba(0,0,0,0.3)', backdropFilter: 'blur(10px)' }}>
+              <h4 style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1rem', fontWeight: 700, color: '#f8fafc', marginBottom: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+                <div style={{ width: '5px', height: '20px', background: '#38bdf8', borderRadius: '3px' }}></div>
+                Important Dates
+              </h4>
+              {confData.importantDates.map((item, i) => (
+                <div key={i} style={{ marginBottom: '1rem', paddingBottom: '1rem', borderBottom: i < confData.importantDates.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+                  <p style={{ fontSize: '0.72rem', color: 'rgba(148,163,184,0.7)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.2rem' }}>{item.title}</p>
+                  <p style={{ fontSize: '1rem', fontWeight: 700, color: '#38bdf8' }}>{item.date}</p>
+                </div>
+              ))}
+              <div style={{ marginTop: '0.75rem' }}>
+                <p style={{ fontSize: '0.85rem', color: 'rgba(226,232,240,0.5)' }}>Venue: <span style={{ color: '#e2e8f0' }}>SXCCE, Tamil Nadu</span></p>
               </div>
-              <pre
-                style={{
-                  padding: '1.5rem',
-                  fontSize: '.8rem',
-                  color: '#a5f3fc',
-                  overflowX: 'auto',
-                  lineHeight: 1.9,
-                  margin: 0,
-                }}
-              >
-{`{
-  "conference": "${confData.name}",
-  "edition":    "2027",
-  "scope":      "International",
-  "tracks":     4,
-  "venue":      "SXCCE, Tamil Nadu",
-  "status":     "open_for_submissions"
-}`}
-              </pre>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ═══════════════ ORGANIZED BY ═══════════════ */}
+      <section style={{ padding: '2rem 0 4rem', background: 'transparent' }}>
+        <div className="container">
+          <div style={{
+            background: 'rgba(255,255,255,.02)',
+            border: '1px solid rgba(255,255,255,.05)',
+            borderRadius: '16px',
+            padding: '2.5rem',
+            boxShadow: '0 4px 20px rgba(0,0,0,.15)'
+          }}>
+            <h3 style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '1.5rem', fontWeight: 700, color: '#f8fafc', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <div style={{ width: '6px', height: '26px', background: '#38bdf8', borderRadius: '3px' }}></div>
+              Organized By
+            </h3>
+            <div className="org-logos-wrap">
+
+              {/* College */}
+              <div className="org-logo-item">
+                <div style={{ width: '200px', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                  <img src="/images/college-logo.png" alt="College Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
+                <div style={{ color: 'rgba(226,232,240,.85)', fontSize: '1rem', lineHeight: '1.5' }}>
+                  <span style={{ color: '#38bdf8', marginRight: '6px' }}>•</span>
+                  St. Xavier's Catholic College of Engineering (SXCCE), Nagercoil
+                </div>
+              </div>
+
+              {/* Brigitz */}
+              <div className="org-logo-item">
+                <div style={{ width: '180px', height: '220px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                  <img src="/images/Brigitz-Logo.png" alt="Brigitz Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
+                <div style={{ color: 'rgba(226,232,240,.85)', fontSize: '1rem', lineHeight: '1.5' }}>
+                  <span style={{ color: '#38bdf8', marginRight: '6px' }}>•</span>
+                  Brigades Of IT (BRIGITZ)
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* ═══════════════ CAMPUS & DEPARTMENT GALLERY ═══════════════ */}
       <section style={{ padding: '6rem 0', background: 'rgba(255,255,255,.015)' }}>
@@ -884,8 +1013,8 @@ const Home = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '2rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+              gap: '1.5rem',
             }}
           >
             {/* College Building */}
@@ -997,148 +1126,45 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ═══════════════ IMPORTANT DATES ═══════════════ */}
-      <section style={{ padding: '6rem 0', background: 'rgba(255,255,255,.015)' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }} data-reveal>
-            <div className="section-label">Mark Your Calendar</div>
-            <h2
-              style={{ fontSize: 'clamp(2rem,5vw,3rem)', fontWeight: 800, color: '#f8fafc', margin: 0 }}
-            >
-              Important <span className="glow-text">Dates</span>
-            </h2>
-          </div>
 
-          <div className="timeline">
-            {confData.importantDates.map((item, i) => {
-              const isLeft = i % 2 === 0;
-              const accentColor = isLeft ? '#38bdf8' : '#8b5cf6';
-              return (
-                <div key={i} className="tl-item" data-reveal data-delay={String((i % 4) + 1)}>
-                  {/* Left slot */}
-                  <div className="tl-left">
-                    {isLeft && (
-                      <div className="tl-card" style={{ borderColor: `${accentColor}22` }}>
-                        <p style={{ fontSize: '.75rem', color: accentColor, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em' }}>
-                          {item.title}
-                        </p>
-                        <p style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f8fafc', marginTop: '.3rem' }}>
-                          {item.date}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                  {/* Dot */}
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <div className="tl-dot" style={{ background: `linear-gradient(135deg, ${accentColor}, #818cf8)` }} />
-                  </div>
-                  {/* Right slot */}
-                  <div>
-                    {!isLeft && (
-                      <div className="tl-card" style={{ borderColor: `${accentColor}22` }}>
-                        <p style={{ fontSize: '.75rem', color: accentColor, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em' }}>
-                          {item.title}
-                        </p>
-                        <p style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f8fafc', marginTop: '.3rem' }}>
-                          {item.date}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: '3rem' }} data-reveal>
-            <Link to="/program" className="btn-outline-glow" style={{ fontSize: '.9rem', padding: '.7rem 1.75rem' }}>
-              View Full Schedule →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ WHY ATTEND ═══════════════ */}
-      <section style={{ padding: '6rem 0' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }} data-reveal>
-            <div className="section-label">Why ICICET</div>
-            <h2
-              style={{ fontSize: 'clamp(2rem,5vw,3rem)', fontWeight: 800, color: '#f8fafc', margin: 0 }}
-            >
-              Built for <span className="glow-text">Researchers</span>
-            </h2>
-          </div>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))',
-              gap: '1.25rem',
-            }}
-          >
-            {whyAttend.map((f, i) => (
-              <MuseCard key={i} data-reveal data-delay={String((i % 3) + 1)}>
-                <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>{f.icon}</div>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#f8fafc', marginBottom: '.5rem' }}>
-                  {f.title}
-                </h3>
-                <p style={{ color: 'rgba(226,232,240,.5)', fontSize: '.85rem', lineHeight: 1.75 }}>
-                  {f.desc}
-                </p>
-              </MuseCard>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ═══════════════ SPONSORS ═══════════════ */}
-      <section style={{ padding: '5rem 0', background: 'rgba(255,255,255,.015)', textAlign: 'center' }}>
+      <section style={{ padding: '4rem 0', background: 'rgba(255,255,255,.015)' }}>
         <div className="container">
-          <div style={{ marginBottom: '2.5rem' }} data-reveal>
-            <div className="section-label">Sponsored By</div>
-            <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#f8fafc', margin: 0 }}>
-              Our <span className="glow-text">Partners</span>
+
+          {/* SPONSORED BY */}
+          <div data-reveal>
+            <h2 style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '1.5rem', fontWeight: 800, color: '#f8fafc', marginBottom: '2rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <div style={{ width: '6px', height: '26px', background: '#38bdf8', borderRadius: '3px', flexShrink: 0 }}></div>
+              Sponsored By
             </h2>
+            <div className="sponsor-items-wrap" data-reveal data-delay="1">
+              {[
+                { name: 'SXCCE', logo: '/images/sponsors/SXCCE.png' },
+                { name: 'IISER', logo: '/images/sponsors/IISER.jpg' },
+                { name: 'UNICAMP', logo: '/images/sponsors/UNICAMP.png' },
+              ].map((s, i) => (
+                <div key={i} className="sponsor-item" style={{
+                  background: 'rgba(255,255,255,.02)', border: '1px solid rgba(255,255,255,.05)',
+                  borderRadius: '14px', padding: '1.25rem 1.5rem',
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1rem',
+                  boxShadow: '0 4px 20px rgba(0,0,0,.15)', transition: 'transform .3s, border-color .3s'
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = 'rgba(56,189,248,.3)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,.05)'; }}
+                >
+                  <img src={s.logo} alt={s.name} style={{ maxHeight: '80px', maxWidth: '160px', objectFit: 'contain' }} />
+                  <span style={{ color: 'rgba(226,232,240,.7)', fontSize: '0.9rem', fontWeight: 600 }}>{s.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div
-            style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '2rem' }}
-            data-reveal
-            data-delay="2"
-          >
-            {[
-              { name: 'SXCCE', logo: '/images/sponsors/SXCCE.png' },
-              { name: 'IISER', logo: '/images/sponsors/IISER.jpg' },
-              { name: 'UNICAMP', logo: '/images/sponsors/UNICAMP.png' }
-            ].map((s, i) => (
-              <div key={i} style={{
-                background: 'rgba(255,255,255,.02)',
-                border: '1px solid rgba(255,255,255,.05)',
-                borderRadius: '16px',
-                padding: '1.5rem',
-                width: '260px',
-                height: '130px',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                boxShadow: '0 4px 20px rgba(0,0,0,.15)',
-                transition: 'transform .3s, border-color .3s'
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = 'rgba(56,189,248,.3)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,.05)'; }}
-              >
-                <img src={s.logo} alt={s.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
-              </div>
-            ))}
-          </div>
-          <p style={{ color: 'rgba(226,232,240,.3)', marginTop: '2rem', fontSize: '.875rem' }} data-reveal data-delay="3">
-            Interested in sponsoring?{' '}
-            <Link to="/contact" style={{ color: '#38bdf8' }}>
-              Contact us
-            </Link>
-          </p>
+
         </div>
       </section>
 
       {/* ═══════════════ CTA BANNER ═══════════════ */}
-      <section style={{ padding: '7rem 0', position: 'relative', overflow: 'hidden' }}>
+      <section className="cta-section" style={{ padding: '7rem 0', position: 'relative', overflow: 'hidden' }}>
         <div
           style={{
             position: 'absolute', inset: 0, pointerEvents: 'none',

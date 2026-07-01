@@ -12,6 +12,7 @@ import Registration from './pages/Registration';
 import Program from './pages/Program';
 import History from './pages/History';
 import Contact from './pages/Contact';
+import ImportantDates from './pages/ImportantDates';
 import './index.css';
 
 /* ─── Global mouse-following glow ─── */
@@ -139,7 +140,7 @@ function App() {
             <Route path="/speakers" element={<Speakers />} />
             <Route path="/submissions" element={<Submissions />} />
             <Route path="/registration" element={<Registration />} />
-
+            <Route path="/important-dates" element={<ImportantDates />} />
             <Route path="/program" element={<Program />} />
             <Route path="/history" element={<History />} />
             <Route path="/contact" element={<Contact />} />

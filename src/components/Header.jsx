@@ -55,39 +55,6 @@ const Header = () => {
           box-shadow: 0 4px 32px rgba(0,0,0,0.5), 0 0 40px rgba(56,100,255,0.08);
         }
 
-        /* ── Header top logos ── */
-        .header-top-logos {
-          background: transparent;
-          padding: 8px 0;
-          margin: 12px 0 6px 0;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 20px;
-        }
-        .header-top-logos-left {
-          flex: 1;
-          display: flex;
-          align-items: center;
-        }
-        .header-college-banner {
-          max-height: 115px;
-          width: auto;
-          max-width: 100%;
-          object-fit: contain;
-        }
-        .header-top-logos-right {
-          flex: 0 0 auto;
-          display: flex;
-          align-items: center;
-        }
-        .header-brigitz-logo {
-          max-height: 130px;
-          width: auto;
-          object-fit: contain;
-          transform: scale(1.1);
-        }
-
 
         /* ── Nav links hover ── */
         .nav-link {
@@ -244,19 +211,7 @@ const Header = () => {
         }
       `}</style>
 
-      {/* Top Banner (Not Sticky) */}
-      <div className="header-top-banner">
-        <div className="container">
-          <div className="header-top-logos">
-            <div className="header-top-logos-left">
-              <img src="/images/college-logo.png" alt="College Logo" className="header-college-banner" />
-            </div>
-            <div className="header-top-logos-right">
-              <img src="/images/Brigitz-Logo.png" alt="Brigitz Logo" className="header-brigitz-logo" />
-            </div>
-          </div>
-        </div>
-      </div>
+
 
       <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
@@ -292,21 +247,10 @@ const Header = () => {
               </div>
 
               <Link to="/registration" className={`nav-link${isActive('/registration') ? ' active' : ''}`}>Registration</Link>
-
+              <Link to="/important-dates" className={`nav-link${isActive('/important-dates') ? ' active' : ''}`}>Dates</Link>
               <Link to="/program" className={`nav-link${isActive('/program') ? ' active' : ''}`}>Program</Link>
 
-              <div className="dropdown">
-                <span className="dropdown-trigger">
-                  More
-                  <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
-                </span>
-                <div className="dropdown-content">
-                  <Link to="/history">History</Link>
-                  <Link to="/contact">Contact</Link>
-                </div>
-              </div>
+              <Link to="/contact" className={`nav-link${isActive('/contact') ? ' active' : ''}`}>Contact Us</Link>
             </nav>
 
             {/* Mobile Toggle */}
@@ -330,9 +274,9 @@ const Header = () => {
 
             <Link to="/submissions">Submission</Link>
             <Link to="/registration">Registration</Link>
+            <Link to="/important-dates">Important Dates</Link>
             <Link to="/program">Program</Link>
-            <Link to="/history">History</Link>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact">Contact Us</Link>
           </div>
         )}
       </header>
