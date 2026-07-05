@@ -2,15 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { confData } from '../data/conferenceData';
 
-const NAV_LINK = {
-  fontWeight: 500,
-  fontSize: '0.9rem',
-  color: 'rgba(226,232,240,0.75)',
-  letterSpacing: '0.02em',
-  transition: 'color 0.2s',
-  padding: '6px 0',
-  position: 'relative',
-};
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,10 +20,6 @@ const Header = () => {
 
   const isActive = (path) => location.pathname === path;
 
-  const linkStyle = (path) => ({
-    ...NAV_LINK,
-    color: isActive(path) ? '#38bdf8' : 'rgba(226,232,240,0.75)',
-  });
 
   return (
     <>
@@ -249,6 +236,7 @@ const Header = () => {
               <Link to="/registration" className={`nav-link${isActive('/registration') ? ' active' : ''}`}>Registration</Link>
               <Link to="/important-dates" className={`nav-link${isActive('/important-dates') ? ' active' : ''}`}>Dates</Link>
               <Link to="/program" className={`nav-link${isActive('/program') ? ' active' : ''}`}>Program</Link>
+              <Link to="/faq" className={`nav-link${isActive('/faq') ? ' active' : ''}`}>FAQ</Link>
 
               <Link to="/contact" className={`nav-link${isActive('/contact') ? ' active' : ''}`}>Contact Us</Link>
             </nav>
@@ -276,6 +264,7 @@ const Header = () => {
             <Link to="/registration">Registration</Link>
             <Link to="/important-dates">Important Dates</Link>
             <Link to="/program">Program</Link>
+            <Link to="/faq">FAQ</Link>
             <Link to="/contact">Contact Us</Link>
           </div>
         )}

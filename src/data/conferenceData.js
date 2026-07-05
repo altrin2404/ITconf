@@ -1,6 +1,6 @@
 export const confData = {
-  name: "ICICET2027",
-  fullName: "International Conference on Innovations in Computing and Emerging Technologies",
+  name: "ICICCT2027",
+  fullName: "International Conference on Intelligent Communications and Computing Technologies",
   date: "April 1 - 2, 2027",
   location: "SXCCE",
 
@@ -88,7 +88,9 @@ export const confData = {
       { name: "Dr. Surjeet Dalal", affiliation: "Amity University Haryana, India" },
       { name: "Dr. Mayuri Mehta", affiliation: "India" },
       { name: "Dr. Hikku G. S", affiliation: "Chettinad Academy of Research & Education, India" },
-      { name: "Dr. Ananth J P", affiliation: "Dayananda Sagar University, Bengaluru, India" }
+      { name: "Dr. Ananth J P", affiliation: "Dayananda Sagar University, Bengaluru, India" },
+      { name: "Dr. Ahmed Elngar", affiliation: "Beni-Suef University, Egypt" },
+      { name: "Prof. Sanjiv Kumar Jain", affiliation: "Medicaps University, India" }
     ],
     publicityChair: [
       { name: "Prof. Paulo Waldir Tardioli", affiliation: "UFSCAR", image: "/images/publicityChair/Prof. Paulo Waldir Tardioli.jpg" }

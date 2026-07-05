@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { confData } from '../data/conferenceData';
-import { Link } from 'react-router-dom';
 
 const ImportantDates = () => {
   useEffect(() => {

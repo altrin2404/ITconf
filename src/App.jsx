@@ -1,54 +1,73 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useState, useRef, Suspense, lazy } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import Committees from './pages/Committees';
-import CallForPapers from './pages/CallForPapers';
-import Speakers from './pages/Speakers';
-import Submissions from './pages/Submissions';
-import Registration from './pages/Registration';
-
-import Program from './pages/Program';
-import History from './pages/History';
-import Contact from './pages/Contact';
-import ImportantDates from './pages/ImportantDates';
+const Home = lazy(() => import('./pages/Home'));
+const Committees = lazy(() => import('./pages/Committees'));
+const CallForPapers = lazy(() => import('./pages/CallForPapers'));
+const Speakers = lazy(() => import('./pages/Speakers'));
+const Submissions = lazy(() => import('./pages/Submissions'));
+const Registration = lazy(() => import('./pages/Registration'));
+const Program = lazy(() => import('./pages/Program'));
+const History = lazy(() => import('./pages/History'));
+const Contact = lazy(() => import('./pages/Contact'));
+const FAQ = lazy(() => import('./pages/FAQ'));
+const ImportantDates = lazy(() => import('./pages/ImportantDates'));
 import './index.css';
 
-/* ─── Global mouse-following glow ─── */
-function CursorGlow() {
-  const glowRef = useRef(null);
-  const trailRef = useRef(null);
+/* ─── Premium Flow Cursor ─── */
+function CursorFlow() {
+  const dotRef = useRef(null);
   const ringRef = useRef(null);
-  const pos = useRef({ x: 0, y: 0 });
-  const ringPos = useRef({ x: 0, y: 0 });
-  const target = useRef({ x: 0, y: 0 });
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
-    const onMove = (e) => {
-      target.current = { x: e.clientX, y: e.clientY };
+    const checkTouch = () => {
+      setIsTouchDevice(
+        'ontouchstart' in window ||
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia('(pointer: coarse)').matches
+      );
     };
+    checkTouch();
+    window.addEventListener('resize', checkTouch);
+    return () => window.removeEventListener('resize', checkTouch);
+  }, []);
+
+  useEffect(() => {
+    if (isTouchDevice) return;
+
+    const noCursor = document.createElement('style');
+    noCursor.textContent = `*, *::before, *::after { cursor: none !important; }`;
+    document.head.appendChild(noCursor);
+
+    const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const ring = { x: mouse.x, y: mouse.y };
+    let hovering = false;
+
+    const onMove = (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      hovering = !!(el && el.closest('a,button,[role="button"],input,textarea,select,label'));
+    };
+
     window.addEventListener('mousemove', onMove);
 
     let raf;
     const animate = () => {
-      // Smooth interpolation for the large glow
-      pos.current.x += (target.current.x - pos.current.x) * 0.08;
-      pos.current.y += (target.current.y - pos.current.y) * 0.08;
-      
-      // Smooth interpolation for the outer ring (faster than glow)
-      ringPos.current.x += (target.current.x - ringPos.current.x) * 0.18;
-      ringPos.current.y += (target.current.y - ringPos.current.y) * 0.18;
+      // Ring follows mouse with spring physics
+      ring.x += (mouse.x - ring.x) * 0.2;
+      ring.y += (mouse.y - ring.y) * 0.2;
 
-      if (glowRef.current) {
-        glowRef.current.style.transform = `translate(${pos.current.x}px, ${pos.current.y}px)`;
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0) scale(${hovering ? 0 : 1})`;
       }
+      
       if (ringRef.current) {
-        ringRef.current.style.transform = `translate(${ringPos.current.x}px, ${ringPos.current.y}px)`;
-      }
-      if (trailRef.current) {
-        trailRef.current.style.left = `${target.current.x}px`;
-        trailRef.current.style.top = `${target.current.y}px`;
+        ringRef.current.style.transform = `translate3d(${ring.x}px, ${ring.y}px, 0) scale(${hovering ? 1.4 : 1})`;
+        ringRef.current.style.borderColor = hovering ? 'rgba(56,189,248,1)' : 'rgba(139,92,246,0.8)';
+        ringRef.current.style.background = hovering ? 'rgba(56,189,248,0.1)' : 'transparent';
       }
 
       raf = requestAnimationFrame(animate);
@@ -58,57 +77,55 @@ function CursorGlow() {
     return () => {
       window.removeEventListener('mousemove', onMove);
       cancelAnimationFrame(raf);
+      document.head.removeChild(noCursor);
     };
-  }, []);
+  }, [isTouchDevice]);
+
+  if (isTouchDevice) return null;
 
   return (
     <>
-      {/* Large soft glow */}
-      <div
-        ref={glowRef}
-        style={{
-          position: 'fixed',
-          top: 0, left: 0,
-          width: '600px', height: '600px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(56,189,248,0.08) 0%, rgba(139,92,246,0.04) 30%, transparent 70%)',
-          pointerEvents: 'none',
-          zIndex: 9998,
-          marginLeft: '-300px', marginTop: '-300px',
-          willChange: 'transform',
-          mixBlendMode: 'screen',
-        }}
-      />
-      {/* Following outer ring */}
+      <style>{`
+        @media (max-width: 1024px), (pointer: coarse) {
+          .custom-cursor-element {
+            display: none !important;
+          }
+        }
+      `}</style>
+      
+      {/* Flowing Ring */}
       <div
         ref={ringRef}
+        className="custom-cursor-element"
         style={{
-          position: 'fixed',
-          top: 0, left: 0,
+          position: 'fixed', top: 0, left: 0,
           width: '40px', height: '40px',
-          borderRadius: '50%',
-          border: '1px solid rgba(56,189,248,0.5)',
-          boxShadow: '0 0 15px rgba(56,189,248,0.3)',
-          pointerEvents: 'none',
-          zIndex: 9999,
           marginLeft: '-20px', marginTop: '-20px',
-          willChange: 'transform',
+          border: '1.5px solid rgba(139,92,246,0.8)',
+          boxShadow: '0 0 10px rgba(56,189,248,0.5), inset 0 0 10px rgba(139,92,246,0.3)',
+          borderRadius: '50%',
+          pointerEvents: 'none',
+          zIndex: 99998,
+          willChange: 'transform, background, border-color',
+          transition: 'transform 0.15s ease-out, background 0.3s, border-color 0.3s'
         }}
       />
-      {/* Small bright dot */}
+
+      {/* Center Dot */}
       <div
-        ref={trailRef}
+        ref={dotRef}
+        className="custom-cursor-element"
         style={{
-          position: 'fixed',
-          width: '8px', height: '8px',
+          position: 'fixed', top: 0, left: 0,
+          width: '6px', height: '6px',
+          marginLeft: '-3px', marginTop: '-3px',
+          background: '#ffffff',
+          boxShadow: '0 0 8px #ffffff, 0 0 15px #38bdf8',
           borderRadius: '50%',
-          background: '#38bdf8',
-          boxShadow: '0 0 10px #38bdf8, 0 0 20px #818cf8, 0 0 30px #e879f9',
           pointerEvents: 'none',
-          zIndex: 10000,
-          marginLeft: '-4px', marginTop: '-4px',
-          transition: 'left 0.02s linear, top 0.02s linear',
-          willChange: 'left, top',
+          zIndex: 99999,
+          willChange: 'transform',
+          transition: 'transform 0.15s ease-out'
         }}
       />
     </>
@@ -129,22 +146,25 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <CursorGlow />
+      <CursorFlow />
       <div className="app-wrapper" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Header />
         <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/committees" element={<Committees />} />
-            <Route path="/call-for-papers" element={<CallForPapers />} />
-            <Route path="/speakers" element={<Speakers />} />
-            <Route path="/submissions" element={<Submissions />} />
-            <Route path="/registration" element={<Registration />} />
-            <Route path="/important-dates" element={<ImportantDates />} />
-            <Route path="/program" element={<Program />} />
-            <Route path="/history" element={<History />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
+          <Suspense fallback={<div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#38bdf8' }}>Loading...</div>}>
+            <Routes>
+              <Route path="/"                element={<Home />} />
+              <Route path="/committees"      element={<Committees />} />
+              <Route path="/call-for-papers" element={<CallForPapers />} />
+              <Route path="/speakers"        element={<Speakers />} />
+              <Route path="/submissions"     element={<Submissions />} />
+              <Route path="/registration"    element={<Registration />} />
+              <Route path="/important-dates" element={<ImportantDates />} />
+              <Route path="/program"         element={<Program />} />
+              <Route path="/faq"             element={<FAQ />} />
+              <Route path="/history"         element={<History />} />
+              <Route path="/contact"         element={<Contact />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>

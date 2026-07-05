@@ -141,38 +141,6 @@ const Home = () => {
     { value: '0', suffix: '', label: 'Research Papers' },
   ];
 
-  const whyAttend = [
-    {
-      icon: '📖',
-      title: 'Quality Publication',
-      desc: 'All accepted papers will be published in the official conference proceedings.',
-    },
-    {
-      icon: '🎤',
-      title: 'Expert Keynotes',
-      desc: 'Hear from world-class researchers and industry leaders across cutting-edge domains.',
-    },
-    {
-      icon: '🤝',
-      title: 'Networking',
-      desc: 'Connect with 500+ attendees, researchers, faculty, and industry professionals.',
-    },
-    {
-      icon: '🏅',
-      title: 'Best Paper Awards',
-      desc: 'Outstanding papers recognised with prestigious awards across all tracks.',
-    },
-    {
-      icon: '🌍',
-      title: 'Global Reach',
-      desc: 'International participants from universities and institutions across the globe.',
-    },
-    {
-      icon: '🔬',
-      title: 'Workshops & Demos',
-      desc: 'Hands-on workshops and live demonstrations of emerging technologies.',
-    },
-  ];
 
   return (
     <div className="home-page">
@@ -712,24 +680,32 @@ const Home = () => {
                 color: rgba(226,232,240,0.6);
                 font-size: 1em;
               }
+              .hero-subtitle {
+                white-space: nowrap;
+              }
+              @media(max-width: 768px) {
+                .hero-subtitle {
+                  white-space: normal !important;
+                }
+              }
             `}</style>
             <p
+              className="hero-subtitle"
               style={{
                 fontSize: 'clamp(0.85rem,2.5vw,1.25rem)',
-                maxWidth: '760px',
+                maxWidth: '1200px',
                 margin: '0 auto 1rem',
                 lineHeight: 1.9,
                 letterSpacing: '0.01em',
                 padding: '0 0.5rem',
-                wordBreak: 'break-word',
               }}
             >
               {[
                 { letter: 'I', rest: 'nternational ' },
                 { letter: 'C', rest: 'onference on ' },
-                { letter: 'I', rest: 'nnovations in ' },
-                { letter: 'C', rest: 'omputing and ' },
-                { letter: 'E', rest: 'merging ' },
+                { letter: 'I', rest: 'ntelligent ' },
+                { letter: 'C', rest: 'ommunications and ' },
+                { letter: 'C', rest: 'omputing ' },
                 { letter: 'T', rest: 'echnologies' },
               ].map(({ letter, rest }, i) => (
                 <span key={i}>
