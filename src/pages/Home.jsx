@@ -601,8 +601,6 @@ const Home = () => {
         <div className="ticker-inner">
           {[...Array(2)].map((_, i) => (
             <span key={i} style={{ display: 'inline-flex', gap: '3rem' }}>
-              <span><FiCheckCircle aria-hidden="true" /> All accepted papers will be published in conference proceedings</span>
-              <span className="ticker-sep">|</span>
               <span><FiCalendar aria-hidden="true" /> Paper Submission Deadline: {confData.importantDates[0]?.date}</span>
               <span className="ticker-sep">|</span>
               <span><FiGlobe aria-hidden="true" /> {confData.fullName}</span>

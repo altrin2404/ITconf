@@ -135,7 +135,7 @@ const Submissions = () => {
           {/* Editorial Policy */}
           <Section id="editorial-policy" title="Editorial Policy" icon="">
             <p className="sub-text">
-              All submitted articles should report original research results — experimental or theoretical — not previously published or under consideration for publication elsewhere.
+              All submitted articles should report original research results — experimental or theoretical — not previously presented or under consideration elsewhere.
               Articles submitted to the conference must meet these criteria.
             </p>
             <p className="sub-text">
@@ -148,7 +148,7 @@ const Submissions = () => {
                 'At least one author per accepted paper must register and present the paper at the conference.',
                 'Authors are responsible for the accuracy, originality, and ethical standards of their work.',
                 'All papers undergo double-blind peer review by at least two domain experts.',
-                'Accepted papers will be published in the conference proceedings only after registration and presentation.',
+                'Accepted papers will be included in the conference program only after registration and presentation.',
               ].map((item, i) => (
                 <li key={i}>
                   <span className="sub-list-bullet">▶</span>

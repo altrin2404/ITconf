@@ -187,7 +187,7 @@ const CallForPapers = () => {
               <h2 style={{ color: '#1a1a1a', marginTop: '0.5rem', marginBottom: '1.5rem' }}>Submission Guidelines</h2>
               <div className="cfp-guidelines-box">
                 {[
-                  { icon: '', title: 'Original Work', desc: 'Papers must report original research not previously published or under consideration elsewhere.' },
+                  { icon: '', title: 'Original Work', desc: 'Papers must report original research not previously presented or under consideration elsewhere.' },
                   { icon: '', title: 'Paper Length', desc: 'Full papers: 6–8 pages. Short papers: 4–5 pages, including all figures, tables, and references.' },
                   { icon: '', title: 'Paper Format', desc: 'Use the conference template. LaTeX and MS Word templates are available for download.' },
                   { icon: '', title: 'Plagiarism Policy', desc: 'All submissions will be checked for plagiarism. Maximum similarity: 14%. AI-generated content is not allowed.' },
@@ -206,25 +206,6 @@ const CallForPapers = () => {
             </div>
 
             <div data-reveal data-delay="1">
-              <div className="section-badge">Publication</div>
-              <h2 style={{ color: '#1a1a1a', marginTop: '0.5rem', marginBottom: '1.5rem' }}>Publication Info</h2>
-              <div className="cfp-guidelines-box" style={{ marginBottom: '1.5rem' }}>
-                <p style={{ color: '#3d3d3d', lineHeight: 1.8, fontSize: '0.95rem', marginBottom: '1rem' }}>
-                  All accepted and presented papers at {confData.name} will be published in the conference proceedings by a reputed international publisher.
-                  Published papers will be indexed in major scientific databases.
-                </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '1.25rem' }}>
-                  {['Scopus', 'Web of Science', 'IEEE Xplore', 'Springer'].map(db => (
-                    <span key={db} style={{ background: '#fdf3f3', border: '1px solid rgba(139,26,26,0.2)', color: '#8B1A1A', fontSize: '0.8rem', fontWeight: 600, padding: '4px 12px', borderRadius: '20px' }}>
-                      {db}
-                    </span>
-                  ))}
-                </div>
-                <p style={{ color: '#666', fontSize: '0.83rem', lineHeight: 1.6, margin: 0 }}>
-                  <strong>Note:</strong> Authors must present their paper at the conference for it to be included in the proceedings.
-                </p>
-              </div>
-
               <div className="cfp-cta-box" data-reveal data-delay="2">
                 <h3>Ready to Submit?</h3>
                 <p>Submit your paper through our online submission portal.</p>

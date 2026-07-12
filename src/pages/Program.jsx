@@ -151,7 +151,7 @@ const Program = () => {
                Download Detailed PDF Schedule
             </button>
             <p style={{ color: '#777', fontSize: '0.85rem', marginTop: '1rem' }}>
-              Note: The final schedule will be published one week before the conference.
+              Note: The final schedule will be released one week before the conference.
             </p>
           </div>
         </div>
