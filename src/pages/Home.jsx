@@ -767,8 +767,45 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ═══════════════ CAMPUS GALLERY ═══════════════ */}
+      {/* ═══════════════ SPONSORS ═══════════════ */}
       <section className="sec-white" style={{ padding: '5rem 0' }}>
+        <div className="container">
+          <div className="sec-header" data-reveal>
+            <div className="sec-badge">Support</div>
+            <h2>Our Sponsors</h2>
+            <div className="sec-divider"></div>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', maxWidth: 800, margin: '0 auto' }} data-reveal data-delay="1">
+            <div className="org-logo-box" style={{ padding: '1.5rem', height: '100%', justifyContent: 'space-between' }}>
+              <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+                <img src="/images/sponsors/college-logo.png" alt="SXCCE" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
+              </div>
+              <div className="org-logo-name" style={{ marginTop: '1rem' }}>SXCCE</div>
+            </div>
+            <div className="org-logo-box" style={{ padding: '1.5rem', height: '100%', justifyContent: 'space-between' }}>
+              <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+                <img src="/images/sponsors/IISER.jpg" alt="IISER" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
+              </div>
+              <div className="org-logo-name" style={{ marginTop: '1rem' }}>IISER</div>
+            </div>
+            <div className="org-logo-box" style={{ padding: '1.5rem', height: '100%', justifyContent: 'space-between' }}>
+              <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+                <img src="/images/sponsors/UNICAMP.png" alt="UNICAMP" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
+              </div>
+              <div className="org-logo-name" style={{ marginTop: '1rem' }}>UNICAMP</div>
+            </div>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '3rem' }} data-reveal data-delay="2">
+            <p style={{ color: '#555', fontSize: '1.05rem', marginBottom: '1rem', fontWeight: 500 }}>Interest in sponsoring us?</p>
+            <Link to="/contact" style={{ display: 'inline-flex', padding: '0.75rem 2rem', background: '#8B1A1A', color: '#fff', borderRadius: '6px', fontWeight: 600, textDecoration: 'none', transition: 'background 0.3s' }} onMouseOver={(e) => e.target.style.background = '#6b1313'} onMouseOut={(e) => e.target.style.background = '#8B1A1A'}>
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ CAMPUS GALLERY ═══════════════ */}
+      <section className="sec-alt" style={{ padding: '5rem 0' }}>
         <div className="container">
           <div className="sec-header" data-reveal>
             <div className="sec-badge">Campus & Department</div>
