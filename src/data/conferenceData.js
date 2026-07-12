@@ -56,7 +56,7 @@ export const confData = {
       { name: "Prof. Diego Paredes", affiliation: "Universidad de Zaragoza" },
       { name: "Prof. Antonio Carlos Demanboro", affiliation: "PUC CAMPINAS" },
       { name: "Prof. José M. Merigó", affiliation: "Universidad de Chile" },
-      { name: "Profa. Dra. Gaby Patrícia Teran Ortiz", affiliation: "IFMG" },
+      { name: "Prof. Dr. Gaby Patrícia Teran Ortiz", affiliation: "IFMG" },
       { name: "Prof Dr. Eduardo Cavalcanti", affiliation: "UFRN" },
       { name: "Prof. Silva Neto", affiliation: "UERJ" },
       { name: "Prof. Francisco Pérez", affiliation: "Universitat Politécnica de Valencia" },

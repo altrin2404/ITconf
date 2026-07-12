@@ -8,7 +8,7 @@ function useReveal() {
       (entries) => entries.forEach((e) => {
         if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
       }),
-      { threshold: 0.12 }
+      { threshold: 0.1 }
     );
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
@@ -21,103 +21,139 @@ const Program = () => {
   return (
     <div className="page-wrapper">
       <style>{`
-        [data-reveal] { opacity:0; transform:translateY(32px); transition:opacity .7s ease, transform .7s ease; }
-        [data-reveal].revealed { opacity:1; transform:translateY(0); }
-        [data-reveal][data-delay="1"] { transition-delay:.15s; }
-        [data-reveal][data-delay="2"] { transition-delay:.3s; }
-        .glow-text {
-          background: linear-gradient(90deg,#38bdf8,#818cf8,#e879f9,#38bdf8);
-          background-size:300% auto;
-          -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-          background-clip:text; animation:txtF 4s linear infinite;
+        .program-day-card {
+          background: #fff;
+          border: 1px solid #e8e8e8;
+          border-radius: 12px;
+          padding: 2rem 2.5rem;
+          margin-bottom: 2rem;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+          transition: box-shadow 0.25s, border-color 0.25s;
         }
-        @keyframes txtF { to{background-position:300% center;} }
-        .day-card {
-          background:rgba(255,255,255,.03);
-          border:1px solid rgba(255,255,255,.08);
-          border-radius:20px; padding:2rem 2.25rem;
-          transition:border-color .3s;
+        .program-day-card:hover {
+          box-shadow: 0 6px 20px rgba(139,26,26,0.08);
+          border-color: rgba(139,26,26,0.2);
         }
-        .day-card:hover { border-color:rgba(56,189,248,.2); }
-        .day-title {
-          color:#38bdf8; font-weight:800;
-          border-bottom:1px solid rgba(255,255,255,.06);
-          padding-bottom:1rem; margin-bottom:1.25rem;
-          font-size:1.35rem;
-          display:flex; align-items:center; gap:.75rem;
+        .program-day-title {
+          color: #8B1A1A;
+          font-weight: 800;
+          font-family: 'Outfit', sans-serif;
+          font-size: 1.35rem;
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          margin-bottom: 1.5rem;
+          padding-bottom: 1rem;
+          border-bottom: 2px solid #f0f0f0;
+        }
+        .program-day-num {
+          width: 36px; height: 36px;
+          background: #8B1A1A;
+          color: #fff;
+          border-radius: 8px;
+          display: inline-flex; align-items: center; justify-content: center;
+          font-size: 1rem;
+          flex-shrink: 0;
         }
         .event-row {
-          display:grid; grid-template-columns:130px 1fr;
-          gap:1.25rem; padding:1rem;
-          background:rgba(255,255,255,.02);
-          border-radius:10px; align-items:center;
-          border-left:3px solid transparent;
-          transition:border-color .3s, background .3s, transform .3s;
+          display: grid;
+          grid-template-columns: 140px 1fr;
+          gap: 1.5rem;
+          padding: 1.1rem;
+          background: #fdf3f3;
+          border: 1px solid rgba(139,26,26,0.1);
+          border-radius: 8px;
+          align-items: center;
+          border-left: 4px solid #8B1A1A;
+          transition: transform 0.2s, background 0.2s;
         }
         .event-row:hover {
-          border-left-color:#8b5cf6;
-          background:rgba(56,189,248,.04);
-          transform:translateX(4px);
+          transform: translateX(4px);
+          background: rgba(139,26,26,0.08);
         }
         .event-time {
-          color:#818cf8;
-          font-weight:700;
-          font-family:'Outfit', sans-serif;
-          font-size:.95rem;
+          color: #1a1a1a;
+          font-weight: 700;
+          font-size: 0.95rem;
+          font-family: 'Outfit', sans-serif;
         }
         .event-title {
-          color:#e2e8f0;
-          font-size:1.05rem;
+          color: #3d3d3d;
+          font-size: 1rem;
+          font-weight: 500;
+        }
+
+        .program-cta {
+          background: linear-gradient(135deg, #8B1A1A, #6b1313);
+          color: #fff;
+          border: none;
+          padding: 1rem 2.5rem;
+          font-size: 1.05rem;
+          font-weight: 700;
+          border-radius: 6px;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .program-cta:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(139,26,26,0.3);
+        }
+
+        @media (max-width: 640px) {
+          .event-row {
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+            padding: 1rem;
+          }
+          .event-time { color: #8B1A1A; }
+          .program-day-card { padding: 1.5rem; }
         }
       `}</style>
 
       {/* Hero */}
-      <div className="dark-page-hero">
-        <div className="dot-grid-sm" />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div data-reveal>
-            <h1 className="glow-text" style={{ fontSize: 'clamp(2.5rem,7vw,4rem)', fontWeight: 900 }}>
-              Program Schedule
-            </h1>
-            <p style={{ color: 'rgba(226,232,240,.55)', maxWidth: 600, margin: '.5rem auto 0', fontSize: '1.1rem' }}>
-              The comprehensive schedule for {confData.name}. Times are subject to minor changes.
-            </p>
+      <div className="page-hero">
+        <div className="container">
+          <div className="page-hero-breadcrumb">
+            <a href="/">Home</a><span>/</span><span>Program Schedule</span>
           </div>
+          <h1>Program Schedule</h1>
+          <p>The comprehensive schedule for {confData.name}. Times are subject to minor changes.</p>
         </div>
       </div>
 
-      <div className="container" style={{ paddingBottom: '4rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          {confData.schedule.map((dayData, index) => (
-            <div key={index} className="day-card" data-reveal data-delay={String(index + 1)}>
-              <h2 className="day-title">
-                <span style={{
-                  width: 36, height: 36, borderRadius: '50%',
-                  background: 'linear-gradient(135deg,#0ea5e9,#8b5cf6)',
-                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: '1rem', color: '#fff', fontWeight: 700,
-                }}>
-                  {index + 1}
-                </span>
-                {dayData.day}
-              </h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '.75rem' }}>
-                {dayData.events.map((event, i) => (
-                  <div key={i} className="event-row">
-                    <div className="event-time">{event.time}</div>
-                    <div className="event-title">{event.title}</div>
-                  </div>
-                ))}
+      <div style={{ background: '#f8f8f8', padding: '4rem 0' }}>
+        <div className="container" style={{ maxWidth: 860 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            {confData.schedule.map((dayData, index) => (
+              <div key={index} className="program-day-card" data-reveal data-delay={String((index % 2) + 1)}>
+                <h2 className="program-day-title">
+                  <span className="program-day-num">{index + 1}</span>
+                  {dayData.day}
+                </h2>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                  {dayData.events.map((event, i) => (
+                    <div key={i} className="event-row">
+                      <div className="event-time"> {event.time}</div>
+                      <div className="event-title">{event.title}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* CTA */}
-        <div className="text-center" data-reveal style={{ paddingTop: '3rem' }}>
-          <button className="btn btn-primary" style={{ padding: '1rem 2.5rem' }}>
-            📥 Download Detailed PDF Schedule
-          </button>
+          {/* CTA */}
+          <div className="text-center" data-reveal style={{ paddingTop: '2rem' }}>
+            <button className="program-cta">
+               Download Detailed PDF Schedule
+            </button>
+            <p style={{ color: '#777', fontSize: '0.85rem', marginTop: '1rem' }}>
+              Note: The final schedule will be published one week before the conference.
+            </p>
+          </div>
         </div>
       </div>
     </div>

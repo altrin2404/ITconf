@@ -8,7 +8,7 @@ function useReveal() {
       (entries) => entries.forEach((e) => {
         if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
       }),
-      { threshold: 0.12 }
+      { threshold: 0.1 }
     );
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
@@ -21,95 +21,178 @@ const Speakers = () => {
   return (
     <div className="page-wrapper">
       <style>{`
-        [data-reveal] { opacity:0; transform:translateY(32px); transition:opacity .7s ease, transform .7s ease; }
-        [data-reveal].revealed { opacity:1; transform:translateY(0); }
-        [data-reveal][data-delay="1"] { transition-delay:.1s; }
-        [data-reveal][data-delay="2"] { transition-delay:.2s; }
-        [data-reveal][data-delay="3"] { transition-delay:.3s; }
-        .glow-text {
-          background: linear-gradient(90deg,#38bdf8,#818cf8,#e879f9,#38bdf8);
-          background-size:300% auto;
-          -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-          background-clip:text; animation:txtF 4s linear infinite;
-        }
-        @keyframes txtF { to{background-position:300% center;} }
         .speaker-card {
-          background:rgba(255,255,255,.03);
-          border:1px solid rgba(255,255,255,.08);
-          border-radius:16px; padding:2rem;
-          transition:border-color .35s, transform .45s cubic-bezier(.23,1,.32,1), box-shadow .4s;
+          background: #fff;
+          border: 1px solid #e8e8e8;
+          border-radius: 10px;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+          overflow: hidden;
+          transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
         }
         .speaker-card:hover {
-          border-color:rgba(56,189,248,.3);
-          transform:translateY(-6px);
-          box-shadow:0 24px 60px rgba(0,0,0,.35);
+          box-shadow: 0 8px 28px rgba(139,26,26,0.12);
+          transform: translateY(-4px);
+          border-color: rgba(139,26,26,0.25);
         }
-        .speaker-avatar {
-          width:140px; height:140px; border-radius:16px;
-          overflow:hidden; flex-shrink:0;
-          border:2px solid rgba(56,189,248,.3);
-          background:rgba(255,255,255,.05);
-          display:flex; align-items:center; justify-content:center;
-          font-size:2.5rem; color:rgba(226,232,240,.3);
+        .speaker-photo-wrap {
+          width: 140px;
+          height: 140px;
+          margin: 2rem auto 0 auto;
+          border-radius: 50%;
+          overflow: hidden;
+          background: #fdf3f3;
+          border: 4px solid #fff;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+          position: relative;
+          z-index: 2;
         }
-        .speaker-avatar img {
-          width:100%; height:100%; object-fit:cover;
+        .speaker-photo {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
         }
-        .role-badge {
-          display:inline-block; padding:4px 14px;
-          background:linear-gradient(135deg,#0ea5e9,#8b5cf6);
-          border-radius:20px; font-size:.75rem;
-          font-weight:700; color:#fff;
-          letter-spacing:.04em; margin-bottom:.75rem;
+        .speaker-photo-placeholder {
+          width: 140px;
+          height: 140px;
+          margin: 2rem auto 0 auto;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #fdf3f3, #f5e8e8);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2.5rem;
+          color: rgba(139,26,26,0.3);
+          border: 4px solid #fff;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .speaker-card-body {
+          padding: 1.5rem 2rem 2rem 2rem;
+          text-align: center;
+        }
+        .speaker-role-badge {
+          display: inline-block;
+          background: #8B1A1A;
+          color: #fff;
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          padding: 3px 12px;
+          border-radius: 20px;
+          margin-bottom: 0.75rem;
+        }
+        .speaker-name {
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin-bottom: 0.3rem;
+        }
+        .speaker-affil {
+          color: #777;
+          font-size: 0.88rem;
+          margin-bottom: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.4rem;
+        }
+        .speaker-divider {
+          border: none;
+          border-top: 1px solid #f0f0f0;
+          margin: 1.25rem auto;
+          width: 60%;
+        }
+        .speaker-topic-label {
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: #8B1A1A;
+          font-weight: 700;
+          margin-bottom: 0.3rem;
+        }
+        .speaker-topic {
+          font-size: 0.92rem;
+          color: #3d3d3d;
+          font-weight: 500;
+          margin-bottom: 0.75rem;
+        }
+        .speaker-bio {
+          font-size: 0.875rem;
+          color: #666;
+          line-height: 1.7;
+          margin: 0;
+        }
+
+        .speakers-coming-soon {
+          background: #fdf3f3;
+          border: 2px dashed rgba(139,26,26,0.2);
+          border-radius: 10px;
+          padding: 3rem;
+          text-align: center;
+          color: #888;
+        }
+        .speakers-coming-soon h3 {
+          color: #8B1A1A;
+          margin-bottom: 0.5rem;
         }
       `}</style>
 
       {/* Hero */}
-      <div className="dark-page-hero">
-        <div className="dot-grid-sm" />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div data-reveal>
-            <h1 className="glow-text" style={{ fontSize: 'clamp(2.5rem,7vw,4rem)', fontWeight: 900 }}>
-              Keynote Speakers
-            </h1>
-            <p style={{ color: 'rgba(226,232,240,.55)', maxWidth: 600, margin: '.5rem auto 0', fontSize: '1.1rem' }}>
-              Hear from industry leaders and renowned academics at {confData.name}.
-            </p>
+      <div className="page-hero">
+        <div className="container">
+          <div className="page-hero-breadcrumb">
+            <a href="/">Home</a><span>/</span><span>Speakers</span>
           </div>
+          <h1>Keynote Speakers</h1>
+          <p>Hear from world-renowned researchers and industry leaders at {confData.name}.</p>
         </div>
       </div>
 
-      <div className="container" style={{ paddingBottom: '4rem' }}>
-        <div className="grid-2">
-          {confData.speakers.map((speaker) => (
-            <div key={speaker.id} className="speaker-card" data-reveal data-delay={String(speaker.id)}>
-              <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'center', marginBottom: '1.5rem' }}>
-                <div className="speaker-avatar">
+      <section style={{ background: '#f8f8f8', padding: '4rem 0' }}>
+        <div className="container">
+          <div className="section-header" data-reveal>
+            <div className="section-badge">Invited Speakers</div>
+            <h2 style={{ color: '#1a1a1a' }}>Keynote Speakers</h2>
+            <div className="section-divider"></div>
+          </div>
+
+          {confData.speakers.length > 0 ? (
+            <div className="grid-2">
+              {confData.speakers.map((speaker, i) => (
+                <div key={speaker.id} className="speaker-card" data-reveal data-delay={String(i + 1)}>
                   {speaker.image
-                    ? <img src={speaker.image} alt={speaker.name} />
-                    : '👤'
+                    ? <div className="speaker-photo-wrap">
+                        <img src={speaker.image} alt={speaker.name} className="speaker-photo"
+                          onError={(e) => { e.target.parentElement.style.display = 'none'; e.target.parentElement.nextSibling.style.display = 'flex'; }}
+                        />
+                      </div>
+                    : null
                   }
+                  <div className="speaker-photo-placeholder" style={{ display: speaker.image ? 'none' : 'flex' }}></div>
+                  <div className="speaker-card-body">
+                    <span className="speaker-role-badge">{speaker.role}</span>
+                    <div className="speaker-name">{speaker.name}</div>
+                    <div className="speaker-affil">
+                      <span></span> {speaker.affiliation}
+                    </div>
+                    <hr className="speaker-divider" />
+                    <div className="speaker-topic-label">Talk Topic</div>
+                    <div className="speaker-topic">{speaker.topic}</div>
+                    <p className="speaker-bio">{speaker.bio}</p>
+                  </div>
                 </div>
-                <div>
-                  <div className="role-badge">{speaker.role}</div>
-                  <h3 style={{ margin: 0, color: '#f1f5f9', fontSize: '1.2rem' }}>{speaker.name}</h3>
-                  <p style={{ margin: '0.25rem 0 0', color: 'rgba(226,232,240,.5)', fontSize: '0.9rem' }}>
-                    {speaker.affiliation}
-                  </p>
-                </div>
-              </div>
-              <div style={{ borderTop: '1px solid rgba(255,255,255,.06)', paddingTop: '1.25rem' }}>
-                <h5 style={{ color: '#38bdf8', marginBottom: '.65rem', fontSize: '.9rem', letterSpacing: '.03em' }}>
-                  📌 Topic: {speaker.topic}
-                </h5>
-                <p style={{ color: 'rgba(226,232,240,.55)', fontSize: '.9rem', lineHeight: 1.7 }}>
-                  {speaker.bio}
-                </p>
-              </div>
+              ))}
             </div>
-          ))}
+          ) : (
+            <div className="speakers-coming-soon" data-reveal>
+              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}></div>
+              <h3>Speakers to be Announced</h3>
+              <p>The keynote speakers for {confData.name} will be announced soon. Please check back later.</p>
+            </div>
+          )}
         </div>
-      </div>
+      </section>
     </div>
   );
 };

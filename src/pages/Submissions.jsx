@@ -7,12 +7,26 @@ function useReveal() {
       (entries) => entries.forEach((e) => {
         if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
       }),
-      { threshold: 0.12 }
+      { threshold: 0.1 }
     );
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   }, []);
 }
+
+const Section = ({ id, title, icon, children }) => (
+  <div id={id} style={{ paddingTop: 80, marginTop: -80 }}>
+    <div style={{ background: '#fff', border: '1px solid #e8e8e8', borderRadius: 10, boxShadow: '0 2px 12px rgba(0,0,0,0.07)', overflow: 'hidden', marginBottom: '2rem' }} data-reveal>
+      <div style={{ background: '#8B1A1A', padding: '1rem 1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <span style={{ fontSize: '1.2rem' }}>{icon}</span>
+        <h2 style={{ color: '#fff', margin: 0, fontSize: '1.25rem', fontFamily: 'Outfit, sans-serif' }}>{title}</h2>
+      </div>
+      <div style={{ padding: '1.75rem' }}>
+        {children}
+      </div>
+    </div>
+  </div>
+);
 
 const Submissions = () => {
   useReveal();
@@ -20,135 +34,154 @@ const Submissions = () => {
   return (
     <div className="page-wrapper">
       <style>{`
-        [data-reveal] { opacity:0; transform:translateY(32px); transition:opacity .7s ease, transform .7s ease; }
-        [data-reveal].revealed { opacity:1; transform:translateY(0); }
-        [data-reveal][data-delay="1"] { transition-delay:.1s; }
-        [data-reveal][data-delay="2"] { transition-delay:.2s; }
-        [data-reveal][data-delay="3"] { transition-delay:.3s; }
-        .glow-text {
-          background: linear-gradient(90deg,#38bdf8,#818cf8,#e879f9,#38bdf8);
-          background-size:300% auto;
-          -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-          background-clip:text; animation:txtF 4s linear infinite;
+        .sub-list li {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.6rem;
+          padding: 0.5rem 0;
+          font-size: 0.92rem;
+          color: #444;
+          border-bottom: 1px solid #f5f5f5;
+          line-height: 1.6;
         }
-        @keyframes txtF { to{background-position:300% center;} }
-        .sub-section {
-          background:rgba(255,255,255,.03);
-          border:1px solid rgba(255,255,255,.08);
-          border-radius:16px; padding:2rem 2.25rem;
-          margin-bottom:2rem;
-          transition:border-color .3s;
-        }
-        .sub-section:hover { border-color:rgba(56,189,248,.2); }
+        .sub-list li:last-child { border-bottom: none; }
+        .sub-list-bullet { color: #8B1A1A; font-weight: 700; flex-shrink: 0; }
+        .sub-text { color: #444; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
         .template-btn {
-          display:inline-flex; align-items:center; gap:.5rem;
-          padding:.7rem 1.5rem; border-radius:999px;
-          font-weight:600; font-size:.9rem; cursor:pointer;
-          background:transparent;
-          color:rgba(226,232,240,.75);
-          border:1px solid rgba(255,255,255,.14);
-          transition:border-color .3s, color .3s, background .3s;
-          font-family:'Outfit', sans-serif;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.65rem 1.4rem;
+          border: 2px solid #8B1A1A;
+          border-radius: 6px;
+          color: #8B1A1A;
+          font-weight: 600;
+          font-size: 0.9rem;
+          background: #fff;
+          cursor: pointer;
+          transition: all 0.2s;
         }
         .template-btn:hover {
-          border-color:rgba(56,189,248,.5); color:#fff;
-          background:rgba(56,189,248,.08);
+          background: #8B1A1A;
+          color: #fff;
         }
-        .portal-card {
-          background:linear-gradient(135deg, rgba(14,165,233,.08), rgba(139,92,246,.08));
-          border:1px solid rgba(56,189,248,.15);
-          border-radius:16px; padding:2.5rem;
-          text-align:center; margin-bottom:2rem;
-          transition:border-color .3s;
+        .portal-cta-box {
+          background: linear-gradient(135deg, #8B1A1A, #6b1313);
+          border-radius: 10px;
+          padding: 2.5rem;
+          text-align: center;
+          color: #fff;
+          margin-bottom: 2rem;
         }
-        .portal-card:hover { border-color:rgba(56,189,248,.4); }
-        .ai-list li {
-          padding:.6rem 0;
-          color:rgba(226,232,240,.6);
-          display:flex; align-items:flex-start; gap:.75rem;
-          line-height:1.65;
-        }
-        .ai-list li::before {
-          content:'•'; color:#38bdf8; font-weight:bold; flex-shrink:0;
-        }
+        .portal-cta-box h3 { color: #fff; font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .portal-cta-box p { color: rgba(255,255,255,0.82); margin-bottom: 1.5rem; }
       `}</style>
 
       {/* Hero */}
-      <div className="dark-page-hero">
-        <div className="dot-grid-sm" />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="page-hero">
+        <div className="container">
+          <div className="page-hero-breadcrumb">
+            <a href="/">Home</a><span>/</span><span>Submissions</span>
+          </div>
+          <h1>Paper Submissions</h1>
+          <p>Guidelines, templates, and policies for submitting your research paper.</p>
+        </div>
+      </div>
+
+      <section style={{ background: '#f8f8f8', padding: '4rem 0' }}>
+        <div className="container" style={{ maxWidth: 860 }}>
+
+          {/* Submission Portal */}
           <div data-reveal>
-            <h1 className="glow-text" style={{ fontSize: 'clamp(2.5rem,7vw,4rem)', fontWeight: 900 }}>
-              Submissions
-            </h1>
-            <p style={{ color: 'rgba(226,232,240,.55)', maxWidth: 800, margin: '.5rem auto 0', fontSize: '1.1rem' }}>
-              Paper formatting, submission portals, and conference policies.
-            </p>
+            <div className="portal-cta-box">
+              <h3> Submit Your Paper</h3>
+              <p>Submit your manuscript through our online submission system. Create an account if you don't have one.</p>
+              <a href="#" className="btn" style={{ background: '#fff', color: '#8B1A1A', fontWeight: 700, padding: '0.85rem 2.25rem', borderRadius: 6, display: 'inline-block', fontSize: '1rem' }}>
+                Enter Submission Portal →
+              </a>
+              <div style={{ marginTop: '1rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                <button className="template-btn" style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.4)', color: '#fff' }}>
+                   Word Template
+                </button>
+                <button className="template-btn" style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.4)', color: '#fff' }}>
+                   LaTeX Template
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div className="container" style={{ paddingBottom: '4rem' }}>
-        {/* Paper Formatting */}
-        <div className="sub-section" data-reveal>
-          <h2 style={{ color: '#38bdf8', marginBottom: '1rem' }}>📄 Paper Formatting</h2>
-          <p style={{ color: 'rgba(226,232,240,.6)', marginBottom: '1.25rem', lineHeight: 1.8 }}>
-            Submitted papers must be formatted according to the official template.
-            All submissions should be written in English with a maximum paper length of six (6) printed pages including figures.
-          </p>
-          <div style={{ display: 'flex', gap: '.75rem', flexWrap: 'wrap' }}>
-            <button className="template-btn">📝 Download Word Template</button>
-            <button className="template-btn">📐 Download LaTeX Template</button>
-          </div>
-        </div>
-
-        {/* Submission Portal */}
-        <div className="portal-card" data-reveal data-delay="1">
-          <h2 style={{ color: '#f1f5f9', marginBottom: '.75rem' }}>🚀 Submission Portal</h2>
-          <p style={{ color: 'rgba(226,232,240,.55)', marginBottom: '1.5rem', maxWidth: 600, margin: '0 auto 1.5rem' }}>
-            Please submit your manuscript via our online submission system.
-            You will need to create an account if you don't have one already.
-          </p>
-          <a
-            href="#"
-            className="btn btn-primary"
-            style={{ padding: '.9rem 2.5rem', fontSize: '1.05rem' }}
-          >
-            Enter Submission System →
-          </a>
-        </div>
-
-        {/* Editorial Policy */}
-        <div id="editorial-policy" style={{ paddingTop: 80, marginTop: -80 }}>
-          <div className="sub-section" data-reveal data-delay="2">
-            <h2 className="glow-text" style={{ marginBottom: '1rem' }}>Editorial Policy</h2>
-            <p style={{ color: 'rgba(226,232,240,.6)', marginBottom: '1rem', lineHeight: 1.8 }}>
-              All submitted articles should report original, previously unpublished research results.
-              Articles submitted to the conference should meet these criteria and must not be under consideration for publication elsewhere.
+          {/* Paper Formatting */}
+          <Section id="formatting" title="Paper Formatting" icon="">
+            <p className="sub-text">
+              Submitted papers must be formatted according to the official conference template.
+              All submissions should be written in English with a maximum paper length of <strong>6 printed pages</strong>, including all figures, tables, and references.
             </p>
-            <p style={{ color: 'rgba(226,232,240,.6)', lineHeight: 1.8 }}>
-              We firmly believe that ethical conduct is the most essential virtue of any academic.
-              Hence any act of plagiarism is a totally unacceptable academic misconduct and cannot be tolerated.
-            </p>
-          </div>
-        </div>
-
-        {/* AI Guidelines */}
-        <div id="ai-guidelines" style={{ paddingTop: 80, marginTop: -80 }}>
-          <div className="sub-section" data-reveal data-delay="3">
-            <h2 className="glow-text" style={{ marginBottom: '1rem' }}>Guidelines for AI Tools</h2>
-            <p style={{ color: 'rgba(226,232,240,.6)', marginBottom: '1rem', lineHeight: 1.8 }}>
-              Authors are permitted to use generative AI and AI-assisted technologies in the writing process to improve readability and language.
-              However, these technologies should only be used to improve the text, not to replace the author's critical thinking or analysis.
-            </p>
-            <ul className="ai-list" style={{ listStyle: 'none', padding: 0 }}>
-              <li>AI tools cannot be listed as authors.</li>
-              <li>Authors must disclose the use of AI tools in their manuscript.</li>
-              <li>Authors are fully responsible for the content of their manuscript, even those parts produced by an AI tool.</li>
+            <ul className="sub-list" style={{ listStyle: 'none', padding: 0 }}>
+              {[
+                'Use the provided Word or LaTeX template — do not change layout, margins, or fonts.',
+                'The paper must include: Title, Author(s) and Affiliations, Abstract, Keywords, Main Content, References.',
+                'Figures, tables, and code should be clearly legible and properly captioned.',
+                'All papers must be submitted as a PDF file with fonts embedded.',
+                'Ensure spelling and grammar are correct before submission — changes cannot be made post-submission.',
+              ].map((item, i) => (
+                <li key={i}>
+                  <span className="sub-list-bullet">▶</span>
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
-          </div>
+          </Section>
+
+          {/* Editorial Policy */}
+          <Section id="editorial-policy" title="Editorial Policy" icon="">
+            <p className="sub-text">
+              All submitted articles should report original research results — experimental or theoretical — not previously published or under consideration for publication elsewhere.
+              Articles submitted to the conference must meet these criteria.
+            </p>
+            <p className="sub-text">
+              We firmly believe that ethical conduct is the most essential virtue of any academic.
+              Hence, any act of plagiarism or other misconduct is totally unacceptable and cannot be tolerated.
+              All submissions will be checked for plagiarism. <strong>Maximum allowed similarity: 14%.</strong>
+            </p>
+            <ul className="sub-list" style={{ listStyle: 'none', padding: 0 }}>
+              {[
+                'At least one author per accepted paper must register and present the paper at the conference.',
+                'Authors are responsible for the accuracy, originality, and ethical standards of their work.',
+                'All papers undergo double-blind peer review by at least two domain experts.',
+                'Accepted papers will be published in the conference proceedings only after registration and presentation.',
+              ].map((item, i) => (
+                <li key={i}>
+                  <span className="sub-list-bullet">▶</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </Section>
+
+          {/* AI Guidelines */}
+          <Section id="ai-guidelines" title="Guidelines for AI Tools" icon="">
+            <p className="sub-text">
+              Authors are permitted to use generative AI and AI-assisted technologies in the writing process to improve readability and language.
+              However, these technologies must only be used to enhance the text — not to replace the author's critical thinking, analysis, or original contribution.
+            </p>
+            <ul className="sub-list" style={{ listStyle: 'none', padding: 0 }}>
+              {[
+                'AI-generated content used as-is (without significant modification) is strictly not allowed.',
+                'AI tools (e.g., ChatGPT, Copilot) cannot be listed as authors or co-authors.',
+                'Authors must disclose the use of any AI tools in their manuscript (e.g., in the Acknowledgments section).',
+                'Authors are fully responsible for the entire content of their submission, including any AI-generated portions.',
+                'AI-generated content detected during review may result in desk rejection.',
+              ].map((item, i) => (
+                <li key={i}>
+                  <span className="sub-list-bullet">▶</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </Section>
+
         </div>
-      </div>
+      </section>
     </div>
   );
 };

@@ -9,7 +9,6 @@ const Speakers = lazy(() => import('./pages/Speakers'));
 const Submissions = lazy(() => import('./pages/Submissions'));
 const Registration = lazy(() => import('./pages/Registration'));
 const Program = lazy(() => import('./pages/Program'));
-const History = lazy(() => import('./pages/History'));
 const Contact = lazy(() => import('./pages/Contact'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const ImportantDates = lazy(() => import('./pages/ImportantDates'));
@@ -38,7 +37,7 @@ function CursorFlow() {
     if (isTouchDevice) return;
 
     const noCursor = document.createElement('style');
-    noCursor.textContent = `*, *::before, *::after { cursor: none !important; }`;
+    noCursor.textContent = `@media (min-width: 1025px) and (pointer: fine) { *, *::before, *::after { cursor: none !important; } }`;
     document.head.appendChild(noCursor);
 
     const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
@@ -56,18 +55,18 @@ function CursorFlow() {
 
     let raf;
     const animate = () => {
-      // Ring follows mouse with spring physics
-      ring.x += (mouse.x - ring.x) * 0.2;
-      ring.y += (mouse.y - ring.y) * 0.2;
+      // Ring follows mouse with faster spring physics
+      ring.x += (mouse.x - ring.x) * 0.45;
+      ring.y += (mouse.y - ring.y) * 0.45;
 
       if (dotRef.current) {
         dotRef.current.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0) scale(${hovering ? 0 : 1})`;
       }
       
       if (ringRef.current) {
-        ringRef.current.style.transform = `translate3d(${ring.x}px, ${ring.y}px, 0) scale(${hovering ? 1.4 : 1})`;
-        ringRef.current.style.borderColor = hovering ? 'rgba(56,189,248,1)' : 'rgba(139,92,246,0.8)';
-        ringRef.current.style.background = hovering ? 'rgba(56,189,248,0.1)' : 'transparent';
+        ringRef.current.style.transform = `translate3d(${ring.x}px, ${ring.y}px, 0) scale(${hovering ? 1.5 : 1})`;
+        ringRef.current.style.borderColor = hovering ? 'rgba(139,26,26,0.9)' : 'rgba(139,26,26,0.45)';
+        ringRef.current.style.background = hovering ? 'rgba(139,26,26,0.08)' : 'transparent';
       }
 
       raf = requestAnimationFrame(animate);
@@ -99,15 +98,15 @@ function CursorFlow() {
         className="custom-cursor-element"
         style={{
           position: 'fixed', top: 0, left: 0,
-          width: '40px', height: '40px',
-          marginLeft: '-20px', marginTop: '-20px',
-          border: '1.5px solid rgba(139,92,246,0.8)',
-          boxShadow: '0 0 10px rgba(56,189,248,0.5), inset 0 0 10px rgba(139,92,246,0.3)',
+          width: '38px', height: '38px',
+          marginLeft: '-19px', marginTop: '-19px',
+          border: '1.5px solid rgba(139,26,26,0.45)',
+          boxShadow: '0 0 8px rgba(139,26,26,0.15)',
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 99998,
           willChange: 'transform, background, border-color',
-          transition: 'transform 0.15s ease-out, background 0.3s, border-color 0.3s'
+          transition: 'background 0.3s, border-color 0.3s'
         }}
       />
 
@@ -119,13 +118,11 @@ function CursorFlow() {
           position: 'fixed', top: 0, left: 0,
           width: '6px', height: '6px',
           marginLeft: '-3px', marginTop: '-3px',
-          background: '#ffffff',
-          boxShadow: '0 0 8px #ffffff, 0 0 15px #38bdf8',
+          background: '#8B1A1A',
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 99999,
-          willChange: 'transform',
-          transition: 'transform 0.15s ease-out'
+          willChange: 'transform'
         }}
       />
     </>
@@ -161,7 +158,6 @@ function App() {
               <Route path="/important-dates" element={<ImportantDates />} />
               <Route path="/program"         element={<Program />} />
               <Route path="/faq"             element={<FAQ />} />
-              <Route path="/history"         element={<History />} />
               <Route path="/contact"         element={<Contact />} />
             </Routes>
           </Suspense>
