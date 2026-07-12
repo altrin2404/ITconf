@@ -83,7 +83,7 @@ const Home = () => {
 
   const stats = [
     { value: '4', suffix: '', label: 'Tech Tracks' },
-    { value: '2', suffix: '+', label: 'Keynote Speakers' },
+    { value: '2', suffix: '', label: 'Keynote Speakers' },
     { value: '2', suffix: '', label: 'Conference Days' },
     { value: '-', suffix: '', label: 'Attendees' },
   ];
@@ -578,7 +578,7 @@ const Home = () => {
         <HeroSlider images={heroImages} />
         <div className="container hero-content">
           <div data-reveal>
-            <div className="hero-conf-badge"><FiCalendar aria-hidden="true" style={{marginRight: '4px'}} /> {confData.date}</div>
+            <div className="hero-conf-badge"><FiCalendar aria-hidden="true" style={{ marginRight: '4px' }} /> {confData.date}</div>
             <h1 className="hero-title">
               {confData.name}
             </h1>
