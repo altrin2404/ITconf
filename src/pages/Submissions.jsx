@@ -131,7 +131,6 @@ const Submissions = () => {
                 </a>
               </div>
             </div>
-          </div>
 
           {/* Paper Formatting */}
           <Section id="formatting" title="Paper Formatting" icon="">
