@@ -17,7 +17,73 @@
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <!-- Preloader (visible while bundle loads) -->
+    <style>
+      .preloader-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #121212;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        font-family: 'Outfit', sans-serif;
+      }
+      .preloader-logo-wrapper {
+        position: relative;
+        width: 160px;
+        height: 160px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .preloader-logo {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        z-index: 2;
+        animation: logoPulse 2s infinite ease-in-out;
+      }
+      .preloader-text-main {
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: #ffffff;
+        letter-spacing: 0.05em;
+        margin-bottom: 4px;
+        opacity: 0;
+        animation: fadeText 1s forwards 0.2s;
+      }
+      .preloader-text-sub {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.45);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        opacity: 0;
+        animation: fadeText 1s forwards 0.4s;
+      }
+      @keyframes logoPulse {
+        0%, 100% { transform: scale(0.95); opacity: 0.95; }
+        50% { transform: scale(1.05); opacity: 1; }
+      }
+      @keyframes fadeText {
+        to { opacity: 1; }
+      }
+    </style>
+    <div class="preloader-container">
+      <div class="preloader-logo-wrapper">
+        <img class="preloader-logo" src="/images/Brigitz-Logo.png" alt="Brigitz Logo" />
+      </div>
+      <div class="preloader-text-main">ICICCT 2027</div>
+      <div class="preloader-text-sub">SXCCE Nagercoil</div>
+    </div>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

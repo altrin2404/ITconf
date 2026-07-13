@@ -118,33 +118,36 @@ const Program = () => {
 
       <div style={{ background: '#f8f8f8', padding: '4rem 0' }}>
         <div className="container" style={{ maxWidth: 860 }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            {confData.schedule.map((dayData, index) => (
-              <div key={index} className="program-day-card" data-reveal data-delay={String((index % 2) + 1)}>
-                <h2 className="program-day-title">
-                  <span className="program-day-num">{index + 1}</span>
-                  {dayData.day}
-                </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-                  {dayData.events.map((event, i) => (
-                    <div key={i} className="event-row">
-                      <div className="event-time"> {event.time}</div>
-                      <div className="event-title">{event.title}</div>
-                    </div>
-                  ))}
-                </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            {/* Day 1 */}
+            <div className="program-day-card" data-reveal>
+              <h2 className="program-day-title">
+                <span className="program-day-num">1</span>
+                Day 1 (April 1, 2027)
+              </h2>
+              <div style={{
+                border: '1px dashed #ccc',
+                borderRadius: '8px',
+                padding: '4rem 2rem'
+              }}>
+                {/* Empty placeholder */}
               </div>
-            ))}
-          </div>
+            </div>
 
-          {/* CTA */}
-          <div className="text-center" data-reveal style={{ paddingTop: '2rem' }}>
-            <button className="program-cta">
-               Download Detailed PDF Schedule
-            </button>
-            <p style={{ color: '#777', fontSize: '0.85rem', marginTop: '1rem' }}>
-              Note: The final schedule will be released one week before the conference.
-            </p>
+            {/* Day 2 */}
+            <div className="program-day-card" data-reveal>
+              <h2 className="program-day-title">
+                <span className="program-day-num">2</span>
+                Day 2 (April 2, 2027)
+              </h2>
+              <div style={{
+                border: '1px dashed #ccc',
+                borderRadius: '8px',
+                padding: '4rem 2rem'
+              }}>
+                {/* Empty placeholder */}
+              </div>
+            </div>
           </div>
         </div>
       </div>

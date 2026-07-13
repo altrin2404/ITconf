@@ -10,7 +10,11 @@ const FAQ = () => {
   );
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const faqs = [];
+  const faqs = [
+    { question: "Question 1", answer: "." },
+    { question: "Question 2", answer: "." },
+    { question: "Question 3", answer: "." }
+  ];
 
   const toggleFaq = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -114,12 +118,7 @@ const FAQ = () => {
                   </div>
                 </div>
               ))
-            ) : (
-              <div style={{ background: '#fff', border: '1px dashed #ccc', borderRadius: '10px', padding: '3rem 2rem', textAlign: 'center' }}>
-                <div style={{ color: '#888', fontSize: '1.1rem', fontWeight: '500' }}>To Be Announced (TBA)</div>
-                <p style={{ color: '#999', marginTop: '0.5rem', fontSize: '0.9rem' }}>Frequently Asked Questions will be updated closer to the event.</p>
-              </div>
-            )}
+            ) : null}
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '3rem' }} data-reveal>

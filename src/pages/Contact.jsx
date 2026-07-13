@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
-import { FiMapPin, FiCalendar, FiGlobe, FiMonitor } from 'react-icons/fi';
+import { FiMapPin, FiCalendar, FiGlobe, FiMonitor, FiPhone } from 'react-icons/fi';
 import useReveal from '../hooks/useReveal';
 import useSEO from '../hooks/useSEO';
 
@@ -247,6 +247,15 @@ const Contact = () => {
                   <div>
                     <div className="contact-info-label">Conference Mode</div>
                     <div className="contact-info-value">Hybrid (Online + Offline)</div>
+                  </div>
+                </div>
+                <div className="contact-info-item">
+                  <div className="contact-info-icon"><FiPhone aria-hidden="true" size={20} /></div>
+                  <div>
+                    <div className="contact-info-label">Phone Number</div>
+                    <div className="contact-info-value">
+                      <a href="tel:123456789" style={{ color: '#fff', textDecoration: 'none' }}>123456789</a>
+                    </div>
                   </div>
                 </div>
               </div>

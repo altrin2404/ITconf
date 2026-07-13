@@ -269,8 +269,9 @@ const Home = () => {
         }
         .info-strip-item:last-child { border-right: none; }
         .info-strip-icon {
-          font-size: 1.6rem;
-          margin-bottom: 0.5rem;
+          font-size: 1.8rem;
+          margin-bottom: 0.75rem;
+          color: #fff;
         }
         .info-strip-label {
           font-size: 0.72rem;

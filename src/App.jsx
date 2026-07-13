@@ -138,12 +138,43 @@ function CursorFlow() {
 /* ─── Scroll to top on navigation ─── */
 import { useLocation } from 'react-router-dom';
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
   return null;
 }
+
+const PageLoader = () => (
+  <div style={{ minHeight: '70vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    <style>{`
+      @keyframes suspenseLogoPulse {
+        0%, 100% { transform: scale(0.92); opacity: 0.85; }
+        50% { transform: scale(1.08); opacity: 1; }
+      }
+    `}</style>
+    <img 
+      src="/images/Brigitz-Logo.png" 
+      alt="Loading..." 
+      style={{ 
+        width: '120px', 
+        height: '120px', 
+        objectFit: 'contain', 
+        animation: 'suspenseLogoPulse 1.6s infinite ease-in-out' 
+      }} 
+    />
+  </div>
+);
 
 function App() {
   return (
@@ -153,7 +184,7 @@ function App() {
       <div className="app-wrapper" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Header />
         <main className="main-content">
-          <Suspense fallback={<div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#38bdf8' }}>Loading...</div>}>
+          <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/"                element={<Home />} />
               <Route path="/committees"      element={<Committees />} />

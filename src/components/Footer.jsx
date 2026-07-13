@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { confData } from '../data/conferenceData';
-import { FiMapPin, FiMail, FiCalendar } from 'react-icons/fi';
+import { FiMapPin, FiMail, FiCalendar, FiPhone } from 'react-icons/fi';
 const Footer = () => {
   const year = new Date().getFullYear();
 
@@ -209,6 +209,12 @@ const Footer = () => {
                 <span className="footer-contact-icon"><FiMail aria-hidden="true" /></span>
                 <span className="footer-contact-text">
                   <Link to="/contact" className="footer-link" style={{ padding: 0 }}>Send a Message →</Link>
+                </span>
+              </div>
+              <div className="footer-contact-item">
+                <span className="footer-contact-icon"><FiPhone aria-hidden="true" /></span>
+                <span className="footer-contact-text">
+                  <a href="tel:123456789" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>123456789</a>
                 </span>
               </div>
               <div className="footer-contact-item">

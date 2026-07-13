@@ -282,11 +282,17 @@ const Header = () => {
           .mobile-nav-toggle { display: flex !important; }
           .logo-text-sub { display: none; }
         }
+        .header-container {
+          width: 100%;
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 0 1.5rem;
+        }
       `}</style>
 
       <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
         <div className="header-accent" />
-        <div className="container">
+        <div className="header-container">
           <div className="header-inner">
             {/* Logo */}
             <Link to="/" className="header-logo">
