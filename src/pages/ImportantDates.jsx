@@ -1,21 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { confData } from '../data/conferenceData';
+import useReveal from '../hooks/useReveal';
+import useSEO from '../hooks/useSEO';
 
 const ImportantDates = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    const els = document.querySelectorAll('[data-reveal]');
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
-      }),
-      { threshold: 0.1 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
+  useReveal();
+  useSEO(
+    'Important Dates & Deadlines',
+    'Track key deadlines for ICICCT 2027 including paper submission, acceptance notifications, camera-ready copy submission, and registration dates.'
+  );
 
-  const icons = ['', '', '', ''];
+  const icons = ['📝', '📢', '💳', '📅'];
   const colors = ['#8B1A1A', '#c0392b', '#a93226', '#6b1313'];
 
   return (

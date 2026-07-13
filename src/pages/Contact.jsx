@@ -1,25 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 import { FiMapPin, FiCalendar, FiGlobe, FiMonitor } from 'react-icons/fi';
+import useReveal from '../hooks/useReveal';
+import useSEO from '../hooks/useSEO';
 
 const initialForm = { name: '', email: '', subject: '', message: '' };
 
-function useReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll('[data-reveal]');
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
-      }),
-      { threshold: 0.1 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-}
-
 const Contact = () => {
+  useReveal();
+  useSEO(
+    'Contact Us',
+    'Contact the ICICCT 2027 organizing committee, get institutional directions, and send direct inquiries regarding the conference.'
+  );
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState('idle');
   const [errorMsg, setErrorMsg] = useState('');

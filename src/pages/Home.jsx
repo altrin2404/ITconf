@@ -3,20 +3,8 @@ import { Link } from 'react-router-dom';
 import { confData } from '../data/conferenceData';
 import { FiCalendar, FiMapPin, FiMonitor, FiSend, FiCheckCircle, FiGlobe, FiCpu, FiBarChart2, FiCloud, FiEye, FiBookOpen } from 'react-icons/fi';
 import { MdOutlineSchool } from 'react-icons/md';
-/* ─── Scroll-reveal hook ─── */
-function useReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll('[data-reveal]');
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
-      }),
-      { threshold: 0.12 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-}
+import useReveal from '../hooks/useReveal';
+import useSEO from '../hooks/useSEO';
 
 /* ─── Animated counter ─── */
 function Counter({ target, suffix = '' }) {
@@ -76,6 +64,10 @@ function HeroSlider({ images }) {
 ════════════════════════════════════════════════════════ */
 const Home = () => {
   useReveal();
+  useSEO(
+    'Home',
+    'Welcome to ICICCT 2027 - International Conference on Intelligent Communications and Computing Technologies at SXCCE, Tamil Nadu, India.'
+  );
 
   const heroImages = [
     '/images/college-build.png',
@@ -753,15 +745,23 @@ const Home = () => {
             <div className="sec-divider"></div>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', maxWidth: 700, margin: '0 auto' }} data-reveal data-delay="1">
-            <div className="org-logo-box">
-              <img src="/images/college-logo.png" alt="SXCCE" onError={(e) => { e.target.style.display = 'none'; }} />
-              <div className="org-logo-name">St. Xavier's Catholic College of Engineering</div>
-              <a href="https://www.google.com/maps?q=8.194079,77.385030" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.78rem', color: '#8B1A1A', marginTop: '0.25rem', display: 'block' }}>Nagercoil, Tamil Nadu, India ↗</a>
+            <div className="org-logo-box" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+                <div style={{ height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem', width: '100%' }}>
+                  <img src="/images/college-logo.png" alt="SXCCE" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
+                </div>
+                <div className="org-logo-name">St. Xavier's Catholic College of Engineering</div>
+              </div>
+              <a href="https://www.google.com/maps?q=8.194079,77.385030" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.78rem', color: '#8B1A1A', marginTop: '0.75rem', display: 'block', fontWeight: 500 }}>Nagercoil, Tamil Nadu, India ↗</a>
             </div>
-            <div className="org-logo-box">
-              <img src="/images/Brigitz-Logo.png" alt="Brigitz" style={{ maxHeight: '80px' }} onError={(e) => { e.target.style.display = 'none'; }} />
-              <div className="org-logo-name">Brigades of IT (BRIGITZ)</div>
-              <div style={{ fontSize: '0.78rem', color: '#888', marginTop: '0.25rem' }}>Department of IT, SXCCE</div>
+            <div className="org-logo-box" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+                <div style={{ height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem', width: '100%' }}>
+                  <img src="/images/Brigitz-Logo.png" alt="Brigitz" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
+                </div>
+                <div className="org-logo-name">Brigades of IT (BRIGITZ)</div>
+              </div>
+              <div style={{ fontSize: '0.78rem', color: '#888', marginTop: '0.75rem', fontWeight: 500 }}>Department of IT, SXCCE</div>
             </div>
           </div>
         </div>
@@ -778,19 +778,19 @@ const Home = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', maxWidth: 800, margin: '0 auto' }} data-reveal data-delay="1">
             <div className="org-logo-box" style={{ padding: '1.5rem', height: '100%', justifyContent: 'space-between' }}>
               <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-                <img src="/images/sponsors/college-logo.png" alt="SXCCE" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/images/sponsors/college-logo.png" alt="SXCCE" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <div className="org-logo-name" style={{ marginTop: '1rem' }}>SXCCE</div>
             </div>
             <div className="org-logo-box" style={{ padding: '1.5rem', height: '100%', justifyContent: 'space-between' }}>
               <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-                <img src="/images/sponsors/IISER.jpg" alt="IISER" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/images/sponsors/IISER.jpg" alt="IISER" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <div className="org-logo-name" style={{ marginTop: '1rem' }}>IISER</div>
             </div>
             <div className="org-logo-box" style={{ padding: '1.5rem', height: '100%', justifyContent: 'space-between' }}>
               <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-                <img src="/images/sponsors/UNICAMP.png" alt="UNICAMP" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/images/sponsors/UNICAMP.png" alt="UNICAMP" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <div className="org-logo-name" style={{ marginTop: '1rem' }}>UNICAMP</div>
             </div>
@@ -814,14 +814,14 @@ const Home = () => {
           </div>
           <div className="grid-2" data-reveal data-delay="1">
             <div className="gallery-card">
-              <img src="/images/college-build.png" alt="College Campus" onError={(e) => { e.target.src = 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800'; }} />
+              <img src="/images/college-build.png" alt="College Campus" loading="lazy" onError={(e) => { e.target.src = 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800'; }} />
               <div className="gallery-caption">
                 <h4>College Campus</h4>
                 <p>St. Xavier's Catholic College of Engineering campus, Nagercoil</p>
               </div>
             </div>
             <div className="gallery-card">
-              <img src="/images/Dept-image.jpg" alt="Department of IT" onError={(e) => { e.target.src = 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800'; }} />
+              <img src="/images/Dept-image.jpg" alt="Department of IT" loading="lazy" onError={(e) => { e.target.src = 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800'; }} />
               <div className="gallery-caption">
                 <h4>Department of Information Technology</h4>
                 <p>State-of-the-art labs and facilities for research and innovation</p>

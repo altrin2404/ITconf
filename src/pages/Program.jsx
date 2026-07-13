@@ -1,22 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { confData } from '../data/conferenceData';
-
-function useReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll('[data-reveal]');
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
-      }),
-      { threshold: 0.1 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-}
+import useReveal from '../hooks/useReveal';
+import useSEO from '../hooks/useSEO';
 
 const Program = () => {
   useReveal();
+  useSEO(
+    'Program Schedule',
+    'View the comprehensive program and daily schedule of technical events, presentations, and keynote talks at ICICCT 2027.'
+  );
 
   return (
     <div className="page-wrapper">

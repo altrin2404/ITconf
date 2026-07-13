@@ -1,18 +1,6 @@
-import React, { useEffect } from 'react';
-
-function useReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll('[data-reveal]');
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
-      }),
-      { threshold: 0.1 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-}
+import React from 'react';
+import useReveal from '../hooks/useReveal';
+import useSEO from '../hooks/useSEO';
 
 const Section = ({ id, title, icon, children }) => (
   <div id={id} style={{ paddingTop: 80, marginTop: -80 }}>
@@ -30,6 +18,10 @@ const Section = ({ id, title, icon, children }) => (
 
 const Submissions = () => {
   useReveal();
+  useSEO(
+    'Submission Portal & Guidelines',
+    'Submit papers to ICICCT 2027. Review our editorial policy, page limits, plagiarism policy, and AI-tool usage guidelines.'
+  );
 
   return (
     <div className="page-wrapper">

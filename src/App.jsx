@@ -55,18 +55,21 @@ function CursorFlow() {
 
     let raf;
     const animate = () => {
-      // Ring follows mouse with faster spring physics
-      ring.x += (mouse.x - ring.x) * 0.45;
-      ring.y += (mouse.y - ring.y) * 0.45;
+      // Smoother, slightly lazier spring physics for a more elegant follow
+      ring.x += (mouse.x - ring.x) * 0.2;
+      ring.y += (mouse.y - ring.y) * 0.2;
 
       if (dotRef.current) {
         dotRef.current.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0) scale(${hovering ? 0 : 1})`;
+        dotRef.current.style.opacity = hovering ? '0' : '1';
       }
       
       if (ringRef.current) {
+        // Professional hover effect: scales up slightly, border softens, subtle blur & fill
         ringRef.current.style.transform = `translate3d(${ring.x}px, ${ring.y}px, 0) scale(${hovering ? 1.5 : 1})`;
-        ringRef.current.style.borderColor = hovering ? 'rgba(139,26,26,0.9)' : 'rgba(139,26,26,0.45)';
-        ringRef.current.style.background = hovering ? 'rgba(139,26,26,0.08)' : 'transparent';
+        ringRef.current.style.borderWidth = hovering ? '0px' : '1.5px';
+        ringRef.current.style.background = hovering ? '#fff' : 'transparent';
+        ringRef.current.style.opacity = hovering ? '0.2' : '1';
       }
 
       raf = requestAnimationFrame(animate);
@@ -98,15 +101,15 @@ function CursorFlow() {
         className="custom-cursor-element"
         style={{
           position: 'fixed', top: 0, left: 0,
-          width: '38px', height: '38px',
-          marginLeft: '-19px', marginTop: '-19px',
-          border: '1.5px solid rgba(139,26,26,0.45)',
-          boxShadow: '0 0 8px rgba(139,26,26,0.15)',
+          width: '36px', height: '36px',
+          marginLeft: '-18px', marginTop: '-18px',
+          border: '1.5px solid #fff',
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 99998,
-          willChange: 'transform, background, border-color',
-          transition: 'background 0.3s, border-color 0.3s'
+          mixBlendMode: 'difference',
+          willChange: 'transform, background, border-width, opacity',
+          transition: 'background 0.3s ease, border-width 0.3s ease, opacity 0.3s ease'
         }}
       />
 
@@ -118,11 +121,13 @@ function CursorFlow() {
           position: 'fixed', top: 0, left: 0,
           width: '6px', height: '6px',
           marginLeft: '-3px', marginTop: '-3px',
-          background: '#8B1A1A',
+          background: '#fff',
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 99999,
-          willChange: 'transform'
+          mixBlendMode: 'difference',
+          willChange: 'transform, opacity',
+          transition: 'opacity 0.2s ease'
         }}
       />
     </>

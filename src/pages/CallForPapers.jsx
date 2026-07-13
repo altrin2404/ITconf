@@ -1,25 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { confData } from '../data/conferenceData';
-
-function useReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll('[data-reveal]');
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
-      }),
-      { threshold: 0.1 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-}
+import useReveal from '../hooks/useReveal';
+import useSEO from '../hooks/useSEO';
 
 const trackIcons = ['', '', '', ''];
 
 const CallForPapers = () => {
   useReveal();
+  useSEO(
+    'Call For Papers (CFP)',
+    'Submit your original papers to ICICCT 2027. Key tracks include AI, Machine Learning, Generative AI, Data Science, NLP, Smart Systems, IoT, and Computer Vision.'
+  );
 
   return (
     <div className="page-wrapper">
