@@ -172,6 +172,15 @@ const Header = () => {
           transition: opacity 0.22s, transform 0.22s, visibility 0.22s;
           pointer-events: none;
         }
+        .nav-dropdown-panel::before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: 0;
+          right: 0;
+          height: 10px;
+          background: transparent;
+        }
         .nav-dropdown:hover .nav-dropdown-panel {
           visibility: visible;
           opacity: 1;
