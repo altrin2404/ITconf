@@ -122,6 +122,7 @@ const Footer = () => {
         .footer-bottom-text {
           color: rgba(255,255,255,0.35);
           font-size: 0.82rem;
+          margin: 0;
         }
         .footer-bottom-links {
           display: flex;
@@ -305,7 +306,7 @@ const Footer = () => {
           {/* Bottom bar */}
           <div className="footer-bottom">
             <p className="footer-bottom-text">
-              © {year} {confData.name} — {confData.fullName}. All rights reserved.
+              © {confData.name} — {confData.fullName}. All rights reserved.
             </p>
             <div className="footer-bottom-links">
               <a href="#" className="footer-bottom-link">Privacy Policy</a>

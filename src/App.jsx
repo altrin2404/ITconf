@@ -6,7 +6,8 @@ const Home = lazy(() => import('./pages/Home'));
 const Committees = lazy(() => import('./pages/Committees'));
 const CallForPapers = lazy(() => import('./pages/CallForPapers'));
 const Speakers = lazy(() => import('./pages/Speakers'));
-const Submissions = lazy(() => import('./pages/Submissions'));
+const Submissions  = lazy(() => import('./pages/Submissions'));
+const SubmitPaper  = lazy(() => import('./pages/SubmitPaper'));
 const Registration = lazy(() => import('./pages/Registration'));
 const Program = lazy(() => import('./pages/Program'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -159,6 +160,7 @@ function App() {
               <Route path="/call-for-papers" element={<CallForPapers />} />
               <Route path="/speakers"        element={<Speakers />} />
               <Route path="/submissions"     element={<Submissions />} />
+              <Route path="/submit-paper"   element={<SubmitPaper />} />
               <Route path="/registration"    element={<Registration />} />
               <Route path="/important-dates" element={<ImportantDates />} />
               <Route path="/program"         element={<Program />} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useReveal from '../hooks/useReveal';
 import useSEO from '../hooks/useSEO';
 
@@ -83,21 +84,33 @@ const Submissions = () => {
       <section style={{ background: '#f8f8f8', padding: '4rem 0' }}>
         <div className="container" style={{ maxWidth: 860 }}>
 
-          {/* Submission Portal */}
           <div data-reveal>
             <div className="portal-cta-box">
-              <h3> Submit Your Paper</h3>
-              <p>Submit your manuscript through our online submission system. Create an account if you don't have one.</p>
-              <a href="#" className="btn" style={{ background: '#fff', color: '#8B1A1A', fontWeight: 700, padding: '0.85rem 2.25rem', borderRadius: 6, display: 'inline-block', fontSize: '1rem' }}>
+              <h3>📄 Submit Your Paper</h3>
+              <p>Submit your manuscript through our online submission system.<br />Both PDF and Word files are required. Maximum file size: <strong>10 MB</strong>.</p>
+              <Link to="/submit-paper" className="btn" style={{ background: '#fff', color: '#8B1A1A', fontWeight: 700, padding: '0.85rem 2.25rem', borderRadius: 6, display: 'inline-block', fontSize: '1rem' }}>
                 Enter Submission Portal →
-              </a>
+              </Link>
+              <div style={{ marginTop: '1.25rem', fontSize: '0.78rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.5, maxWidth: 600, margin: '1.25rem auto 0', padding: '8px 12px', borderTop: '1px solid rgba(255,255,255,0.15)' }}>
+                The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+              </div>
               <div style={{ marginTop: '1rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <button className="template-btn" style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.4)', color: '#fff' }}>
-                   Word Template
-                </button>
-                <button className="template-btn" style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.4)', color: '#fff' }}>
-                   LaTeX Template
-                </button>
+                <a
+                  href="https://www.ieee.org/conferences/publishing/templates.html"
+                  target="_blank" rel="noopener noreferrer"
+                  className="template-btn"
+                  style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.4)', color: '#fff', textDecoration: 'none' }}
+                >
+                  📝 Word Template
+                </a>
+                <a
+                  href="https://www.ieee.org/conferences/publishing/templates.html"
+                  target="_blank" rel="noopener noreferrer"
+                  className="template-btn"
+                  style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.4)', color: '#fff', textDecoration: 'none' }}
+                >
+                  🧪 LaTeX Template
+                </a>
               </div>
             </div>
           </div>
