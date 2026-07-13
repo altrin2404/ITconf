@@ -117,7 +117,7 @@ const Submissions = () => {
                   href="https://www.ieee.org/conferences/publishing/templates.html"
                   target="_blank" rel="noopener noreferrer"
                   className="template-btn"
-                  style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.4)', color: '#fff', textDecoration: 'none' }}
+                  style={{ textDecoration: 'none' }}
                 >
                   📝 Word Template
                 </a>
@@ -125,7 +125,7 @@ const Submissions = () => {
                   href="https://www.ieee.org/conferences/publishing/templates.html"
                   target="_blank" rel="noopener noreferrer"
                   className="template-btn"
-                  style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.4)', color: '#fff', textDecoration: 'none' }}
+                  style={{ textDecoration: 'none' }}
                 >
                   🧪 LaTeX Template
                 </a>
