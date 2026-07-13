@@ -85,15 +85,33 @@ const Submissions = () => {
         <div className="container" style={{ maxWidth: 860 }}>
 
           <div data-reveal>
-            <div className="portal-cta-box">
+            <div className="portal-cta-box" style={{ marginBottom: '1.5rem' }}>
               <h3>📄 Submit Your Paper</h3>
               <p>Submit your manuscript through our online submission system.<br />Both PDF and Word files are required. Maximum file size: <strong>10 MB</strong>.</p>
               <Link to="/submit-paper" className="btn" style={{ background: '#fff', color: '#8B1A1A', fontWeight: 700, padding: '0.85rem 2.25rem', borderRadius: 6, display: 'inline-block', fontSize: '1rem' }}>
                 Enter Submission Portal →
               </Link>
-              <div style={{ marginTop: '1.25rem', fontSize: '0.78rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.5, maxWidth: 600, margin: '1.25rem auto 0', padding: '8px 12px', borderTop: '1px solid rgba(255,255,255,0.15)' }}>
+            </div>
+
+            {/* CMT Acknowledgment Card */}
+            <div style={{
+              background: '#fff',
+              border: '1px solid #e8e8e8',
+              borderRadius: 10,
+              padding: '1.5rem',
+              marginBottom: '2rem',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.07)'
+            }}>
+              <p style={{
+                margin: 0,
+                fontSize: '0.95rem',
+                color: '#222',
+                lineHeight: 1.6,
+                textAlign: 'center'
+              }}>
                 The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
-              </div>
+              </p>
+            </div>
               <div style={{ marginTop: '1rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                 <a
                   href="https://www.ieee.org/conferences/publishing/templates.html"
