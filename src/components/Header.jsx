@@ -88,6 +88,7 @@ const Header = () => {
           letter-spacing: 0.03em;
           line-height: 1.2;
           max-width: 200px;
+          text-align: justify;
         }
 
         /* ── Desktop nav ── */
@@ -326,7 +327,7 @@ const Header = () => {
               </div>
 
               <Link to="/registration" className={`nav-link${isActive('/registration') ? ' active' : ''}`}>Registration</Link>
-              <Link to="/program" className={`nav-link${isActive('/program') ? ' active' : ''}`}>Program</Link>
+              <Link to="/program" className={`nav-link${isActive('/program') ? ' active' : ''}`}>Program Schedule</Link>
               <Link to="/faq" className={`nav-link${isActive('/faq') ? ' active' : ''}`}>FAQ</Link>
               <Link to="/contact" className={`nav-link${isActive('/contact') ? ' active' : ''}`}>Contact</Link>
 
@@ -356,7 +357,7 @@ const Header = () => {
             <Link to="/submissions" className="mobile-menu-sub">Submission Portal</Link>
             <Link to="/submissions#editorial-policy" className="mobile-menu-sub">Editorial Policy</Link>
             <Link to="/registration" className={isActive('/registration') ? 'active' : ''}>Registration</Link>
-            <Link to="/program" className={isActive('/program') ? 'active' : ''}>Program</Link>
+            <Link to="/program" className={isActive('/program') ? 'active' : ''}>Program Schedule</Link>
             <Link to="/faq" className={isActive('/faq') ? 'active' : ''}>FAQ</Link>
             <Link to="/contact" className={isActive('/contact') ? 'active' : ''}>Contact Us</Link>
           </div>

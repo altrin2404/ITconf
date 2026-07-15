@@ -54,8 +54,294 @@ function HeroSlider({ images }) {
           }}
         />
       ))}
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(100,10,10,0.82) 0%, rgba(40,10,10,0.75) 50%, rgba(10,10,30,0.7) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(10,5,5,0.15) 0%, rgba(30,5,5,0.35) 40%, rgba(80,10,10,0.72) 75%, rgba(60,5,5,0.88) 100%)' }} />
     </div>
+  );
+}
+
+/* ─── About Section (Tabbed) ─── */
+function AboutSection({ confData }) {
+  const [activeTab, setActiveTab] = React.useState(0);
+
+  const tabs = [
+    { label: 'About the Conference', icon: <FiBookOpen size={15} /> },
+    { label: 'About Our Institution', icon: <MdOutlineSchool size={16} /> },
+    { label: 'About Kanyakumari', icon: <FiMapPin size={15} /> },
+  ];
+
+  const touristSpots = [
+    { name: 'Vivekananda Rock Memorial', desc: 'Iconic monument on a rocky island at the confluence of three seas' },
+    { name: 'Thiruvalluvar Statue', desc: '133-ft statue of Tamil poet-philosopher Thiruvalluvar' },
+    { name: 'Kanyakumari Temple', desc: 'Ancient Devi temple at the southernmost tip of India' },
+    { name: 'Sunset & Sunrise Point', desc: 'Witness both sunrise and sunset over the ocean' },
+    { name: 'Padmanabhapuram Palace', desc: '16th century wooden palace, a masterpiece of Kerala architecture' },
+    { name: 'Mathoor Aqueduct', desc: "Asia's largest aqueduct — an engineering marvel" },
+  ];
+
+  const transportModes = [
+    { mode: 'Air', detail: 'Nearest airport: Trivandrum International Airport (~90 km)' },
+    { mode: 'Train', detail: 'Nagercoil Junction — a major railway hub connecting Delhi, Mumbai, Bangalore & Kolkata. Kanyakumari Railway Station is ~20 km away.' },
+    { mode: 'Bus', detail: 'TNSTC & KSRTC buses from Chennai, Coimbatore, Madurai & Trivandrum' },
+    { mode: 'Road', detail: 'NH 44 & NH 66 — easily accessible by car or taxi from nearby cities' },
+  ];
+
+  return (
+    <section style={{ background: '#f8f8f8', padding: '5rem 0' }}>
+      <style>{`
+        .about-tabs-wrap {
+          display: flex;
+          gap: 0;
+          border-radius: 12px;
+          overflow: hidden;
+          border: 1px solid #e0e0e0;
+          margin-bottom: 2.5rem;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .about-tab-btn {
+          flex: 1;
+          padding: 1rem 1.25rem;
+          background: #fff;
+          border: none;
+          cursor: pointer;
+          font-family: 'Outfit', sans-serif;
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: #666;
+          border-right: 1px solid #e0e0e0;
+          transition: background 0.2s, color 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          line-height: 1.3;
+          text-align: center;
+        }
+        .about-tab-btn:last-child { border-right: none; }
+        .about-tab-btn.active {
+          background: #8B1A1A;
+          color: #fff;
+        }
+        .about-tab-btn:hover:not(.active) {
+          background: #fdf3f3;
+          color: #8B1A1A;
+        }
+        .about-tab-panel {
+          animation: tabFadeIn 0.35s ease;
+        }
+        @keyframes tabFadeIn {
+          from { opacity: 0; transform: translateY(8px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .about-inst-highlights {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          gap: 1rem;
+          margin: 1.5rem 0;
+        }
+        .about-inst-stat {
+          background: #fdf3f3;
+          border: 1px solid rgba(139,26,26,0.12);
+          border-radius: 10px;
+          padding: 1rem;
+          text-align: center;
+        }
+        .about-inst-stat-num {
+          font-family: 'Outfit', sans-serif;
+          font-weight: 800;
+          font-size: 1.6rem;
+          color: #8B1A1A;
+          line-height: 1;
+          margin-bottom: 0.3rem;
+        }
+        .about-inst-stat-label {
+          font-size: 0.75rem;
+          color: #666;
+          font-weight: 500;
+        }
+        .kk-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
+        }
+        .kk-card {
+          background: #fff;
+          border: 1px solid #e8e8e8;
+          border-radius: 10px;
+          padding: 1.25rem;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .kk-card h4 {
+          font-family: 'Outfit', sans-serif;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin-bottom: 0.75rem;
+          font-size: 0.95rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+        .kk-spot-item {
+          padding: 0.55rem 0;
+          border-bottom: 1px solid #f5f5f5;
+          font-size: 0.875rem;
+        }
+        .kk-spot-item:last-child { border-bottom: none; }
+        .kk-spot-name {
+          font-weight: 600;
+          color: #2d2d2d;
+          margin-bottom: 0.15rem;
+        }
+        .kk-spot-desc { color: #777; font-size: 0.8rem; }
+        .kk-transport-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.75rem;
+          padding: 0.7rem 0;
+          border-bottom: 1px solid #f5f5f5;
+          font-size: 0.875rem;
+        }
+        .kk-transport-item:last-child { border-bottom: none; }
+        .kk-transport-mode {
+          font-weight: 700;
+          color: #8B1A1A;
+          min-width: 80px;
+          font-size: 0.85rem;
+        }
+        .kk-transport-detail { color: #555; }
+        @media (max-width: 768px) {
+          .kk-grid { grid-template-columns: 1fr; }
+          .about-tab-btn { font-size: 0.78rem; padding: 0.85rem 0.5rem; }
+        }
+      `}</style>
+      <div className="container">
+        <div className="sec-header" data-reveal>
+          <div className="sec-badge">Discover More</div>
+          <h2>About</h2>
+          <div className="sec-divider"></div>
+        </div>
+
+        {/* Tab Buttons */}
+        <div className="about-tabs-wrap" data-reveal data-delay="1">
+          {tabs.map((tab, i) => (
+            <button
+              key={i}
+              className={`about-tab-btn${activeTab === i ? ' active' : ''}`}
+              onClick={() => setActiveTab(i)}
+            >
+              <span>{tab.icon}</span>
+              <span>{tab.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Tab Panels */}
+        <div className="about-tab-panel" key={activeTab}>
+
+          {/* ── Tab 1: About the Conference ── */}
+          {activeTab === 0 && (
+            <div className="about-grid">
+              <div className="about-text">
+                <p>
+                  Against the backdrop of rapid global transformation toward intelligent systems and emerging computing technologies,{' '}
+                  <strong>{confData.name}</strong> — {confData.fullName} — serves as a premier international academic forum bringing together
+                  researchers, scholars, and industry practitioners from around the world.
+                </p>
+                <p>
+                  The conference focuses on Computing, Artificial Intelligence, and emerging technologies — providing an interdisciplinary platform
+                  to share research findings, discuss current challenges, and explore cutting-edge innovations. It aims to bridge the gap between
+                  theoretical advancements and real-world implementations that shape the future of digital innovation.
+                </p>
+                <p>
+                  Submissions from academia, government, and industry are encouraged. We warmly welcome scholars from around the world to submit
+                  their papers and participate in the conference!
+                </p>
+                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
+                  <Link to="/committees" className="btn btn-secondary">Meet the Committee</Link>
+                  <Link to="/call-for-papers" className="btn btn-primary">Call For Papers →</Link>
+                </div>
+              </div>
+              <div className="about-dates-card">
+                <div className="about-dates-header">
+                  <span><FiCalendar aria-hidden="true" /></span> Important Dates
+                </div>
+                {confData.importantDates.map((item, i) => (
+                  <div key={i} className="date-row">
+                    <div className="date-row-label">{item.title}</div>
+                    <div className="date-row-value">{item.date}</div>
+                  </div>
+                ))}
+                <div className="about-venue-row">
+                  <strong><FiMapPin aria-hidden="true" /> Venue:</strong>{' '}
+                  <a href="https://www.google.com/maps?q=8.194079,77.385030" target="_blank" rel="noopener noreferrer" style={{ color: '#8B1A1A', textDecoration: 'underline', fontWeight: 600 }}>
+                    SXCCE, Nagercoil, Tamil Nadu ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ── Tab 2: About Our Institution ── */}
+          {activeTab === 1 && (
+            <div>
+              <div className="about-inst-highlights">
+                <div className="about-inst-stat"><div className="about-inst-stat-num">8</div><div className="about-inst-stat-label">UG Programmes</div></div>
+                <div className="about-inst-stat"><div className="about-inst-stat-num">9</div><div className="about-inst-stat-label">PG Programmes</div></div>
+                <div className="about-inst-stat"><div className="about-inst-stat-num">9</div><div className="about-inst-stat-label">Research Depts</div></div>
+                <div className="about-inst-stat"><div className="about-inst-stat-num">2022</div><div className="about-inst-stat-label">Autonomous Since</div></div>
+              </div>
+              <div className="about-text">
+                <p>
+                  St. Xavier's Catholic College of Engineering (Autonomous) vibrates with the vision of <strong><em>'Creating a Technically Empowered Humane Society'</em></strong> by offering cutting edge technical and managerial education to the rural youth of Tamil Nadu and beyond.
+                </p>
+                <p>
+                  SXCCE is conferred with <strong>Autonomous Status</strong> from the academic year 2022–2023 for the next 10 years by UGC. The institution offers <strong>Eight undergraduate programmes</strong> (CSE, IT, ECE, EEE, Civil, Mechanical, AI&DS and CSE – Cyber Security) and <strong>Nine postgraduate programmes</strong> including MCA and MBA, besides nine University recognized research departments.
+                </p>
+                <p>
+                  Anna University has approved SXCCE as an <strong>"Institute Level Research Centre"</strong> for a period of three years up to June 2027. All programmes are approved by AICTE, and all UG and MBA programmes have permanent affiliation of Anna University, Chennai.
+                </p>
+                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
+                  <a href="https://www.sxcce.edu.in" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Visit SXCCE Website ↗</a>
+                  <a href="https://www.google.com/maps?q=8.194079,77.385030" target="_blank" rel="noopener noreferrer" className="btn btn-secondary"><FiMapPin style={{ marginRight: '4px' }} aria-hidden="true" /> View on Maps</a>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ── Tab 3: About Kanyakumari ── */}
+          {activeTab === 2 && (
+            <div>
+              <p className="about-text" style={{ color: '#4a4a4a', lineHeight: 1.85, fontSize: '0.97rem', marginBottom: '1.5rem' }}>
+                Kanyakumari, located at the southernmost tip of India, is a land where three seas meet — the Arabian Sea, the Bay of Bengal, and the Indian Ocean. Known for its spectacular sunrises, sunsets, and rich cultural heritage, it is a must-visit destination that complements your conference visit perfectly.
+              </p>
+              <div className="kk-grid">
+                <div className="kk-card">
+                  <h4><FiMapPin aria-hidden="true" /> Tourist Spots</h4>
+                  {touristSpots.map((spot, i) => (
+                    <div key={i} className="kk-spot-item">
+                      <div className="kk-spot-name">{spot.name}</div>
+                      <div className="kk-spot-desc">{spot.desc}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="kk-card">
+                  <h4><FiGlobe aria-hidden="true" /> How to Reach</h4>
+                  {transportModes.map((t, i) => (
+                    <div key={i} className="kk-transport-item">
+                      <span className="kk-transport-mode">{t.mode}</span>
+                      <span className="kk-transport-detail">{t.detail}</span>
+                    </div>
+                  ))}
+                  <div style={{ marginTop: '1rem', padding: '0.75rem', background: '#fdf3f3', borderRadius: '8px', fontSize: '0.82rem', color: '#666' }}>
+                    <FiMapPin aria-hidden="true" style={{ marginRight: '4px', color: '#8B1A1A' }} /><strong>SXCCE</strong> is located in Nagercoil, ~20 km from Kanyakumari and ~90 km from Trivandrum Airport.
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -120,24 +406,104 @@ const Home = () => {
           margin-bottom: 1.5rem;
           backdrop-filter: blur(4px);
         }
+        /* ── Hero title shimmer effect ── */
+        @keyframes shimmerSweep {
+          0%   { background-position: -200% center; }
+          100% { background-position: 200% center; }
+        }
+        @keyframes titleFloat {
+          0%, 100% { transform: translateY(0px); }
+          50%       { transform: translateY(-6px); }
+        }
+        @keyframes glowPulse {
+          0%, 100% { opacity: 0.6; transform: scaleX(0.95); }
+          50%       { opacity: 1;   transform: scaleX(1); }
+        }
+        @keyframes subtitleReveal {
+          0%   { opacity: 0; transform: translateY(12px) blur(4px); filter: blur(4px); }
+          100% { opacity: 1; transform: translateY(0)    blur(0);   filter: blur(0); }
+        }
+        @keyframes borderShimmer {
+          0%   { background-position: 0% 50%; }
+          50%  { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
         .hero-title {
           font-family: 'Outfit', sans-serif;
           font-weight: 900;
           font-size: clamp(2.8rem, 8vw, 5.5rem);
-          color: #fff;
           line-height: 1.05;
-          margin-bottom: 1rem;
-          text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+          margin-bottom: 0.5rem;
+          animation: titleFloat 6s ease-in-out infinite;
+          display: block;
+          text-align: center;
         }
-        .hero-title-accent {
-          color: #ffb3b3;
+        .hero-title-main {
+          display: inline;
+          background: linear-gradient(
+            90deg,
+            #fff 0%,
+            #fff 30%,
+            #ffcdd2 45%,
+            #fff 55%,
+            #fff 70%,
+            #ffb3b3 85%,
+            #fff 100%
+          );
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: shimmerSweep 4s linear infinite;
+          filter: drop-shadow(0 2px 12px rgba(0,0,0,0.7));
+          letter-spacing: -1px;
+        }
+        .hero-title-year {
+          font-size: 1em;
+          font-weight: 900;
+          background: linear-gradient(135deg, #ff8a80, #ef9a9a, #ffcdd2);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          letter-spacing: 2px;
+          filter: drop-shadow(0 0 12px rgba(255,120,100,0.5));
+          vertical-align: baseline;
+          margin-left: 0.1em;
+        }
+        .hero-title-glow-bar {
+          width: 120px;
+          height: 3px;
+          margin: 0.6rem auto 1.2rem;
+          background: linear-gradient(90deg, transparent, #ef9a9a, #fff, #ef9a9a, transparent);
+          background-size: 200% 100%;
+          border-radius: 2px;
+          animation: borderShimmer 3s ease infinite, glowPulse 3s ease-in-out infinite;
+          box-shadow: 0 0 10px rgba(255,150,130,0.6);
+        }
+        .hero-subtitle-wrap {
+          display: block;
+          background: rgba(0,0,0,0.30);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid rgba(255,255,255,0.18);
+          border-radius: 12px;
+          padding: 0.75rem 1.5rem;
+          margin: 0 auto 1.25rem;
+          max-width: 620px;
+          animation: subtitleReveal 0.9s ease 0.3s both;
+          text-align: center;
         }
         .hero-subtitle {
-          font-size: clamp(0.95rem, 2.2vw, 1.2rem);
-          color: rgba(255,255,255,0.82);
-          max-width: 700px;
-          margin: 0 auto 0.75rem;
-          line-height: 1.75;
+          font-family: 'Playfair Display', Georgia, serif;
+          font-size: clamp(1rem, 2.2vw, 1.25rem);
+          font-weight: 700;
+          background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, #ffcdd2 40%, rgba(255,255,255,0.95) 80%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          line-height: 1.65;
+          letter-spacing: 0.01em;
+          margin: 0;
         }
         .hero-date-badge {
           display: inline-flex;
@@ -573,9 +939,14 @@ const Home = () => {
           <div data-reveal>
             <div className="hero-conf-badge"><FiCalendar aria-hidden="true" style={{ marginRight: '4px' }} /> {confData.date}</div>
             <h1 className="hero-title">
-              {confData.name}
+              <span className="hero-title-main">
+                ICICCT<span className="hero-title-year">2027</span>
+              </span>
             </h1>
-            <p className="hero-subtitle">{confData.fullName}</p>
+            <div className="hero-title-glow-bar" />
+            <div className="hero-subtitle-wrap">
+              <p className="hero-subtitle">{confData.fullName}</p>
+            </div>
             <a href="https://www.google.com/maps/dir/?api=1&destination=8.194079,77.385030" target="_blank" rel="noopener noreferrer" className="hero-date-badge">
               <span><FiMapPin aria-hidden="true" /></span>
               <span>{confData.location}, Tamil Nadu, India</span>
@@ -649,55 +1020,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ═══════════════ ABOUT ═══════════════ */}
-      <section className="sec-alt" style={{ padding: '5rem 0' }}>
-        <div className="container">
-          <div className="sec-header" data-reveal>
-            <div className="sec-badge">About the Conference</div>
-            <h2>About {confData.name}</h2>
-            <div className="sec-divider"></div>
-          </div>
-          <div className="about-grid" data-reveal data-delay="1">
-            {/* Left: About text */}
-            <div className="about-text">
-              <p>
-                Against the backdrop of rapid global transformation toward intelligent systems and emerging computing technologies,{' '}
-                <strong>{confData.name}</strong> — {confData.fullName} — serves as a premier international academic forum bringing together
-                researchers, scholars, and industry practitioners from around the world.
-              </p>
-              <p>
-                The conference focuses on Computing, Artificial Intelligence, and emerging technologies — providing an interdisciplinary platform
-                to share research findings, discuss current challenges, and explore cutting-edge innovations. It aims to bridge the gap between
-                theoretical advancements and real-world implementations that shape the future of digital innovation.
-              </p>
-              <p>
-                Submissions from academia, government, and industry are encouraged. We warmly welcome scholars from around the world to submit
-                their papers and participate in the conference!
-              </p>
-              <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
-                <Link to="/committees" className="btn btn-secondary">Meet the Committee</Link>
-                <Link to="/call-for-papers" className="btn btn-primary">Call For Papers →</Link>
-              </div>
-            </div>
-            {/* Right: Important Dates card */}
-            <div className="about-dates-card">
-              <div className="about-dates-header">
-                <span><FiCalendar aria-hidden="true" /></span> Important Dates
-              </div>
-              {confData.importantDates.map((item, i) => (
-                <div key={i} className="date-row">
-                  <div className="date-row-label">{item.title}</div>
-                  <div className="date-row-value">{item.date}</div>
-                </div>
-              ))}
-              <div className="about-venue-row">
-                <strong><FiMapPin aria-hidden="true" /> Venue:</strong>{' '}
-                <a href="https://www.google.com/maps?q=8.194079,77.385030" target="_blank" rel="noopener noreferrer" style={{ color: '#8B1A1A', textDecoration: 'underline', fontWeight: 600 }}>St. Xavier's Catholic College of Engineering (SXCCE), Nagercoil, Tamil Nadu ↗</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ═══════════════ ABOUT (TABBED) ═══════════════ */}
+      <AboutSection confData={confData} />
 
       {/* ═══════════════ TRACKS ═══════════════ */}
       <section className="sec-white" style={{ padding: '5rem 0' }}>

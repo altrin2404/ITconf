@@ -169,10 +169,6 @@ const Speakers = () => {
                     <div className="speaker-affil">
                       <span></span> {speaker.affiliation}
                     </div>
-                    <hr className="speaker-divider" />
-                    <div className="speaker-topic-label">Talk Topic</div>
-                    <div className="speaker-topic">{speaker.topic}</div>
-                    <p className="speaker-bio">{speaker.bio}</p>
                   </div>
                 </div>
               ))}
