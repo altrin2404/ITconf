@@ -36,8 +36,8 @@ export const confData = {
     patrons: [
       { name: "Most Rev. Dr. Albert G.A. Anasthas", affiliation: "Chairman,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), Nagercoil", image: "/images/Patrons/Chairman.png" },
       { name: "Rev. Fr. S. Godwin Selva Justus", affiliation: "Correspondent,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), Nagercoil", image: "/images/Patrons/Correspondent.jpg" },
-      { name: "Dr. J. Maheswaran", affiliation: "Principal,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), Nagercoil", image: "/images/Patrons/Principal.jpg" },
-      { name: "Rev. Fr. A. Ranjeeth", affiliation: "Financial Administrator,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), Nagercoil", image: "/images/Patrons/Financial Administrator.jpg" }
+      { name: "Rev. Fr. A. Ranjeeth", affiliation: "Financial Administrator,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), Nagercoil", image: "/images/Patrons/Financial Administrator.jpg" },
+      { name: "Dr. J. Maheswaran", affiliation: "Principal,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), Nagercoil", image: "/images/Patrons/Principal.jpg" }
     ],
     organizingChairs: [
       { name: "Dr. Suja A. Alex", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), Nagercoil, India", image: "/images/organizingChairs/Dr. Suja A. Alex.jpg" },
