@@ -42,8 +42,8 @@ export const confData = {
     organizingChairs: [
       { name: "Dr. Suja A. Alex", affiliation: "SXCCE, India", image: "/images/organizingChairs/Dr. Suja A. Alex.jpg" },
       { name: "Dr. Mainak Adhikari", affiliation: "IISER Thiruvananthapuram, India", image: "/images/organizingChairs/Dr. Mainak Adhikari.jpg" },
-      { name: "Dr. Gabriel Gomes de Oliveira", affiliation: "UNICAMP, Brazil", image: "/images/organizingChairs/Dr. Gabriel Gomes de Oliveira.jpg" },
-      { name: "Dr. D. Jude Hemanth", affiliation: "Karunya University, India", image: "/images/Speakers/Dr. D. Jude Hemanth.jpg" }
+      { name: "Dr. D. Jude Hemanth", affiliation: "Karunya University, India", image: "/images/Speakers/Dr. D. Jude Hemanth.jpg" },
+      { name: "Dr. Gabriel Gomes de Oliveira", affiliation: "UNICAMP, Brazil", image: "/images/organizingChairs/Dr. Gabriel Gomes de Oliveira.jpg" }
     ],
     advisoryCommittee: [
       { name: "Prof. Vlademir de Jesus Silva Oliveira", affiliation: "UNEMAT/Sinop" },
