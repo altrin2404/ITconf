@@ -34,13 +34,13 @@ export const confData = {
 
   committees: {
     patrons: [
-      { name: "Most Rev. Dr. Albert G.A. Anasthas", affiliation: "Chairman, SXCCE", image: "/images/Patrons/Chairman.png" },
-      { name: "Rev. Fr. S. Godwin Selva Justus", affiliation: "Correspondent, SXCCE", image: "/images/Patrons/Correspondent.jpg" },
-      { name: "Dr. J. Maheswaran", affiliation: "Principal, SXCCE", image: "/images/Patrons/Principal.jpg" },
-      { name: "Rev. Fr. A. Ranjeeth", affiliation: "Financial Administrator, SXCCE", image: "/images/Patrons/Financial Administrator.jpg" }
+      { name: "Most Rev. Dr. Albert G.A. Anasthas", affiliation: "Chairman,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), Nagercoil", image: "/images/Patrons/Chairman.png" },
+      { name: "Rev. Fr. S. Godwin Selva Justus", affiliation: "Correspondent,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), Nagercoil", image: "/images/Patrons/Correspondent.jpg" },
+      { name: "Dr. J. Maheswaran", affiliation: "Principal,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), Nagercoil", image: "/images/Patrons/Principal.jpg" },
+      { name: "Rev. Fr. A. Ranjeeth", affiliation: "Financial Administrator,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), Nagercoil", image: "/images/Patrons/Financial Administrator.jpg" }
     ],
     organizingChairs: [
-      { name: "Dr. Suja A. Alex", affiliation: "SXCCE, India", image: "/images/organizingChairs/Dr. Suja A. Alex.jpg" },
+      { name: "Dr. Suja A. Alex", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), Nagercoil, India", image: "/images/organizingChairs/Dr. Suja A. Alex.jpg" },
       { name: "Dr. Mainak Adhikari", affiliation: "IISER Thiruvananthapuram, India", image: "/images/organizingChairs/Dr. Mainak Adhikari.jpg" },
       { name: "Dr. D. Jude Hemanth", affiliation: "Karunya University, India", image: "/images/Speakers/Dr. D. Jude Hemanth.jpg" },
       { name: "Dr. Gabriel Gomes de Oliveira", affiliation: "UNICAMP, Brazil", image: "/images/organizingChairs/Dr. Gabriel Gomes de Oliveira.jpg" }
@@ -97,15 +97,15 @@ export const confData = {
       { name: "Prof. Paulo Waldir Tardioli", affiliation: "UFSCAR", image: "/images/publicityChair/Prof. Paulo Waldir Tardioli.jpg" }
     ],
     localOrganizingCommittee: [
-      { name: "Dr. D. Hevin Rajesh", affiliation: "SXCCE, India" },
-      { name: "Dr. J. Annrose", affiliation: "SXCCE, India" },
-      { name: "Dr. G. Sahaya Stalin Jose", affiliation: "SXCCE, India" },
-      { name: "Er. T.M. Angelin Monisha Sharean", affiliation: "SXCCE, India" },
-      { name: "Dr. M. Antony Joans Kumar", affiliation: "SXCCE, India" },
-      { name: "Dr. G. Geo Jenefer", affiliation: "SXCCE, India" },
-      { name: "Er. P. Agnes Alex Rathy", affiliation: "SXCCE, India" },
-      { name: "Dr. A. Arul Rex", affiliation: "SXCCE, India" },
-      { name: "Er. P. Innasi Lineta", affiliation: "SXCCE, India" }
+      { name: "Dr. D. Hevin Rajesh", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), Nagercoil, India" },
+      { name: "Dr. J. Annrose", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), Nagercoil, India" },
+      { name: "Dr. G. Sahaya Stalin Jose", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), Nagercoil, India" },
+      { name: "Er. T.M. Angelin Monisha Sharean", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), Nagercoil, India" },
+      { name: "Dr. M. Antony Joans Kumar", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), Nagercoil, India" },
+      { name: "Dr. G. Geo Jenefer", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), Nagercoil, India" },
+      { name: "Er. P. Agnes Alex Rathy", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), Nagercoil, India" },
+      { name: "Dr. A. Arul Rex", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), Nagercoil, India" },
+      { name: "Er. P. Innasi Lineta", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), Nagercoil, India" }
     ]
   },
 

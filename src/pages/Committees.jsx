@@ -52,6 +52,9 @@ const Committees = () => {
           text-align: center;
           box-shadow: 0 2px 10px rgba(0,0,0,0.06);
           transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
         }
         .member-card:hover {
           box-shadow: 0 6px 24px rgba(139,26,26,0.1);
@@ -81,12 +84,17 @@ const Committees = () => {
           font-weight: 700;
           color: #1a1a1a;
           margin-bottom: 0.3rem;
+          min-height: 2.8rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         .member-affiliation {
           font-size: 0.82rem;
           color: #777;
           line-height: 1.4;
-          margin: 0;
+          margin: auto 0 0 0;
+          white-space: pre-line;
         }
 
         /* ── Compact member row ── */
