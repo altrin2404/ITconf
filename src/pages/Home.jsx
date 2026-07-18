@@ -1079,15 +1079,6 @@ const Home = () => {
               </div>
               <a href="https://www.google.com/maps?q=8.194079,77.385030" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.78rem', color: '#8B1A1A', marginTop: '0.75rem', display: 'block', fontWeight: 500 }}>Nagercoil, Tamil Nadu, India ↗</a>
             </div>
-            <div className="org-logo-box" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-                <div style={{ height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem', width: '100%' }}>
-                  <img src="/images/Brigitz-Logo.png" alt="Brigitz" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
-                </div>
-                <div className="org-logo-name">Brigades of IT (BRIGITZ)</div>
-              </div>
-              <div style={{ fontSize: '0.78rem', color: '#888', marginTop: '0.75rem', fontWeight: 500 }}>Department of IT, SXCCE</div>
-            </div>
           </div>
         </div>
       </section>

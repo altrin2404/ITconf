@@ -158,21 +158,20 @@ function ScrollToTop() {
 const PageLoader = () => (
   <div style={{ minHeight: '70vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
     <style>{`
-      @keyframes suspenseLogoPulse {
-        0%, 100% { transform: scale(0.92); opacity: 0.85; }
-        50% { transform: scale(1.08); opacity: 1; }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .default-spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: #8B1A1A;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
       }
     `}</style>
-    <img 
-      src="/images/Brigitz-Logo.png" 
-      alt="Loading..." 
-      style={{ 
-        width: '120px', 
-        height: '120px', 
-        objectFit: 'contain', 
-        animation: 'suspenseLogoPulse 1.6s infinite ease-in-out' 
-      }} 
-    />
+    <div className="default-spinner"></div>
   </div>
 );
 
