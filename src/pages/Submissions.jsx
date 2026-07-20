@@ -163,7 +163,7 @@ const Submissions = () => {
             <p className="sub-text">
               We firmly believe that ethical conduct is the most essential virtue of any academic.
               Hence, any act of plagiarism or other misconduct is totally unacceptable and cannot be tolerated.
-              All submissions will be checked for plagiarism. <strong>Maximum allowed similarity: 14%.</strong>
+              All the papers will be checked for plagiarism in Turnitin and max 14% of plagiarism will be accepted.
             </p>
             <ul className="sub-list" style={{ listStyle: 'none', padding: 0 }}>
               {[

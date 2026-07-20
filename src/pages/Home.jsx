@@ -990,11 +990,7 @@ const Home = () => {
               <div className="info-strip-label">Venue</div>
               <div className="info-strip-value">{confData.location}, Tamil Nadu</div>
             </div>
-            <div className="info-strip-item">
-              <div className="info-strip-icon"><FiMonitor aria-hidden="true" /></div>
-              <div className="info-strip-label">Mode</div>
-              <div className="info-strip-value">Hybrid (Online + Offline)</div>
-            </div>
+
             <div className="info-strip-item">
               <div className="info-strip-icon"><FiBookOpen aria-hidden="true" /></div>
               <div className="info-strip-label">Submission Deadline</div>

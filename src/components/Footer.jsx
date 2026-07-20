@@ -183,7 +183,8 @@ const Footer = () => {
                 <Link to="/important-dates" className="footer-link">Important Dates</Link>
                 <Link to="/submissions#editorial-policy" className="footer-link">Editorial Policy</Link>
                 <Link to="/submissions#ai-guidelines" className="footer-link">AI Tools Guidelines</Link>
-                <Link to="/faq" className="footer-link">FAQ</Link>
+                <Link to="/publication/proceedings" className="footer-link">Publication (Proceedings)</Link>
+                <Link to="/publication/journal" className="footer-link">Publication (Journal)</Link>
               </div>
             </div>
 

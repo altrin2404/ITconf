@@ -328,7 +328,20 @@ const Header = () => {
 
               <Link to="/registration" className={`nav-link${isActive('/registration') ? ' active' : ''}`}>Registration</Link>
               <Link to="/program" className={`nav-link${isActive('/program') ? ' active' : ''}`}>Program Schedule</Link>
-              <Link to="/faq" className={`nav-link${isActive('/faq') ? ' active' : ''}`}>FAQ</Link>
+
+              <div className="nav-dropdown">
+                <span className="nav-dropdown-trigger">
+                  Publication
+                  <svg width="11" height="11" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </span>
+                <div className="nav-dropdown-panel">
+                  <Link to="/publication/proceedings">Proceedings</Link>
+                  <Link to="/publication/journal">Journal</Link>
+                </div>
+              </div>
+
               <Link to="/contact" className={`nav-link${isActive('/contact') ? ' active' : ''}`}>Contact</Link>
 
               <Link to="/submissions" className="header-cta">Submit Paper →</Link>
@@ -358,7 +371,9 @@ const Header = () => {
             <Link to="/submissions#editorial-policy" className="mobile-menu-sub">Editorial Policy</Link>
             <Link to="/registration" className={isActive('/registration') ? 'active' : ''}>Registration</Link>
             <Link to="/program" className={isActive('/program') ? 'active' : ''}>Program Schedule</Link>
-            <Link to="/faq" className={isActive('/faq') ? 'active' : ''}>FAQ</Link>
+            <div className="mobile-menu-section">Publication</div>
+            <Link to="/publication/proceedings" className="mobile-menu-sub">Proceedings</Link>
+            <Link to="/publication/journal" className="mobile-menu-sub">Journal</Link>
             <Link to="/contact" className={isActive('/contact') ? 'active' : ''}>Contact Us</Link>
           </div>
         )}

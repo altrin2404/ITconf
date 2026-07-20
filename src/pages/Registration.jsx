@@ -136,7 +136,6 @@ const Registration = () => {
                   <thead>
                     <tr>
                       <th>Category</th>
-                      <th>Mode</th>
                       <th>Fee</th>
                     </tr>
                   </thead>
@@ -144,7 +143,6 @@ const Registration = () => {
                     {confData.pricing.map((tier, i) => (
                       <tr key={i}>
                         <td><strong>{tier.category}</strong></td>
-                        <td>{tier.mode}</td>
                         <td className="fee-amount">{tier.fee}</td>
                       </tr>
                     ))}

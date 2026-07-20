@@ -242,13 +242,7 @@ const Contact = () => {
                     <div className="contact-info-value">April 1 – 2, 2027</div>
                   </div>
                 </div>
-                <div className="contact-info-item">
-                  <div className="contact-info-icon"><FiMonitor aria-hidden="true" size={20} /></div>
-                  <div>
-                    <div className="contact-info-label">Conference Mode</div>
-                    <div className="contact-info-value">Hybrid (Online + Offline)</div>
-                  </div>
-                </div>
+
                 <div className="contact-info-item">
                   <div className="contact-info-icon"><FiPhone aria-hidden="true" size={20} /></div>
                   <div>

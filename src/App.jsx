@@ -11,8 +11,9 @@ const SubmitPaper  = lazy(() => import('./pages/SubmitPaper'));
 const Registration = lazy(() => import('./pages/Registration'));
 const Program = lazy(() => import('./pages/Program'));
 const Contact = lazy(() => import('./pages/Contact'));
-const FAQ = lazy(() => import('./pages/FAQ'));
 const ImportantDates = lazy(() => import('./pages/ImportantDates'));
+const Proceedings = lazy(() => import('./pages/Proceedings'));
+const Journal = lazy(() => import('./pages/Journal'));
 import './index.css';
 
 /* ─── Premium Flow Cursor ─── */
@@ -194,7 +195,8 @@ function App() {
               <Route path="/registration"    element={<Registration />} />
               <Route path="/important-dates" element={<ImportantDates />} />
               <Route path="/program"         element={<Program />} />
-              <Route path="/faq"             element={<FAQ />} />
+              <Route path="/publication/proceedings" element={<Proceedings />} />
+              <Route path="/publication/journal" element={<Journal />} />
               <Route path="/contact"         element={<Contact />} />
             </Routes>
           </Suspense>

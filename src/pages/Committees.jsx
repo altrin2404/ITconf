@@ -196,6 +196,17 @@ const Committees = () => {
             </div>
           </div>
 
+          {/* Co-Patrons */}
+          <div className="committee-section">
+            <div className="committee-sec-title" data-reveal>
+              <div className="committee-sec-icon"></div>
+              <h3>Co-Patrons</h3>
+            </div>
+            <div className="grid-3">
+              {committees.coPatrons.map((m, i) => <MemberCard key={i} member={m} index={i} />)}
+            </div>
+          </div>
+
           {/* Organizing Chairs */}
           <div className="committee-section">
             <div className="committee-sec-title" data-reveal>
@@ -233,7 +244,7 @@ const Committees = () => {
           <div className="committee-section">
             <div className="committee-sec-title" data-reveal>
               <div className="committee-sec-icon"></div>
-              <h3>Program Committee</h3>
+              <h3>Technical Program Committee</h3>
             </div>
             <div className="compact-grid">
               {committees.programCommittee.map((m, i) => <CompactMemberRow key={i} member={m} index={i} />)}
