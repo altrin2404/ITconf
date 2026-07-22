@@ -84,75 +84,41 @@ const Submissions = () => {
       <section style={{ background: '#f8f8f8', padding: '4rem 0' }}>
         <div className="container" style={{ maxWidth: 860 }}>
 
-          <div data-reveal>
-            <div className="portal-cta-box" style={{ marginBottom: '1.5rem' }}>
-              <h3>📄 Submit Your Paper</h3>
-              <p>Submit your manuscript through our online submission system.<br />Both PDF and Word files are required. Maximum file size: <strong>10 MB</strong>.</p>
-              <Link to="/submit-paper" className="btn" style={{ background: '#fff', color: '#8B1A1A', fontWeight: 700, padding: '0.85rem 2.25rem', borderRadius: 6, display: 'inline-block', fontSize: '1rem' }}>
-                Enter Submission Portal →
-              </Link>
+          {/* Section 1 — Submit Your Paper: TBA */}
+          <div data-reveal style={{ background: '#fff', border: '1px solid #e8e8e8', borderRadius: 10, boxShadow: '0 2px 12px rgba(0,0,0,0.07)', overflow: 'hidden', marginBottom: '2rem' }}>
+            <div style={{ background: '#8B1A1A', padding: '1rem 1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <span style={{ fontSize: '1.2rem' }}>📄</span>
+              <h2 style={{ color: '#fff', margin: 0, fontSize: '1.25rem', fontFamily: 'Outfit, sans-serif' }}>Submit Your Paper</h2>
             </div>
-
-            {/* CMT Acknowledgment Card */}
-            <div style={{
-              background: '#fff',
-              border: '1px solid #e8e8e8',
-              borderRadius: 10,
-              padding: '1.5rem',
-              marginBottom: '2rem',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.07)'
-            }}>
-              <p style={{
-                margin: 0,
-                fontSize: '0.95rem',
-                color: '#222',
-                lineHeight: 1.6,
-                textAlign: 'center'
-              }}>
-                The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+            <div style={{ padding: '2.5rem', textAlign: 'center' }}>
+              <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🕐</div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#8B1A1A', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+                To Be Announced Soon
+              </div>
+              <p style={{ color: '#888', fontSize: '0.9rem', margin: 0, lineHeight: 1.6 }}>
+                The submission portal will be opened shortly. Please check back later.
               </p>
             </div>
-              <div style={{ marginTop: '1rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <a
-                  href="https://www.ieee.org/conferences/publishing/templates.html"
-                  target="_blank" rel="noopener noreferrer"
-                  className="template-btn"
-                  style={{ textDecoration: 'none' }}
-                >
-                  📝 Word Template
-                </a>
-                <a
-                  href="https://www.ieee.org/conferences/publishing/templates.html"
-                  target="_blank" rel="noopener noreferrer"
-                  className="template-btn"
-                  style={{ textDecoration: 'none' }}
-                >
-                  🧪 LaTeX Template
-                </a>
+          </div>
+
+          {/* Section 2 — Paper Formatting: TBA */}
+          <div id="formatting" style={{ paddingTop: 80, marginTop: -80 }}>
+            <div style={{ background: '#fff', border: '1px solid #e8e8e8', borderRadius: 10, boxShadow: '0 2px 12px rgba(0,0,0,0.07)', overflow: 'hidden', marginBottom: '2rem' }} data-reveal>
+              <div style={{ background: '#8B1A1A', padding: '1rem 1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <span style={{ fontSize: '1.2rem' }}></span>
+                <h2 style={{ color: '#fff', margin: 0, fontSize: '1.25rem', fontFamily: 'Outfit, sans-serif' }}>Paper Formatting</h2>
+              </div>
+              <div style={{ padding: '2.5rem', textAlign: 'center' }}>
+                <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🕐</div>
+                <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#8B1A1A', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+                  To Be Announced Soon
+                </div>
+                <p style={{ color: '#888', fontSize: '0.9rem', margin: 0, lineHeight: 1.6 }}>
+                  Formatting guidelines will be published shortly. Please check back later.
+                </p>
               </div>
             </div>
-
-          {/* Paper Formatting */}
-          <Section id="formatting" title="Paper Formatting" icon="">
-            <p className="sub-text">
-              Submitted papers must be formatted according to the official conference template.
-              All submissions should be written in English with a maximum paper length of <strong>6 printed pages</strong>, including all figures, tables, and references.
-            </p>
-            <ul className="sub-list" style={{ listStyle: 'none', padding: 0 }}>
-              {[
-                'Use the provided Word or LaTeX template — do not change layout, margins, or fonts.',
-                'The paper must include: Title, Author(s) and Affiliations, Abstract, Keywords, Main Content, References.',
-                'Figures, tables, and code should be clearly legible and properly captioned.',
-                'All papers must be submitted as a PDF file with fonts embedded.',
-                'Ensure spelling and grammar are correct before submission — changes cannot be made post-submission.',
-              ].map((item, i) => (
-                <li key={i}>
-                  <span className="sub-list-bullet">▶</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Section>
+          </div>
 
           {/* Editorial Policy */}
           <Section id="editorial-policy" title="Editorial Policy" icon="">
@@ -180,27 +146,6 @@ const Submissions = () => {
             </ul>
           </Section>
 
-          {/* AI Guidelines */}
-          <Section id="ai-guidelines" title="Guidelines for AI Tools" icon="">
-            <p className="sub-text">
-              Authors are permitted to use generative AI and AI-assisted technologies in the writing process to improve readability and language.
-              However, these technologies must only be used to enhance the text — not to replace the author's critical thinking, analysis, or original contribution.
-            </p>
-            <ul className="sub-list" style={{ listStyle: 'none', padding: 0 }}>
-              {[
-                'AI-generated content used as-is (without significant modification) is strictly not allowed.',
-                'AI tools (e.g., ChatGPT, Copilot) cannot be listed as authors or co-authors.',
-                'Authors must disclose the use of any AI tools in their manuscript (e.g., in the Acknowledgments section).',
-                'Authors are fully responsible for the entire content of their submission, including any AI-generated portions.',
-                'AI-generated content detected during review may result in desk rejection.',
-              ].map((item, i) => (
-                <li key={i}>
-                  <span className="sub-list-bullet">▶</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Section>
 
         </div>
       </section>

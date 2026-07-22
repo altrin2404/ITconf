@@ -36,8 +36,9 @@ export const confData = {
     patrons: [
       { name: "Most Rev. Dr. Albert G.A. Anasthas", affiliation: "Chairman,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Chairman.png" },
       { name: "Rev. Fr. S. Godwin Selva Justus", affiliation: "Correspondent,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Correspondent.jpg" },
-      { name: "Rev. Fr. A. Ranjeeth", affiliation: "Financial Administrator,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Financial Administrator.jpg" },
-      { name: "Dr. J. Maheswaran", affiliation: "Principal,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Principal.jpg" }
+      { name: "Dr. J. Maheswaran", affiliation: "Principal,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Principal.jpg" },
+      { name: "Rev. Fr. A. Ranjeeth", affiliation: "Financial Administrator,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Financial Administrator.jpg" }
+
     ],
     coPatrons: [
       { name: "Dr. V. Christus Jeya Singh", affiliation: "Vice Principal & Dean (Student Affairs),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Christus Jeya Singh.jpg" },
@@ -45,23 +46,9 @@ export const confData = {
       { name: "Dr. R.P. Anto Kumar", affiliation: "Dean (Academics),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. R.P. Anto Kumar.jpg" },
       { name: "Dr. J. Annrose", affiliation: "Coordinator (IQAC),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. J. Annrose.jpg" },
       { name: "Mr. M. Anto Xavier Roche", affiliation: "Dean (Student Futuristic Services),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Mr. M. Anto Xavier Roche.jpg" },
-      { name: "Dr. C. Seldev Christopher", affiliation: "Dean (Research),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. C. Seldev Christopher.jpg" },
-      { name: "Dr. Ajith J. Kings", affiliation: "Associate Dean (Research),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. Ajith J. Kings.jpg" },
-      { name: "Dr. A. Bamila Virgin Louis", affiliation: "Head, Department of Computer Science and Engineering,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. A. Bamila Virgin Louis.jpg" },
-      { name: "Dr. S. Caroline", affiliation: "Head, Department of Electronics & Communication Engineering,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. S. Caroline.jpg" },
-      { name: "Dr. J. Merry Geisa", affiliation: "Head, Department of Electrical & Electronics Engineering,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. J. Merry Geisa.jpg" },
-      { name: "Dr. J. Jerlin Regin", affiliation: "Head, Department of Civil Engineering,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. J. Jerlin Regin.jpg" },
-      { name: "Dr. Suja A. Alex", affiliation: "Head, Department of Information Technology,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/organizingChairs/Dr. Suja A. Alex.jpg" },
-      { name: "Dr. M. Felix Xavier Muthu", affiliation: "Head, Department of Mechanical Engineering,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. M. Felix Xavier Muthu.jpeg" },
-      { name: "Dr. R. Jemila Rose", affiliation: "Head, Department of Artificial Intelligence and Data Science,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. R. Jemila Rose.jpg" },
-      { name: "Dr. N. Ansgar Mary", affiliation: "Head, Department of Computer Science and Engineering (Cyber Security),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. N.Ansgar Mary.jpg" },
-      { name: "Dr. V. Darling Selvi", affiliation: "Head, Department of Management Studies,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. V. Darling Selvi.jpg" },
-      { name: "Dr. F. Ramesh Dhanaseelan", affiliation: "Head, Department of Computer Applications,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. F. Ramesh Dhanaseelan.jpeg" },
-      { name: "Dr. V. Vijimon Moni", affiliation: "Coordinator, Humanities & Sciences,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. V. Vijimon Moni.jpg" },
-      { name: "Dr. D. Mary Mettalin", affiliation: "Head, Department of Mathematics,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. D. Mary Mettalin.jpg" },
-      { name: "Dr. S. Edwin Gladson", affiliation: "Head, Department of Physics,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. S. Edwin Gladson.jpg" },
-      { name: "Dr. A. Suhasini", affiliation: "Head, Department of Chemistry,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. A. Suhasini.jpg" },
-      { name: "Dr. J. P. Vidhya", affiliation: "Head, Department of English,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. J. P. Vidhya.jpeg" }
+      { name: "Dr. C. Seldev Christopher", affiliation: "Dean (Research),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. C. Seldev Christopher.jpg" }
+
+
     ],
     organizingChairs: [
       { name: "Dr. Suja A. Alex", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India", image: "/images/organizingChairs/Dr. Suja A. Alex.jpg" },
@@ -70,35 +57,43 @@ export const confData = {
       { name: "Dr. Gabriel Gomes de Oliveira", affiliation: "UNICAMP, Brazil", image: "/images/organizingChairs/Dr. Gabriel Gomes de Oliveira.jpg" }
     ],
     advisoryCommittee: [
+      // --- Foreign (Non-Indian) ---
+      { name: "Prof. Thierry Oscar Edoh", affiliation: "Department of Applied Software Engineering, Technical University of Munich, Munich, Germany" },
+      { name: "Prof. Diego Paredes", affiliation: "Universidad de Zaragoza, Spain" },
+      { name: "Prof. Francisco Pérez", affiliation: "Universitat Politécnica de Valencia, Spain" },
       { name: "Prof. Vlademir de Jesus Silva Oliveira", affiliation: "UNEMAT/Sinop, Brazil" },
       { name: "Prof. Vania Vieira Estrela", affiliation: "UFF, Brazil" },
       { name: "Prof. Claudia Pezzuto", affiliation: "PUC CAMPINAS, Brazil" },
-      { name: "Prof. Miguel Botto", affiliation: "Universidad de Guayaquil, Ecuador" },
       { name: "Prof. Angela del Pilar Flores Granados", affiliation: "FEA/UNICAMP, Brazil" },
       { name: "Lia Toledo Moreira Mota", affiliation: "PUC/Campinas, Brazil" },
-      { name: "Prof. Thierry Oscar Edoh", affiliation: "Department of Applied Software Engineering, Technical University of Munich, Munich, Germany" },
-      { name: "Prof. Ernesto Karlo Celi Arevalo", affiliation: "UNPRG, Lambayeque, Perú" },
-      { name: "Prof. Diego Paredes", affiliation: "Universidad de Zaragoza, Spain" },
       { name: "Prof. Antonio Carlos Demanboro", affiliation: "PUC CAMPINAS, Brazil" },
-      { name: "Prof. José M. Merigó", affiliation: "Universidad de Chile, Chile" },
       { name: "Prof. Dr. Gaby Patrícia Teran Ortiz", affiliation: "IFMG, Brazil" },
       { name: "Prof Dr. Eduardo Cavalcanti", affiliation: "UFRN, Brazil" },
       { name: "Prof. Silva Neto", affiliation: "UERJ, Brazil" },
-      { name: "Prof. Francisco Pérez", affiliation: "Universitat Politécnica de Valencia, Spain" },
       { name: "Lucas Heitzmann Gabrielli", affiliation: "DECOM/FEEC/UNICAMP, Brazil" },
-      { name: "Prof. M. Tanveer", affiliation: "Indian Institute of Technology, Indore" },
       { name: "Prof. Vania V. Estrela", affiliation: "Brazil" },
+      { name: "Prof. Miguel Botto", affiliation: "Universidad de Guayaquil, Ecuador" },
+      { name: "Prof. Ernesto Karlo Celi Arevalo", affiliation: "UNPRG, Lambayeque, Perú" },
+      { name: "Prof. José M. Merigó", affiliation: "Universidad de Chile, Chile" },
+      // --- Indian ---
+      { name: "Prof. M. Tanveer", affiliation: "Indian Institute of Technology, Indore" },
       { name: "Dr. J. Jesu Vedha Nayahi J", affiliation: "Anna University Regional Campus Tirunelveli, India" },
       { name: "Dr. SGK. Manikandan", affiliation: "LPSC, ISRO, India" },
       { name: "Dr. K.Hareef baba shaeb", affiliation: "NRSC, ISRO, India" }
     ],
     programCommittee: [
+      // --- USA ---
+      { name: "Dr. Mustafa Kaddoura", affiliation: "University of Minnesota, US" },
+      // --- Middle East ---
       { name: "Dr. Sanaa Kaddoura", affiliation: "Zayed University, Abu Dhabi" },
       { name: "Dr. Nadia", affiliation: "Zayed University, Abu Dhabi" },
-      { name: "Dr. Nabil Abdoun", affiliation: "Lebanese American University, Lebanon" },
       { name: "Dr. Suha Khalil Assayed", affiliation: "British University in Dubai (BUiD), Dubai" },
-      { name: "Dr. Mustafa Kaddoura", affiliation: "University of Minnesota, US" },
+      { name: "Dr. Nabil Abdoun", affiliation: "Lebanese American University, Lebanon" },
+      // --- Africa ---
+      { name: "Dr. Ahmed Elngar", affiliation: "Beni-Suef University, Egypt" },
+      // --- South America ---
       { name: "Prof. Alessandra Akkari", affiliation: "Universidade Presbiteriana Mackenzie" },
+      // --- India ---
       { name: "Dr. Neha Singh", affiliation: "Chandigarh University, India" },
       { name: "Dr. Alkha Mohan", affiliation: "IIIT Kottayam, India" },
       { name: "Dr. Manasa Kulkarni", affiliation: "Christ University Bangalore, India" },
@@ -114,7 +109,6 @@ export const confData = {
       { name: "Dr. Mayuri Mehta", affiliation: "India" },
       { name: "Dr. Hikku G. S", affiliation: "Chettinad Academy of Research & Education, India" },
       { name: "Dr. Ananth J P", affiliation: "Dayananda Sagar University, Bengaluru, India" },
-      { name: "Dr. Ahmed Elngar", affiliation: "Beni-Suef University, Egypt" },
       { name: "Prof. Sanjiv Kumar Jain", affiliation: "Medicaps University, India" }
     ],
     publicityChair: [

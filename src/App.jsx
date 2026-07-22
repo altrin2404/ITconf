@@ -103,8 +103,8 @@ function CursorFlow() {
         className="custom-cursor-element"
         style={{
           position: 'fixed', top: 0, left: 0,
-          width: '36px', height: '36px',
-          marginLeft: '-18px', marginTop: '-18px',
+          width: '24px', height: '24px',
+          marginLeft: '-12px', marginTop: '-12px',
           border: '1.5px solid #fff',
           borderRadius: '50%',
           pointerEvents: 'none',
