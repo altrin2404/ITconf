@@ -118,7 +118,7 @@ const Contact = () => {
         }
 
         @media (max-width: 768px) {
-          .contact-grid { grid-template-columns: 1fr; }
+          .contact-grid { display: flex; flex-direction: column-reverse; gap: 2rem; }
           .contact-person-card { flex-direction: column; text-align: center; }
         }
       `}</style>
