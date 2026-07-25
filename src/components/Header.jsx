@@ -59,20 +59,12 @@ const Header = () => {
           text-decoration: none;
           flex-shrink: 0;
         }
-        .logo-badge {
-          width: 40px;
-          height: 40px;
-          background: #8B1A1A;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #fff;
-          font-weight: 900;
-          font-family: 'Outfit', sans-serif;
-          font-size: 0.95rem;
-          letter-spacing: -0.5px;
+        .logo-img {
+          height: 44px;
+          width: auto;
+          object-fit: contain;
           flex-shrink: 0;
+          display: block;
         }
         .logo-text-main {
           font-family: 'Outfit', sans-serif;
@@ -297,7 +289,12 @@ const Header = () => {
           <div className="header-inner">
             {/* Logo */}
             <Link to="/" className="header-logo">
-              <div className="logo-badge">IC</div>
+              <img
+                src="/images/website-logo/logo.png"
+                alt="Conference Logo"
+                className="logo-img"
+                style={{ mixBlendMode: 'multiply' }}
+              />
               <div>
                 <div className="logo-text-main">{confData.name}</div>
                 <div className="logo-text-sub">{confData.fullName}</div>

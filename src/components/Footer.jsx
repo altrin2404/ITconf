@@ -154,6 +154,11 @@ const Footer = () => {
           <div className="footer-grid">
             {/* Brand */}
             <div>
+              <img
+                src="/images/website-logo/logo.png"
+                alt="Conference Logo"
+                style={{ height: '56px', width: 'auto', objectFit: 'contain', marginBottom: '0.75rem', display: 'block', mixBlendMode: 'screen' }}
+              />
               <div className="footer-brand-name">{confData.name}</div>
               <div className="footer-brand-full">{confData.fullName}</div>
               <p className="footer-brand-desc">

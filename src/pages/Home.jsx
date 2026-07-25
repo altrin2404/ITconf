@@ -937,6 +937,13 @@ const Home = () => {
         <HeroSlider images={heroImages} />
         <div className="container hero-content">
           <div data-reveal>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
+              <img
+                src="/images/website-logo/logo.png"
+                alt="Conference Logo"
+                style={{ height: '200px', width: 'auto', objectFit: 'contain', mixBlendMode: 'screen' }}
+              />
+            </div>
             <div className="hero-conf-badge"><FiCalendar aria-hidden="true" style={{ marginRight: '4px' }} /> {confData.date}</div>
             <h1 className="hero-title">
               <span className="hero-title-main">

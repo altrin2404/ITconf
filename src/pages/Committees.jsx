@@ -196,16 +196,7 @@ const Committees = () => {
             </div>
           </div>
 
-          {/* Co-Patrons */}
-          <div className="committee-section">
-            <div className="committee-sec-title" data-reveal>
-              <div className="committee-sec-icon"></div>
-              <h3>Co-Patrons</h3>
-            </div>
-            <div className="grid-3">
-              {committees.coPatrons.map((m, i) => <MemberCard key={i} member={m} index={i} />)}
-            </div>
-          </div>
+
 
           {/* Organizing Chairs */}
           <div className="committee-section">

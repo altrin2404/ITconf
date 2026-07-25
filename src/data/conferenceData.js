@@ -40,16 +40,6 @@ export const confData = {
       { name: "Rev. Fr. A. Ranjeeth", affiliation: "Financial Administrator,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Financial Administrator.jpg" }
 
     ],
-    coPatrons: [
-      { name: "Dr. V. Christus Jeya Singh", affiliation: "Vice Principal & Dean (Student Affairs),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Christus Jeya Singh.jpg" },
-      { name: "Dr. A. Milton", affiliation: "Controller of Examinations,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. A. Milton.jpg" },
-      { name: "Dr. R.P. Anto Kumar", affiliation: "Dean (Academics),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. R.P. Anto Kumar.jpg" },
-      { name: "Dr. J. Annrose", affiliation: "Coordinator (IQAC),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. J. Annrose.jpg" },
-      { name: "Mr. M. Anto Xavier Roche", affiliation: "Dean (Student Futuristic Services),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Mr. M. Anto Xavier Roche.jpg" },
-      { name: "Dr. C. Seldev Christopher", affiliation: "Dean (Research),\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Co-patrons/Dr. C. Seldev Christopher.jpg" }
-
-
-    ],
     organizingChairs: [
       { name: "Dr. Suja A. Alex", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India", image: "/images/organizingChairs/Dr. Suja A. Alex.jpg" },
       { name: "Dr. Mainak Adhikari", affiliation: "IISER Thiruvananthapuram, India", image: "/images/organizingChairs/Dr. Mainak Adhikari.jpg" },
@@ -81,12 +71,13 @@ export const confData = {
     ],
     programCommittee: [
       // --- Priority members ---
-      { name: "Afzal Sayed Munna", affiliation: "University of Hull London, United Kingdom" },
+      { name: "Dr. Afzal Sayed Munna", affiliation: "University of Hull London, United Kingdom" },
       { name: "Dr. Giuseppe Catenazzo", affiliation: "Glion Institute of Higher Education, Switzerland; Franklin Hudson International School of Management, France" },
+      { name: "Dr. Mustafa Kaddoura", affiliation: "University of Minnesota, US" },
       { name: "Prof. Vania V. Estrela", affiliation: "Fluminense Federal University, Brazil" },
       { name: "Dr. Sanaa Kaddoura", affiliation: "Zayed University, Abu Dhabi" },
-      // --- USA ---
-      { name: "Dr. Mustafa Kaddoura", affiliation: "University of Minnesota, US" },
+
+
       // --- Middle East ---
       { name: "Dr. Nadia", affiliation: "Zayed University, Abu Dhabi" },
       { name: "Dr. Suha Khalil Assayed", affiliation: "British University in Dubai (BUiD), Dubai" },
@@ -103,7 +94,7 @@ export const confData = {
       { name: "Dr. S. Murali", affiliation: "VIT Vellore, India" },
       { name: "Dr. Mukesh Kumar", affiliation: "CGC University, Punjab, India" },
       { name: "Dr. S. Gnanavel", affiliation: "SRMIST Chennai, India" },
-      { name: "Dr. Gavaskar S", affiliation: "SRM University-AP, India" },
+      { name: "Dr. S. Gavaskar", affiliation: "SRM University-AP, India" },
       { name: "Dr. U. Kumaran", affiliation: "Amrita Vishwa Vidyapeetham, Bengaluru, India" },
       { name: "Prof. S. Neelakandan", affiliation: "R.M.K Engineering College, India" },
       { name: "Dr. V. Raji", affiliation: "SKP Engineering College, India" },
@@ -115,22 +106,27 @@ export const confData = {
       { name: "Prof. Sanjiv Kumar Jain", affiliation: "Medicaps University, India" }
     ],
     publicityChair: [
-      { name: "Prof. Paulo Waldir Tardioli", affiliation: "UFSCAR, Brazil" },
       { name: "Prof. Vania V. Estrela", affiliation: "Fluminense Federal University, Brazil" },
+      { name: "Prof. Paulo Waldir Tardioli", affiliation: "UFSCAR, Brazil" },
       { name: "Dr. Sankar Sekar", affiliation: "Dongguk University, South Korea" },
       { name: "Dr. Sanjiv Kumar Jain", affiliation: "Medicaps University, Indore, India" }
 
     ],
     localOrganizingCommittee: [
+      { name: "Dr. V. Christus Jeya Singh", affiliation: "Vice Principal & Dean (Student Affairs), St. Xavier's Catholic College of Engineering (Autonomous), India" },
+      { name: "Dr. A. Milton", affiliation: "Controller of Examinations, St. Xavier's Catholic College of Engineering (Autonomous), India" },
+      { name: "Dr. R.P. Anto Kumar", affiliation: "Dean (Academics), St. Xavier's Catholic College of Engineering (Autonomous), India" },
+      { name: "Dr. J. Annrose", affiliation: "Coordinator (IQAC), St. Xavier's Catholic College of Engineering (Autonomous), India" },
+      { name: "Mr. M. Anto Xavier Roche", affiliation: "Dean (Student Futuristic Services), St. Xavier's Catholic College of Engineering (Autonomous), India" },
+      { name: "Dr. C. Seldev Christopher", affiliation: "Dean (Research), St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Dr. D. Hevin Rajesh", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
-      { name: "Dr. J. Annrose", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Dr. G. Sahaya Stalin Jose", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Er. T.M. Angelin Monisha Sharean", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Dr. M. Antony Joans Kumar", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Dr. G. Geo Jenefer", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Er. P. Agnes Alex Rathy", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Dr. A. Arul Rex", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
-      { name: "Er. P. Innasi Lineta", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" }
+      { name: "Dr. P. Innasi Lineta", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" }
     ]
   },
 
