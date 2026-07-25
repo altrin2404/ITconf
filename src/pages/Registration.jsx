@@ -130,7 +130,7 @@ const Registration = () => {
             {/* Fee Table */}
             <div data-reveal>
               <div className="section-badge">Registration Fees</div>
-              <h2 style={{ color: '#1a1a1a', marginTop: '0.5rem', marginBottom: '1.5rem' }}>Fee Structure</h2>
+              <h2 style={{ color: '#1a1a1a', marginTop: '0.5rem', marginBottom: '1.5rem' }}>Fee Details</h2>
               <div className="fee-table-wrap">
                 <table className="fee-table">
                   <thead>
@@ -154,32 +154,14 @@ const Registration = () => {
                 <ul>
                   <li>Access to all conference sessions</li>
                   <li>Conference proceedings &amp; materials</li>
-                  <li>Certificate of presentation / participation</li>
-                  <li>Networking events and workshops</li>
+                  <li>Certificate of presentation</li>
+
                 </ul>
               </div>
             </div>
 
             {/* Registration Steps */}
             <div data-reveal data-delay="1">
-              <div className="section-badge">How to Register</div>
-              <h2 style={{ color: '#1a1a1a', marginTop: '0.5rem', marginBottom: '1.5rem' }}>Registration Steps</h2>
-              <div style={{ background: '#fff', border: '1px solid #e8e8e8', borderRadius: '10px', padding: '1.5rem', boxShadow: '0 2px 12px rgba(0,0,0,0.07)', marginBottom: '1.5rem' }}>
-                {[
-                  { title: 'Submit Your Paper', desc: 'Submit your research paper through the online submission portal and receive an acceptance notification.' },
-                  { title: 'Pay Registration Fee', desc: 'After acceptance, complete the registration by paying the applicable fee via bank transfer or online payment.' },
-                  { title: 'Send Confirmation', desc: 'Email your payment receipt and filled registration form to the conference email address.' },
-                  { title: 'Receive Confirmation', desc: 'You will receive a confirmation email with your registration details and conference access information.' },
-                ].map((step, i) => (
-                  <div key={i} className="reg-step">
-                    <div className="step-num">{i + 1}</div>
-                    <div>
-                      <div className="step-title">{step.title}</div>
-                      <div className="step-desc">{step.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
 
               <div className="reg-info-box">
                 <h4> Important Notes</h4>

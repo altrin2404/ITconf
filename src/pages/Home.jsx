@@ -242,18 +242,13 @@ function AboutSection({ confData }) {
             <div className="about-grid">
               <div className="about-text">
                 <p>
-                  Against the backdrop of rapid global transformation toward intelligent systems and emerging computing technologies,{' '}
-                  <strong>{confData.name}</strong> — {confData.fullName} — serves as a premier international academic forum bringing together
-                  researchers, scholars, and industry practitioners from around the world.
+                  Against the backdrop of rapid global transformation toward intelligent systems and emerging computing technologies, <strong>ICICCT2027 — International Conference on Intelligent Communications and Computing Technologies</strong> — serves as a premier international academic forum bringing together researchers, scholars, and industry practitioners from around the world.
                 </p>
                 <p>
-                  The conference focuses on Computing, Artificial Intelligence, and emerging technologies — providing an interdisciplinary platform
-                  to share research findings, discuss current challenges, and explore cutting-edge innovations. It aims to bridge the gap between
-                  theoretical advancements and real-world implementations that shape the future of digital innovation.
+                  The conference focuses on Computing, Artificial Intelligence, and emerging technologies — providing an interdisciplinary platform to share research findings, discuss current challenges, and explore cutting-edge innovations. It aims to bridge the gap between theoretical advancements and real-world implementations that shape the future of digital innovation.
                 </p>
                 <p>
-                  Submissions from academia, government, and industry are encouraged. We warmly welcome scholars from around the world to submit
-                  their papers and participate in the conference!
+                  Submissions from academia, government, and industry are encouraged. We warmly welcome scholars from around the world to submit their papers and participate in the conference!
                 </p>
                 <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
                   <Link to="/committees" className="btn btn-secondary">Meet the Committee</Link>
@@ -273,7 +268,7 @@ function AboutSection({ confData }) {
                 <div className="about-venue-row">
                   <strong><FiMapPin aria-hidden="true" /> Venue:</strong>{' '}
                   <a href="https://www.google.com/maps?q=8.194079,77.385030" target="_blank" rel="noopener noreferrer" style={{ color: '#8B1A1A', textDecoration: 'underline', fontWeight: 600 }}>
-                    SXCCE, Nagercoil, Tamil Nadu ↗
+                    St. Xavier's Catholic College of Engineering (Autonomous), Nagercoil, Tamil Nadu ↗
                   </a>
                 </div>
               </div>
@@ -294,13 +289,13 @@ function AboutSection({ confData }) {
                   St. Xavier's Catholic College of Engineering (Autonomous) vibrates with the vision of <strong><em>'Creating a Technically Empowered Humane Society'</em></strong> by offering cutting edge technical and managerial education to the rural youth of Tamil Nadu and beyond.
                 </p>
                 <p>
-                  SXCCE is conferred with <strong>Autonomous Status</strong> from the academic year 2022–2023 for the next 10 years by UGC. The institution offers <strong>Eight undergraduate programmes</strong> (CSE, IT, ECE, EEE, Civil, Mechanical, AI&DS and CSE – Cyber Security) and <strong>Nine postgraduate programmes</strong> including MCA and MBA, besides nine University recognized research departments.
+                  St. Xavier's Catholic College of Engineering (Autonomous) is conferred with <strong>Autonomous Status</strong> from the academic year 2022–2023 for the next 10 years by UGC. The institution offers <strong>Eight undergraduate programmes</strong> (CSE, IT, ECE, EEE, Civil, Mechanical, AI&DS and CSE – Cyber Security) and <strong>Nine postgraduate programmes</strong> including MCA and MBA, besides nine University recognized research departments.
                 </p>
                 <p>
-                  Anna University has approved SXCCE as an <strong>"Institute Level Research Centre"</strong> for a period of three years up to June 2027. All programmes are approved by AICTE, and all UG and MBA programmes have permanent affiliation of Anna University, Chennai.
+                  Anna University has approved St. Xavier's Catholic College of Engineering (Autonomous) as an <strong>"Institute Level Research Centre"</strong> for a period of three years up to June 2027. All programmes are approved by AICTE, and all UG and MBA programmes have permanent affiliation of Anna University, Chennai.
                 </p>
                 <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
-                  <a href="https://www.sxcce.edu.in" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Visit SXCCE Website ↗</a>
+                  <a href="https://www.sxcce.edu.in" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Visit St. Xavier's Catholic College of Engineering (Autonomous) Website ↗</a>
                   <a href="https://www.google.com/maps?q=8.194079,77.385030" target="_blank" rel="noopener noreferrer" className="btn btn-secondary"><FiMapPin style={{ marginRight: '4px' }} aria-hidden="true" /> View on Maps</a>
                 </div>
               </div>
@@ -332,7 +327,7 @@ function AboutSection({ confData }) {
                     </div>
                   ))}
                   <div style={{ marginTop: '1rem', padding: '0.75rem', background: '#fdf3f3', borderRadius: '8px', fontSize: '0.82rem', color: '#666' }}>
-                    <FiMapPin aria-hidden="true" style={{ marginRight: '4px', color: '#8B1A1A' }} /><strong>SXCCE</strong> is located in Nagercoil, ~20 km from Kanyakumari and ~90 km from Trivandrum Airport.
+                    <FiMapPin aria-hidden="true" style={{ marginRight: '4px', color: '#8B1A1A' }} /><strong>St. Xavier's Catholic College of Engineering (Autonomous)</strong> is located in Nagercoil, ~20 km from Kanyakumari and ~90 km from Trivandrum Airport.
                   </div>
                 </div>
               </div>
@@ -351,8 +346,8 @@ function AboutSection({ confData }) {
 const Home = () => {
   useReveal();
   useSEO(
-    'Home',
-    'Welcome to ICICCT 2027 - International Conference on Intelligent Communications and Computing Technologies at SXCCE, Tamil Nadu, India.'
+    'Home – ICICCT 2027',
+    'Welcome to ICICCT 2027 - International Conference on Intelligent Communications and Computing Technologies at St. Xavier\'s Catholic College of Engineering (Autonomous), Tamil Nadu, India.'
   );
 
   const heroImages = [
@@ -941,7 +936,7 @@ const Home = () => {
               <img
                 src="/images/website-logo/logo.png"
                 alt="Conference Logo"
-                style={{ height: '200px', width: 'auto', objectFit: 'contain', mixBlendMode: 'screen' }}
+                style={{ height: '200px', width: 'auto', objectFit: 'contain' }}
               />
             </div>
             <div className="hero-conf-badge"><FiCalendar aria-hidden="true" style={{ marginRight: '4px' }} /> {confData.date}</div>
@@ -956,7 +951,7 @@ const Home = () => {
             </div>
             <a href="https://www.google.com/maps/dir/?api=1&destination=8.194079,77.385030" target="_blank" rel="noopener noreferrer" className="hero-date-badge">
               <span><FiMapPin aria-hidden="true" /></span>
-              <span>{confData.location}, Tamil Nadu, India</span>
+              <span>St. Xavier's Catholic College of Engineering (Autonomous), Tamil Nadu, India</span>
             </a>
           </div>
           <div className="hero-btns" data-reveal data-delay="1">
@@ -995,7 +990,7 @@ const Home = () => {
             <div className="info-strip-item">
               <div className="info-strip-icon"><FiMapPin aria-hidden="true" /></div>
               <div className="info-strip-label">Venue</div>
-              <div className="info-strip-value">{confData.location}, Tamil Nadu</div>
+              <div className="info-strip-value">St. Xavier's Catholic College of Engineering (Autonomous), Tamil Nadu, India</div>
             </div>
 
             <div className="info-strip-item">
@@ -1075,8 +1070,8 @@ const Home = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', maxWidth: 700, margin: '0 auto' }} data-reveal data-delay="1">
             <div className="org-logo-box" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-                <div style={{ height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem', width: '100%' }}>
-                  <img src="/images/college-logo.png" alt="SXCCE" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
+                <div className="org-logo-wrap">
+                  <img src="/images/college-logo.png" alt="St. Xavier's Catholic College of Engineering (Autonomous)" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
                 </div>
                 <div className="org-logo-name">St. Xavier's Catholic College of Engineering</div>
               </div>
@@ -1097,9 +1092,9 @@ const Home = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', maxWidth: 800, margin: '0 auto' }} data-reveal data-delay="1">
             <div className="org-logo-box" style={{ padding: '1.5rem', height: '100%', justifyContent: 'space-between' }}>
               <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-                <img src="/images/sponsors/college-logo.png" alt="SXCCE" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/images/sponsors/college-logo.png" alt="St. Xavier's Catholic College of Engineering (Autonomous)" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
-              <div className="org-logo-name" style={{ marginTop: '1rem' }}>SXCCE</div>
+              <div className="org-logo-name" style={{ marginTop: '1rem' }}>St. Xavier's Catholic College of Engineering (Autonomous)</div>
             </div>
             <div className="org-logo-box" style={{ padding: '1.5rem', height: '100%', justifyContent: 'space-between' }}>
               <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>

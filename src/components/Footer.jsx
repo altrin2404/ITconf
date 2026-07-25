@@ -217,12 +217,7 @@ const Footer = () => {
                   <Link to="/contact" className="footer-link" style={{ padding: 0 }}>Send a Message →</Link>
                 </span>
               </div>
-              <div className="footer-contact-item">
-                <span className="footer-contact-icon"><FiPhone aria-hidden="true" /></span>
-                <span className="footer-contact-text">
-                  <a href="tel:123456789" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>123456789</a>
-                </span>
-              </div>
+
               <div className="footer-contact-item">
                 <span className="footer-contact-icon"><FiCalendar aria-hidden="true" /></span>
                 <span className="footer-contact-text">{confData.date}</span>

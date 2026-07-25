@@ -59,10 +59,11 @@ const Journal = () => {
             </div>
           </div>
           
-          <h3 data-reveal style={{ marginBottom: '1rem' }}>Journal Contacts</h3>
+          <h3 data-reveal style={{ marginBottom: '1rem' }}>Journal Contact</h3>
           <div className="journal-contact-card" data-reveal>
             <img src="/images/Speakers/Dr. D. Jude Hemanth.jpg" alt="Dr. D. Jude Hemanth" className="journal-contact-image" />
             <div>
+              <div style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#8B1A1A', marginBottom: '0.35rem' }}>Organizing Chair</div>
               <h4 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: '#1a1a1a' }}>Dr. D Jude Hemanth</h4>
               <p style={{ fontSize: '1rem', color: '#666', marginBottom: '0.5rem' }}>Karunya University, India</p>
             </div>

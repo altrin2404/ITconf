@@ -6,7 +6,7 @@ import useSEO from '../hooks/useSEO';
 export default function SubmitPaper() {
   useSEO(
     'Submit Paper – ICICCT 2027',
-    'Paper submission for ICICCT 2027 – International Conference on Intelligent Communications and Computing Technologies at SXCCE, Nagercoil.'
+    'Paper submission for ICICCT 2027 – International Conference on Intelligent Communications and Computing Technologies at St. Xavier\'s Catholic College of Engineering (Autonomous), Nagercoil.'
   );
 
   return (

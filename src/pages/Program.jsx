@@ -128,9 +128,10 @@ const Program = () => {
               <div style={{
                 border: '1px dashed #ccc',
                 borderRadius: '8px',
-                padding: '4rem 2rem'
+                padding: '4rem 2rem',
+                textAlign: 'center'
               }}>
-                {/* Empty placeholder */}
+                <h3 style={{ color: '#666', fontWeight: 500, margin: 0 }}>To be announced soon</h3>
               </div>
             </div>
 
@@ -143,9 +144,10 @@ const Program = () => {
               <div style={{
                 border: '1px dashed #ccc',
                 borderRadius: '8px',
-                padding: '4rem 2rem'
+                padding: '4rem 2rem',
+                textAlign: 'center'
               }}>
-                {/* Empty placeholder */}
+                <h3 style={{ color: '#666', fontWeight: 500, margin: 0 }}>To be announced soon</h3>
               </div>
             </div>
           </div>

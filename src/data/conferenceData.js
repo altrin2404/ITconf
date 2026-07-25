@@ -2,7 +2,7 @@ export const confData = {
   name: "ICICCT2027",
   fullName: "International Conference on Intelligent Communications and Computing Technologies",
   date: "April 1 - 2, 2027",
-  location: "SXCCE",
+  location: "St. Xavier's Catholic College of Engineering (Autonomous)",
 
   importantDates: [
     { title: "Full paper submission deadline", date: "1st November 2026", passed: false },
@@ -152,8 +152,7 @@ export const confData = {
   pricing: [
     { category: "International Authors", fee: "$250" },
     { category: "National Authors", fee: "₹ 9,000" },
-    { category: "National Students", fee: "₹ 6,000" },
-    { category: "Listeners / Attendees", fee: "₹ 2,000" }
+    { category: "Listeners", fee: "₹ 2,000" }
   ],
 
   schedule: [
