@@ -62,7 +62,6 @@ export const confData = {
       { name: "Prof. Diego Paredes", affiliation: "Universidad de Zaragoza, Spain" },
       { name: "Prof. Francisco Pérez", affiliation: "Universitat Politécnica de Valencia, Spain" },
       { name: "Prof. Vlademir de Jesus Silva Oliveira", affiliation: "UNEMAT/Sinop, Brazil" },
-      { name: "Prof. Vania Vieira Estrela", affiliation: "UFF, Brazil" },
       { name: "Prof. Claudia Pezzuto", affiliation: "PUC CAMPINAS, Brazil" },
       { name: "Prof. Angela del Pilar Flores Granados", affiliation: "FEA/UNICAMP, Brazil" },
       { name: "Lia Toledo Moreira Mota", affiliation: "PUC/Campinas, Brazil" },
@@ -71,7 +70,6 @@ export const confData = {
       { name: "Prof Dr. Eduardo Cavalcanti", affiliation: "UFRN, Brazil" },
       { name: "Prof. Silva Neto", affiliation: "UERJ, Brazil" },
       { name: "Lucas Heitzmann Gabrielli", affiliation: "DECOM/FEEC/UNICAMP, Brazil" },
-      { name: "Prof. Vania V. Estrela", affiliation: "Brazil" },
       { name: "Prof. Miguel Botto", affiliation: "Universidad de Guayaquil, Ecuador" },
       { name: "Prof. Ernesto Karlo Celi Arevalo", affiliation: "UNPRG, Lambayeque, Perú" },
       { name: "Prof. José M. Merigó", affiliation: "Universidad de Chile, Chile" },
@@ -82,10 +80,14 @@ export const confData = {
       { name: "Dr. K.Hareef baba shaeb", affiliation: "NRSC, ISRO, India" }
     ],
     programCommittee: [
+      // --- Priority members ---
+      { name: "Afzal Sayed Munna", affiliation: "University of Hull London, United Kingdom" },
+      { name: "Giuseppe Catenazzo", affiliation: "Glion Institute of Higher Education, Switzerland; Franklin Hudson International School of Management, France" },
+      { name: "Prof. Vania V. Estrela", affiliation: "Fluminense Federal University, Brazil" },
+      { name: "Dr. Sanaa Kaddoura", affiliation: "Zayed University, Abu Dhabi" },
       // --- USA ---
       { name: "Dr. Mustafa Kaddoura", affiliation: "University of Minnesota, US" },
       // --- Middle East ---
-      { name: "Dr. Sanaa Kaddoura", affiliation: "Zayed University, Abu Dhabi" },
       { name: "Dr. Nadia", affiliation: "Zayed University, Abu Dhabi" },
       { name: "Dr. Suha Khalil Assayed", affiliation: "British University in Dubai (BUiD), Dubai" },
       { name: "Dr. Nabil Abdoun", affiliation: "Lebanese American University, Lebanon" },
@@ -95,6 +97,7 @@ export const confData = {
       { name: "Prof. Alessandra Akkari", affiliation: "Universidade Presbiteriana Mackenzie" },
       // --- India ---
       { name: "Dr. Neha Singh", affiliation: "Chandigarh University, India" },
+      { name: "Dr. T. Ram Prabhu", affiliation: "DRDO, Bengaluru, India" },
       { name: "Dr. Alkha Mohan", affiliation: "IIIT Kottayam, India" },
       { name: "Dr. Manasa Kulkarni", affiliation: "Christ University Bangalore, India" },
       { name: "Dr. S. Murali", affiliation: "VIT Vellore, India" },
@@ -112,7 +115,11 @@ export const confData = {
       { name: "Prof. Sanjiv Kumar Jain", affiliation: "Medicaps University, India" }
     ],
     publicityChair: [
-      { name: "Prof. Paulo Waldir Tardioli", affiliation: "UFSCAR, Brazil", image: "/images/publicityChair/Prof. Paulo Waldir Tardioli.jpg" }
+      { name: "Prof. Paulo Waldir Tardioli", affiliation: "UFSCAR, Brazil" },
+      { name: "Prof. Vania V. Estrela", affiliation: "Fluminense Federal University, Brazil" },
+      { name: "Dr. Sankar Sekar", affiliation: "Dongguk University, South Korea" },
+      { name: "Dr. Sanjiv Kumar Jain", affiliation: "Medicaps University, Indore, India" }
+
     ],
     localOrganizingCommittee: [
       { name: "Dr. D. Hevin Rajesh", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },

@@ -224,8 +224,8 @@ const Committees = () => {
               <div className="committee-sec-icon"></div>
               <h3>Publicity Chair</h3>
             </div>
-            <div className="grid-3">
-              {committees.publicityChair.map((m, i) => <MemberCard key={i} member={m} index={i} />)}
+            <div className="compact-grid">
+              {committees.publicityChair.map((m, i) => <CompactMemberRow key={i} member={m} index={i} />)}
             </div>
           </div>
 
