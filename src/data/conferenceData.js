@@ -58,31 +58,31 @@ export const confData = {
     ],
     advisoryCommittee: [
       // --- Foreign (Non-Indian) ---
-      { name: "Prof. Thierry Oscar Edoh", affiliation: "Department of Applied Software Engineering, Technical University of Munich, Munich, Germany" },
+      { name: "Prof. Thierry Oscar Edoh", affiliation: "Technical University of Munich, Germany" },
       { name: "Prof. Diego Paredes", affiliation: "Universidad de Zaragoza, Spain" },
       { name: "Prof. Francisco Pérez", affiliation: "Universitat Politécnica de Valencia, Spain" },
       { name: "Prof. Vlademir de Jesus Silva Oliveira", affiliation: "UNEMAT/Sinop, Brazil" },
       { name: "Prof. Claudia Pezzuto", affiliation: "PUC CAMPINAS, Brazil" },
       { name: "Prof. Angela del Pilar Flores Granados", affiliation: "FEA/UNICAMP, Brazil" },
-      { name: "Lia Toledo Moreira Mota", affiliation: "PUC/Campinas, Brazil" },
+      { name: "Dr. Lia Toledo Moreira Mota", affiliation: "PUC/Campinas, Brazil" },
       { name: "Prof. Antonio Carlos Demanboro", affiliation: "PUC CAMPINAS, Brazil" },
       { name: "Prof. Dr. Gaby Patrícia Teran Ortiz", affiliation: "IFMG, Brazil" },
       { name: "Prof Dr. Eduardo Cavalcanti", affiliation: "UFRN, Brazil" },
       { name: "Prof. Silva Neto", affiliation: "UERJ, Brazil" },
-      { name: "Lucas Heitzmann Gabrielli", affiliation: "DECOM/FEEC/UNICAMP, Brazil" },
+      { name: "Dr. Lucas Heitzmann Gabrielli", affiliation: "DECOM/FEEC/UNICAMP, Brazil" },
       { name: "Prof. Miguel Botto", affiliation: "Universidad de Guayaquil, Ecuador" },
       { name: "Prof. Ernesto Karlo Celi Arevalo", affiliation: "UNPRG, Lambayeque, Perú" },
       { name: "Prof. José M. Merigó", affiliation: "Universidad de Chile, Chile" },
       // --- Indian ---
       { name: "Prof. M. Tanveer", affiliation: "Indian Institute of Technology, Indore" },
-      { name: "Dr. J. Jesu Vedha Nayahi J", affiliation: "Anna University Regional Campus Tirunelveli, India" },
+      { name: "Dr. J. Jesu Vedha Nayahi ", affiliation: "Anna University Regional Campus Tirunelveli, India" },
       { name: "Dr. SGK. Manikandan", affiliation: "LPSC, ISRO, India" },
-      { name: "Dr. K.Hareef baba shaeb", affiliation: "NRSC, ISRO, India" }
+      { name: "Dr. K. Hareef Baba Shaeb", affiliation: "NRSC, ISRO, India" }
     ],
     programCommittee: [
       // --- Priority members ---
       { name: "Afzal Sayed Munna", affiliation: "University of Hull London, United Kingdom" },
-      { name: "Giuseppe Catenazzo", affiliation: "Glion Institute of Higher Education, Switzerland; Franklin Hudson International School of Management, France" },
+      { name: "Dr. Giuseppe Catenazzo", affiliation: "Glion Institute of Higher Education, Switzerland; Franklin Hudson International School of Management, France" },
       { name: "Prof. Vania V. Estrela", affiliation: "Fluminense Federal University, Brazil" },
       { name: "Dr. Sanaa Kaddoura", affiliation: "Zayed University, Abu Dhabi" },
       // --- USA ---
