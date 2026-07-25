@@ -1070,10 +1070,10 @@ const Home = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', maxWidth: 700, margin: '0 auto' }} data-reveal data-delay="1">
             <div className="org-logo-box" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-                <div className="org-logo-wrap">
+                <div style={{ height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem', width: '100%' }}>
                   <img src="/images/college-logo.png" alt="St. Xavier's Catholic College of Engineering (Autonomous)" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
                 </div>
-                <div className="org-logo-name">St. Xavier's Catholic College of Engineering</div>
+                <div className="org-logo-name">St. Xavier's Catholic College of Engineering (Autonomous)</div>
               </div>
               <a href="https://www.google.com/maps?q=8.194079,77.385030" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.78rem', color: '#8B1A1A', marginTop: '0.75rem', display: 'block', fontWeight: 500 }}>Nagercoil, Tamil Nadu, India ↗</a>
             </div>
@@ -1094,19 +1094,19 @@ const Home = () => {
               <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
                 <img src="/images/sponsors/college-logo.png" alt="St. Xavier's Catholic College of Engineering (Autonomous)" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
-              <div className="org-logo-name" style={{ marginTop: '1rem' }}>St. Xavier's Catholic College of Engineering (Autonomous)</div>
+              <div className="org-logo-name" style={{ marginTop: '1rem' }}>St. Xavier's Catholic College of Engineering (Autonomous), Tamil Nadu, India</div>
             </div>
             <div className="org-logo-box" style={{ padding: '1.5rem', height: '100%', justifyContent: 'space-between' }}>
               <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-                <img src="/images/sponsors/IISER.jpg" alt="IISER" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/images/sponsors/IISER.jpg" alt="Indian Institute of Science Education and Research" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
-              <div className="org-logo-name" style={{ marginTop: '1rem' }}>IISER</div>
+              <div className="org-logo-name" style={{ marginTop: '1rem' }}>Indian Institute of Science Education and Research, India</div>
             </div>
             <div className="org-logo-box" style={{ padding: '1.5rem', height: '100%', justifyContent: 'space-between' }}>
               <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-                <img src="/images/sponsors/UNICAMP.png" alt="UNICAMP" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/images/sponsors/UNICAMP.png" alt="University of Campinas" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
-              <div className="org-logo-name" style={{ marginTop: '1rem' }}>UNICAMP</div>
+              <div className="org-logo-name" style={{ marginTop: '1rem' }}>University of Campinas, Brazil</div>
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: '3rem' }} data-reveal data-delay="2">
