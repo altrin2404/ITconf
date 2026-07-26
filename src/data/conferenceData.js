@@ -29,6 +29,15 @@ export const confData = {
       topic: "TBA",
       image: "/images/Speakers/Dr. D. Jude Hemanth.jpg",
       bio: "Speaker biography will be announced soon."
+    },
+    {
+      id: 3,
+      name: "Bogdan Patrut",
+      role: "Keynote Speaker",
+      affiliation: "Alexandru Ioan Cuza University of Iasi, Romania",
+      topic: "TBA",
+      image: "/images/Speakers/Bogdan-Patrut.jpg",
+      bio: "Speaker biography will be announced soon."
     }
   ],
 
@@ -71,6 +80,7 @@ export const confData = {
     ],
     programCommittee: [
       // --- Priority members ---
+      { name: "Bogdan Patrut", affiliation: "Alexandru Ioan Cuza University of Iasi, Romania" },
       { name: "Dr. Afzal Sayed Munna", affiliation: "University of Hull London, United Kingdom" },
       { name: "Dr. Giuseppe Catenazzo", affiliation: "Glion Institute of Higher Education, Switzerland; Franklin Hudson International School of Management, France" },
       { name: "Dr. Mustafa Kaddoura", affiliation: "University of Minnesota, US" },
