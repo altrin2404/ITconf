@@ -123,12 +123,12 @@ export const confData = {
 
     ],
     localOrganizingCommittee: [
-      { name: "Dr. V. Christus Jeya Singh", affiliation: "Vice Principal & Dean (Student Affairs), St. Xavier's Catholic College of Engineering (Autonomous), India" },
-      { name: "Dr. A. Milton", affiliation: "Controller of Examinations, St. Xavier's Catholic College of Engineering (Autonomous), India" },
-      { name: "Dr. R.P. Anto Kumar", affiliation: "Dean (Academics), St. Xavier's Catholic College of Engineering (Autonomous), India" },
-      { name: "Dr. J. Annrose", affiliation: "Coordinator (IQAC), St. Xavier's Catholic College of Engineering (Autonomous), India" },
-      { name: "Mr. M. Anto Xavier Roche", affiliation: "Dean (Student Futuristic Services), St. Xavier's Catholic College of Engineering (Autonomous), India" },
-      { name: "Dr. C. Seldev Christopher", affiliation: "Dean (Research), St. Xavier's Catholic College of Engineering (Autonomous), India" },
+      { name: "Dr. V. Christus Jeya Singh", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
+      { name: "Dr. A. Milton", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
+      { name: "Dr. R.P. Anto Kumar", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
+      { name: "Dr. J. Annrose", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
+      { name: "Mr. M. Anto Xavier Roche", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
+      { name: "Dr. C. Seldev Christopher", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Dr. D. Hevin Rajesh", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Dr. G. Sahaya Stalin Jose", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Er. T.M. Angelin Monisha Sharean", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
