@@ -110,7 +110,7 @@ export const confData = {
       { name: "Dr. V. Raji", affiliation: "SKP Engineering College, India" },
       { name: "Prof. Renu Vyaas", affiliation: "MIT ADT, India" },
       { name: "Dr. Surjeet Dalal", affiliation: "Amity University Haryana, India" },
-      { name: "Dr. Mayuri Mehta", affiliation: "India" },
+      { name: "Dr. Mayuri Mehta", affiliation: "Sarvajanik College of Engineering and Technology, Sarvajanik University, Gujarat, India" },
       { name: "Dr. Hikku G. S", affiliation: "Chettinad Academy of Research & Education, India" },
       { name: "Dr. Ananth J P", affiliation: "Dayananda Sagar University, Bengaluru, India" },
       { name: "Prof. Sanjiv Kumar Jain", affiliation: "Medicaps University, India" }
