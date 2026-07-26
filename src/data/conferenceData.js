@@ -43,10 +43,10 @@ export const confData = {
 
   committees: {
     patrons: [
-      { name: "Most Rev. Dr. Albert G.A. Anasthas", affiliation: "Chairman,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Chairman.png" },
-      { name: "Rev. Fr. S. Godwin Selva Justus", affiliation: "Correspondent,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Correspondent.jpg" },
-      { name: "Dr. J. Maheswaran", affiliation: "Principal,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Principal.jpg" },
-      { name: "Rev. Fr. A. Ranjeeth", affiliation: "Financial Administrator,\nSt. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Financial Administrator.jpg" }
+      { name: "Most Rev. Dr. Albert G.A. Anasthas", affiliation: "St. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Chairman.png" },
+      { name: "Rev. Fr. S. Godwin Selva Justus", affiliation: "St. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Correspondent.jpg" },
+      { name: "Dr. J. Maheswaran", affiliation: "St. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Principal.jpg" },
+      { name: "Rev. Fr. A. Ranjeeth", affiliation: "St. Xavier's Catholic College of Engineering\n(Autonomous), India", image: "/images/Patrons/Financial Administrator.jpg" }
 
     ],
     organizingChairs: [
