@@ -378,14 +378,15 @@ const Home = () => {
           position: relative;
           min-height: 92vh;
           display: flex;
-          align-items: center;
+          align-items: flex-start;
+          padding-top: 2rem;
           overflow: hidden;
         }
         .hero-content {
           position: relative;
           z-index: 2;
           text-align: center;
-          padding: 4rem 0;
+          padding: 1rem 0 4rem 0;
         }
         .hero-conf-badge {
           display: inline-block;
@@ -949,10 +950,49 @@ const Home = () => {
             <div className="hero-subtitle-wrap">
               <p className="hero-subtitle">{confData.fullName}</p>
             </div>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=8.194079,77.385030" target="_blank" rel="noopener noreferrer" className="hero-date-badge">
-              <span><FiMapPin aria-hidden="true" /></span>
-              <span>St. Xavier's Catholic College of Engineering (Autonomous), Tamil Nadu, India</span>
-            </a>
+            <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{
+                fontSize: '1.2rem',
+                color: '#fff',
+                fontWeight: 'bold',
+                fontStyle: 'italic',
+                marginBottom: '0.5rem',
+                letterSpacing: '0.05em'
+              }}>
+                Organized by
+              </div>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=8.194079,77.385030" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                <div style={{
+                  background: 'rgba(255,255,255,0.06)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  borderLeft: '4px solid #8B1A1A',
+                  borderRadius: '8px',
+                  padding: '1rem 1.75rem',
+                  backdropFilter: 'blur(8px)',
+                  transition: 'all 0.3s ease',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.12)';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}>
+                  <div style={{ color: '#fff', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.2rem', textAlign: 'center' }}>
+                    Department of Information Technology
+                  </div>
+                  <div style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.85rem', textAlign: 'center', fontWeight: 400 }}>
+                    St. Xavier's Catholic College of Engineering (Autonomous), Tamil Nadu, India
+                  </div>
+                </div>
+              </a>
+            </div>
           </div>
           <div className="hero-btns" data-reveal data-delay="1">
             <Link to="/submissions" className="hero-btn-primary"><FiSend aria-hidden="true" /> Submit Paper</Link>
