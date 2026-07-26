@@ -32,7 +32,7 @@ export const confData = {
     },
     {
       id: 3,
-      name: "Bogdan Patrut",
+      name: "Prof. Bogdan Patrut",
       role: "Keynote Speaker",
       affiliation: "Alexandru Ioan Cuza University of Iasi, Romania",
       topic: "TBA",
@@ -80,7 +80,7 @@ export const confData = {
     ],
     programCommittee: [
       // --- Priority members ---
-      { name: "Bogdan Patrut", affiliation: "Alexandru Ioan Cuza University of Iasi, Romania" },
+      { name: "Prof. Bogdan Patrut", affiliation: "Alexandru Ioan Cuza University of Iasi, Romania" },
       { name: "Dr. Afzal Sayed Munna", affiliation: "University of Hull London, United Kingdom" },
       { name: "Dr. Giuseppe Catenazzo", affiliation: "Glion Institute of Higher Education, Switzerland; Franklin Hudson International School of Management, France" },
       { name: "Dr. Mustafa Kaddoura", affiliation: "University of Minnesota, US" },
