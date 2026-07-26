@@ -356,7 +356,7 @@ const Home = () => {
 
   const stats = [
     { value: '4', suffix: '', label: 'Tech Tracks' },
-    { value: '2', suffix: '', label: 'Keynote Speakers' },
+    { value: '3', suffix: '', label: 'Keynote Speakers' },
     { value: '2', suffix: '', label: 'Conference Days' },
     { value: '-', suffix: '', label: 'Attendees' },
   ];
@@ -974,16 +974,16 @@ const Home = () => {
                   flexDirection: 'column',
                   alignItems: 'center'
                 }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.12)';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}>
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.12)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}>
                   <div style={{ color: '#fff', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.2rem', textAlign: 'center' }}>
                     Department of Information Technology
                   </div>
