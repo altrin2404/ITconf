@@ -127,9 +127,9 @@ export const confData = {
     publicityChair: [
       { name: "Prof. Vania V. Estrela", affiliation: "Fluminense Federal University, Brazil" },
       { name: "Prof. Paulo Waldir Tardioli", affiliation: "UFSCAR, Brazil" },
+      { name: "Dr. Euclides Lourenço Chuma", affiliation: "UNICAMP, Brazil" },
       { name: "Dr. Sankar Sekar", affiliation: "Dongguk University, South Korea" },
       { name: "Dr. Sanjiv Kumar Jain", affiliation: "Medicaps University, Indore, India" }
-
     ],
     localOrganizingCommittee: [
       { name: "Dr. V. Christus Jeya Singh", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
