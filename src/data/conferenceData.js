@@ -38,7 +38,16 @@ export const confData = {
       topic: "TBA",
       image: "/images/Speakers/Bogdan-Patrut.jpg",
       bio: "Speaker biography will be announced soon."
-    }
+    },
+    {
+      id: 4,
+      name: "Dr. T. Ram Prabhu",
+      role: "Keynote Speaker",
+      affiliation: "DRDO, Bengaluru, India",
+      topic: "TBA",
+      image: "/images/Speakers/Dr. T. Ram Prabhu.jpg",
+      bio: "Speaker biography will be announced soon."
+    },
   ],
 
   committees: {
