@@ -952,12 +952,14 @@ const Home = () => {
             </div>
             <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <div style={{
-                fontSize: '1.2rem',
+                fontFamily: "'Playfair Display', Georgia, serif",
+                fontSize: '1rem',
                 color: '#fff',
-                fontWeight: 'bold',
+                fontWeight: '400',
                 fontStyle: 'italic',
                 marginBottom: '0.5rem',
-                letterSpacing: '0.05em'
+                letterSpacing: '0.05em',
+                opacity: 0.9
               }}>
                 Organized by
               </div>
@@ -1087,27 +1089,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ═══════════════ ORGANIZED BY ═══════════════ */}
-      <section className="sec-alt" style={{ padding: '5rem 0' }}>
-        <div className="container">
-          <div className="sec-header" data-reveal>
-            <div className="sec-badge">Organizers</div>
-            <h2>Organized By</h2>
-            <div className="sec-divider"></div>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', maxWidth: 700, margin: '0 auto' }} data-reveal data-delay="1">
-            <div className="org-logo-box" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-                <div style={{ height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem', width: '100%' }}>
-                  <img src="/images/college-logo.png" alt="St. Xavier's Catholic College of Engineering (Autonomous)" loading="lazy" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} onError={(e) => { e.target.style.display = 'none'; }} />
-                </div>
-                <div className="org-logo-name">St. Xavier's Catholic College of Engineering (Autonomous)</div>
-              </div>
-              <a href="https://www.google.com/maps?q=8.194079,77.385030" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.78rem', color: '#8B1A1A', marginTop: '0.75rem', display: 'block', fontWeight: 500 }}>Nagercoil, Tamil Nadu, India ↗</a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ═══════════════ SPONSORS ═══════════════ */}
       <section className="sec-white" style={{ padding: '5rem 0' }}>
