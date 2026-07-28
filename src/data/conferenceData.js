@@ -122,14 +122,16 @@ export const confData = {
       { name: "Dr. Mayuri Mehta", affiliation: "Sarvajanik College of Engineering and Technology, Sarvajanik University, Gujarat, India" },
       { name: "Dr. Hikku G. S", affiliation: "Chettinad Academy of Research & Education, India" },
       { name: "Dr. Ananth J P", affiliation: "Dayananda Sagar University, Bengaluru, India" },
-      { name: "Prof. Sanjiv Kumar Jain", affiliation: "Medicaps University, India" }
+      { name: "Prof. Sanjiv Kumar Jain", affiliation: "Medicaps University, India" },
+      { name: "Dr. Rathinamala Vijay", affiliation: "ARTPARK, IISc, Bengaluru, India" }
     ],
     publicityChair: [
       { name: "Prof. Vania V. Estrela", affiliation: "Fluminense Federal University, Brazil" },
       { name: "Prof. Paulo Waldir Tardioli", affiliation: "UFSCAR, Brazil" },
       { name: "Dr. Euclides Lourenço Chuma", affiliation: "UNICAMP, Brazil" },
       { name: "Dr. Sankar Sekar", affiliation: "Dongguk University, South Korea" },
-      { name: "Dr. Sanjiv Kumar Jain", affiliation: "Medicaps University, Indore, India" }
+      { name: "Dr. Sanjiv Kumar Jain", affiliation: "Medicaps University, Indore, India" },
+      { name: "Dr. Mukesh", affiliation: "Chandigarh University, India" }
     ],
     localOrganizingCommittee: [
       { name: "Dr. V. Christus Jeya Singh", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
