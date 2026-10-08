@@ -142,7 +142,7 @@ export const confData = {
       { name: "Dr. C. Seldev Christopher", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Dr. D. Hevin Rajesh", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Dr. G. Sahaya Stalin Jose", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
-      { name: "Er. T.M. Angelin Monisha Sharean", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
+      { name: "Dr. T.M. Angelin Monisha Sharean", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Dr. M. Antony Joans Kumar", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Dr. G. Geo Jenefer", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
       { name: "Er. P. Agnes Alex Rathy", affiliation: "St. Xavier's Catholic College of Engineering (Autonomous), India" },
